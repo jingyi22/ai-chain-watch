@@ -3429,7 +3429,7 @@ function isLimitDown(code, changePct) {
 // 关键事件倒计时：targetDate 有值时按天数差自动算紧急度徽章；targetDate 为 null 的条目走固定 label（"进行中"/"持续"类，无法用日期衡量）
 var COUNTDOWN_EVENTS = {
     semiconductor: [
-        {event:'关东电化WF6停产', targetDate:'2026-07-31', label:null},
+        {event:'关东电化+中央硝子WF6永久停产', targetDate:'2026-07-01', label:null, timeText:'7/1确认停产，约占全球产能20-25%'},
         {event:'村田MLCC涨价', targetDate:'2026-07-31', label:null},
         {event:'东材眉山试车', targetDate:'2026-06-30', label:null},
         {event:'M10方案确定', targetDate:'2026-07-05', label:null},
@@ -3438,15 +3438,15 @@ var COUNTDOWN_EVENTS = {
         {event:'圣泉新PPO产能', targetDate:'2026-09-30', label:null}
     ],
     optical: [
+        {event:'CIOE 2026产业反馈：1.6T订单排至明年', targetDate:'2026-09-13', label:null, timeText:'9/13确认，800G仍是2026出货主力'},
         {event:'CPO启动 (Lambda)', targetDate:'2026-12-31', label:null},
         {event:'CPO大规模出货', targetDate:'2027-03-31', label:null},
-        {event:'Vera Rubin/Spectrum-X量产', targetDate:'2026-06-01', label:null},
         {event:'CPO全面放量', targetDate:'2029-12-31', label:null},
         {event:'NPO交付 (研发早期)', targetDate:'2026-12-31', label:null},
-        {event:'1.6T光模块出货', targetDate:null, label:'🟡 预期', timeText:'2026年1100万支'}
+        {event:'CW激光器短缺缓解', targetDate:'2026-12-31', label:null, timeText:'预计年底前逐步缓解'}
     ],
     pcb: [
-        {event:'T布Q3再涨20%', targetDate:'2026-09-30', label:null},
+        {event:'电子布9月涨价落地(厚布+15%/薄布+20%)', targetDate:'2026-09-01', label:null, timeText:'9/1确认落地'},
         {event:'日东纺扩产时间表', targetDate:'2027-03-31', label:null, timeText:'2027Q1 (200-300万米/月)'},
         {event:'Q布英伟达认证进展', targetDate:null, label:'🟡 持续', timeText:'进行中'},
         {event:'M10方案确定', targetDate:'2026-07-05', label:null},
@@ -3456,6 +3456,7 @@ var COUNTDOWN_EVENTS = {
         {event:'Vera Rubin全面投产', targetDate:'2026-06-01', label:null}
     ],
     storage: [
+        {event:'长鑫科技集团(CXMT)科创板上市', targetDate:'2026-07-27', label:null, timeText:'7/27确认上市，市值超3万亿'},
         {event:'HBM三大厂产能售罄 (2026全年)', targetDate:'2026-12-31', label:null},
         {event:'SK海力士扩产产能释放', targetDate:'2028-01-01', label:null},
         {event:'存储供需缺口收窄', targetDate:'2028-01-01', label:null}
@@ -3498,7 +3499,7 @@ function renderAllCountdowns() {
 
 // 产业链知识库/事件时间线/金股点评等人工整理内容的最后复核日期。
 // 人工核对内容后手动改这一个日期即可，不需要每天碰；超过30天未复核时徽章变橙色提示
-var KNOWLEDGE_BASE_UPDATED_AT = '2026-06-30';
+var KNOWLEDGE_BASE_UPDATED_AT = '2026-09-21';
 
 function renderSnapshotBadges() {
     const badges = document.querySelectorAll('.data-snapshot-badge[data-snapshot-kind="kb"]');
@@ -3553,20 +3554,20 @@ async function loadDailyData() {
 
 // 产业信号雷达数据（左侧轮：涨价/断供/招标/现货价/产能/政策，每日更新）
 var industrySignals = [
-    {date:"2026-06-30", sector:"semiconductor", signalType:"涨价", title:"WF6报价同比+232%", desc:"六氟化钨极度紧缺，关东电化7月永久停产，国内报价从8万/吨飙至26.8万", stocks:["雅克科技","中船特气","华特气体"], impact:"利好", tier:1, source:"产业链调研"},
-    {date:"2026-06-30", sector:"semiconductor", signalType:"断供", title:"关东电化WF6 7月永久停产", desc:"全球最大WF6供应商退出，占全球产能35%，国内替代需求激增", stocks:["中船特气","雅克科技"], impact:"利好", tier:1, source:"公司公告"},
-    {date:"2026-06-30", sector:"pcb", signalType:"涨价", title:"电子布T-glass价格再涨15%", desc:"日东纺T-glass扩产延后至2027Q1，电子布供需缺口扩大", stocks:["中材科技","宏和科技"], impact:"利好", tier:1, source:"产业链调研"},
-    {date:"2026-06-30", sector:"optical", signalType:"招标", title:"中国移动1.6T光模块集采启动", desc:"400G+800G+1.6T三档采购，1.6T首次大规模集采，总量超预期", stocks:["中际旭创","新易盛","光迅科技"], impact:"利好", tier:1, source:"招标公告"},
-    {date:"2026-06-29", sector:"storage", signalType:"现货价", title:"HBM现货价上涨8%", desc:"SK海力士HBM3E供不应求，现货溢价扩大，国内代理商调价", stocks:["香农芯创","雅克科技"], impact:"利好", tier:2, source:"现货市场"},
-    {date:"2026-06-29", sector:"semiconductor", signalType:"产能", title:"中船特气WF6产能翻倍", desc:"宜兴基地二期投产，WF6年产能从200吨扩至400吨，有望承接关东电化份额", stocks:["中船特气"], impact:"利好", tier:2, source:"公司公告"},
-    {date:"2026-06-29", sector:"pcb", signalType:"产能", title:"东材科技M9碳氢树脂试车", desc:"眉山基地M9树脂产线6/30前试车，打破日本味之素垄断", stocks:["东材科技","生益科技"], impact:"利好", tier:2, source:"公司公告"},
-    {date:"2026-06-28", sector:"optical", signalType:"现货价", title:"CW光源短缺加剧", desc:"800G/1.6T光模块用CW光源交付周期延长至20周，价格上调10%", stocks:["源杰科技","长光华芯"], impact:"利好", tier:2, source:"产业链调研"},
-    {date:"2026-06-28", sector:"storage", signalType:"政策", title:"大基金三期投向HBM", desc:"国家大基金三期明确重点投向HBM先进封装，规模3440亿", stocks:["香农芯创","雅克科技","太极实业"], impact:"利好", tier:1, source:"政策文件"},
-    {date:"2026-06-28", sector:"semiconductor", signalType:"招标", title:"长江存储扩产设备招标", desc:"武汉二期项目启动设备招标，涉及刻蚀/CVD/清洗等核心设备", stocks:["北方华创","中微公司","盛美上海"], impact:"利好", tier:2, source:"招标公告"},
-    // 个股类信号
-    {date:"2026-06-30", sector:"storage", signalType:"中标", title:"华海诚科中标长鑫存储GMC订单", desc:"中标长鑫存储HBM用GMC封装材料年度框架协议，预估金额8000万元，HBM材料国产化加速", stocks:["华海诚科"], impact:"利好", tier:1, source:"公司公告"},
-    {date:"2026-06-29", sector:"optical", signalType:"业绩", title:"中际旭创H1净利润预增180%", desc:"2026H1预告净利润28-32亿，同比+180%~+210%，1.6T光模块放量超预期", stocks:["中际旭创","新易盛"], impact:"利好", tier:1, source:"业绩预告"},
-    {date:"2026-06-28", sector:"semiconductor", signalType:"事故", title:"日本信越化学SR产线故障停产", desc:"信越化学千叶工厂硅树脂产线突发故障停产，预计影响1个月供应，M9树脂替代逻辑加强", stocks:["东材科技","生益科技"], impact:"利好", tier:2, source:"产业链调研"}
+    {date:"2026-09-17", sector:"semiconductor", signalType:"招标", title:"北方华创2026年订单料超700亿", desc:"大摩预测全年新增订单超700亿元(+30%+)，先进逻辑与存储各占订单约4成，成熟逻辑占比降至2成", stocks:["北方华创"], impact:"利好", tier:2, source:"机构研报"},
+    {date:"2026-09-16", sector:"pcb", signalType:"涨价", title:"电子布G75纱价格加速上行", desc:"G75电子纱23137.5元/吨，周环比+3.35%，宽幅/薄型电子布同步紧俏，PCB材料股集体涨停", stocks:["宏和科技","华正新材"], impact:"利好", tier:1, source:"产业链调研"},
+    {date:"2026-09-13", sector:"optical", signalType:"招标", title:"CIOE 2026：1.6T光模块订单排至明年", desc:"深圳光博会产业反馈1.6T模块订单已排产至次年，800G仍是2026年出货主力，1.6T从验证转向放量", stocks:["中际旭创","新易盛"], impact:"利好", tier:2, source:"产业链调研"},
+    {date:"2026-09-05", sector:"optical", signalType:"招标", title:"中国移动光缆集采落地70.998亿元", desc:"7月8日启动、216.18万芯公里集采，9月4-5日公布中标结果，18家中标，反映光纤预制棒链条需求持续", stocks:["长飞光纤","亨通光电","中天科技"], impact:"利好", tier:2, source:"招标公告"},
+    {date:"2026-09-01", sector:"pcb", signalType:"涨价", title:"中国巨石电子布9月涨价15%-20%", desc:"厚布提价15%、薄布提价20%，主流均价突破10元/米，下半年无重大新增产能，供需持续偏紧", stocks:["中材科技","宏和科技"], impact:"利好", tier:1, source:"产业链调研"},
+    {date:"2026-08-30", sector:"optical", signalType:"业绩", title:"长光华芯H1营收+82.67%", desc:"营收3.91亿元(+82.67%)，净利润3034万元，CW激光器短缺下产能利用率提升但盈利仍薄", stocks:["长光华芯"], impact:"利好", tier:2, source:"业绩公告"},
+    {date:"2026-08-29", sector:"storage", signalType:"业绩", title:"华海诚科H1净利润+188%", desc:"营收4.69亿元(+161.77%)，净利润3968万元(+188.10%)，GMC封装材料需求持续兑现", stocks:["华海诚科"], impact:"利好", tier:1, source:"业绩公告"},
+    {date:"2026-08-27", sector:"storage", signalType:"业绩", title:"香农芯创H1净利润暴增22倍", desc:"营收602.04亿元(+251.6%)，净利润36.42亿元(+2207.2%)，HBM分销业务景气兑现", stocks:[], impact:"利好", tier:1, source:"业绩公告"},
+    {date:"2026-08-24", sector:"semiconductor", signalType:"断供", title:"日系WF6产能约2200吨永久退出", desc:"关东电化与中央硝子WF6产能合计约占全球20-25%，7月起永久停产，国内厂商加速承接份额（细节待官方进一步确认）", stocks:["中船特气","雅克科技","华特气体"], impact:"利好", tier:1, source:"产业链媒体"},
+    {date:"2026-08-21", sector:"optical", signalType:"业绩", title:"中际旭创H1净利润+241.7%", desc:"营收417.78亿元(+182.49%)，归母净利润136.51亿元(+241.70%)，客户已给出2027年订单指引", stocks:["中际旭创"], impact:"利好", tier:1, source:"业绩公告"},
+    {date:"2026-08-20", sector:"semiconductor", signalType:"业绩", title:"中微公司H1净利润+300%", desc:"营收66.91亿元(+34.89%)，净利润28.25亿元(+300.22%)，毛利率39.74%，刻蚀设备订单持续兑现", stocks:["中微公司"], impact:"利好", tier:1, source:"业绩公告"},
+    {date:"2026-08-13", sector:"optical", signalType:"产能", title:"源杰科技追加55亿元半导体产业园投资", desc:"继2月12.51亿元项目后再投42.68亿元，2026年内累计扩产超55亿元，应对CW激光器持续短缺", stocks:["源杰科技"], impact:"利好", tier:2, source:"公司公告"},
+    {date:"2026-08-12", sector:"storage", signalType:"产能", title:"长江存储NAND份额升至全球第三", desc:"市占率约14%，规划三座工厂产能从20万片/月翻倍至40万片/月，同步向客户送样LPDDR", stocks:["北方华创","中微公司"], impact:"利好", tier:2, source:"产业链媒体"},
+    {date:"2026-07-27", sector:"storage", signalType:"上市", title:"长鑫科技集团(长鑫存储)科创板上市", desc:"发行价8.66元，上市首日大涨超465%，市值约3.28万亿，为首家开盘即破3万亿市值的A股科技股，HBM竞争格局生变", stocks:[], impact:"中性", tier:1, source:"公司公告"}
 ];
 
 /* AI投顾数据 */
@@ -5532,7 +5533,7 @@ var stocks = {
         {name:"江丰电子",code:"300666",prefix:"sz",role:"溅射靶材/ESC",bn:true,sector:"半导体",recDate:"2026-06-18",recPrice:311.20,status:"hold",tag:"🔥短期看好",crown:false,reason:"逻辑芯片靶材国产替代最纯标的+静电卡盘订单翻10倍双轮驱动，台积电/三星/SK海力士3nm认证",signal:"🔥🔥+7.81%放量长阳再创新高382！算力金属半年暴涨(钽+158%/铟+60%)+工信部强链规划40%国产化率+ESC订单翻10倍三重独立逻辑，半导体材料最硬领涨龙头，继续持有"},
         {name:"厦门钨业",code:"600549",prefix:"sh",role:"钨→WF6",bn:false},
         {name:"中钨高新",code:"000657",prefix:"sz",role:"钨→WF6",bn:false},
-        {name:"中船特气",code:"688146",prefix:"sh",role:"WF6/电子特气",bn:true,sector:"半导体",recDate:"2026-06-15",recPrice:318.30,status:"hold",tag:"🔥短期看好",crown:false,reason:"WF6全球断供最直接受益者，电子特气龙头地位稳固",signal:"⚠️-4.05%三连阴收370 交易所重点监控+主力连续3日净流出+PE544倍估值畸高，反弹至380-385区间减仓避险，等回踩350支撑再观察；中船系整体走弱，短期承压"},
+        {name:"中船特气",code:"688146",prefix:"sh",role:"WF6/电子特气",bn:true,sector:"半导体",recDate:"2026-06-15",recPrice:318.30,status:"hold",tag:"🔥短期看好",crown:false,reason:"WF6全球断供最直接受益者，电子特气龙头地位稳固；日系关东电化/中央硝子约2200吨产能7月起永久退出(约占全球20-25%)，国产替代逻辑持续兑现",signal:"⚠️-4.05%三连阴收370 交易所重点监控+主力连续3日净流出+PE544倍估值畸高，反弹至380-385区间减仓避险，等回踩350支撑再观察；中船系整体走弱，短期承压"},
         {name:"雅克科技",code:"002409",prefix:"sz",role:"前驱体/WF6",bn:false},
         {name:"华特气体",code:"688268",prefix:"sh",role:"电子特气",bn:false},
         {name:"鼎龙股份",code:"300054",prefix:"sz",role:"CMP抛光垫/液",bn:true,sector:"半导体",recDate:"2026-06-17",recPrice:91.13,status:"hold",tag:"📈中期看好",crown:false,reason:"CMP抛光液/垫国产替代核心标的，半导体制程关键材料",signal:"🔥+9.39%放量突破104元！CMP抛光垫/液国产替代核心+大基金三期3400亿投材料利好，半导体材料中军强势向上，风格扩散直接受益，继续持有"},
@@ -5563,7 +5564,7 @@ var stocks = {
         {name:"长芯博创",code:"300548",prefix:"sz",role:"MPO连接器",bn:false},
         {name:"唯特偶",code:"301319",prefix:"sz",role:"锡膏/T7龙头",bn:false},
         {name:"有研粉材",code:"688456",prefix:"sh",role:"锡粉/光通信",bn:true},
-        {name:"中际旭创",code:"300308",prefix:"sz",role:"1.6T光模块全球龙头",bn:false,sector:"光通信",recDate:"2026-06-18",recPrice:1276.11,status:"hold",tag:"💎持续看好",crown:false,reason:"AI光模块全球第一，硅光+EML双技术布局，市值逼近1.5万亿",signal:"📉-2.70%缩量回调收1220，市值回落到1.35万亿；800G/1.6T订单满载+全球市占率40%+逻辑未变但板块风格切到半导体，高位震荡消化获利盘，长期持有逻辑不变"},
+        {name:"中际旭创",code:"300308",prefix:"sz",role:"1.6T光模块全球龙头",bn:false,sector:"光通信",recDate:"2026-06-18",recPrice:1276.11,status:"hold",tag:"💎持续看好",crown:false,reason:"AI光模块全球第一，硅光+EML双技术布局；8/21公告H1归母净利润136.51亿元(+241.70%)，营收417.78亿元(+182.49%)，主要客户已给出2027年订单指引",signal:"📉-2.70%缩量回调收1220，市值回落到1.35万亿；800G/1.6T订单满载+全球市占率40%+逻辑未变但板块风格切到半导体，高位震荡消化获利盘，长期持有逻辑不变"},
         {name:"新易盛",code:"300502",prefix:"sz",role:"800G/1.6T",bn:false},
         {name:"天孚通信",code:"300394",prefix:"sz",role:"光器件/FAU/CW光源",bn:false,sector:"光通信",recDate:"2026-06-15",recPrice:305.04,status:"hold",tag:"🌟长期看好",crown:false,reason:"精密光器件全球龙头，AI光模块核心上游，扩产周期匹配需求爆发",signal:"📉-7.19%光模块集体调整收295，跌破300整数关；FAU+Vera Rubin+1.6T全年1400万只核心逻辑不变但短期涨幅过大，290附近支撑观察，中线逻辑未破等企稳"},
         {name:"光迅科技",code:"002281",prefix:"sz",role:"光模块",bn:false},
@@ -5573,7 +5574,7 @@ var stocks = {
         {name:"炬光科技",code:"688167",prefix:"sh",role:"MPLA/微光学上游",bn:true,sector:"光通信",recDate:"2026-06-15",recPrice:398.26,status:"hold",tag:"🔥短期看好",crown:false,reason:"英伟达超级电容「硬刚需」认证，激光光学上游稀缺标的",signal:"📉-5.07%跟随光通信板块回调收333.5，跌破340支撑；英伟达超级电容认证+MPLA技术授权核心逻辑未破，但板块高位获利盘出逃，330附近企稳可观察，不急于加仓"}
     ],
     pcb: [
-        {name:"宏和科技",code:"603256",prefix:"sh",role:"T-glass电子布",bn:true,sector:"PCB",recDate:"2026-06-15",recPrice:228.68,status:"hold",tag:"📈中期看好",crown:false,reason:"高端电子纱/电子布核心供应商，T-glass技术壁垒高",signal:"❄一字跌停-10%封单2.9万手收267.3！T-glass电子布涨价逻辑被产业链证伪(Q3价格见顶)+股东减持1.2%+PE637倍估值崩盘；金股池观察1周再决定是否调出，短期规避⚠️"},
+        {name:"宏和科技",code:"603256",prefix:"sh",role:"T-glass电子布",bn:true,sector:"PCB",recDate:"2026-06-15",recPrice:228.68,status:"hold",tag:"📈中期看好",crown:false,reason:"高端电子纱/电子布核心供应商，T-glass技术壁垒高；9月中国巨石带头涨价15%-20%、G75电子纱价格加速上行，电子布景气延续",signal:"❄一字跌停-10%封单2.9万手收267.3！T-glass电子布涨价逻辑被产业链证伪(Q3价格见顶)+股东减持1.2%+PE637倍估值崩盘；金股池观察1周再决定是否调出，短期规避⚠️"},
         {name:"华正新材",code:"603186",prefix:"sh",role:"M7批量/M8认证/CCL",bn:false},
         {name:"中国巨石",code:"600176",prefix:"sh",role:"Low-Dk电子布",bn:false},
         {name:"中材科技",code:"002080",prefix:"sz",role:"电子布全品类",bn:false},
@@ -5607,7 +5608,7 @@ var stocks = {
 // 退出触发：逻辑证伪 / 评分持续下降 / 跌破关键位
 // PE弹性评级：卡脖子标的PE失效，用弹性系数衡量
 var GOLD_POOL_META = {
-    updateDate: "2026-06-30",
+    updateDate: "2026-09-21",
     entryRules: {
         fastTrack: "信号Tier1 + 量价配合 + 资金一致 + 产业逻辑硬 → 直接进入金股池，不等观察池",
         fromWatchlist: "观察池评分≥80 + 信号逐步确认/估值回落到合理区间 → 升级到金股池",
@@ -6267,7 +6268,7 @@ function enrichGoldPoolItem(g) {
 
 var goldPool = [
     // === 半导体 ===
-    {name:"中船特气",code:"688146",prefix:"sh",sector:"半导体",recDate:"2026-06-15",recPrice:318.30,status:"hold",tag:"🔥短期看好",crown:false,reason:"WF6全球断供最直接受益者，电子特气龙头地位稳固",signal:"⚠️6/26复牌核查无重大事项，公告明确WF6产能2000吨/PE573倍/无大额订单/Q1仅1亿净利/面临竞争，估值严重偏高属非理性炒作；但资金锁仓仅-1.13%，建议观察2-3日再决定加减仓，短期波动极大"},
+    {name:"中船特气",code:"688146",prefix:"sh",sector:"半导体",recDate:"2026-06-15",recPrice:318.30,status:"hold",tag:"🔥短期看好",crown:false,reason:"WF6全球断供最直接受益者，电子特气龙头地位稳固；日系关东电化/中央硝子约2200吨产能7月起永久退出(约占全球20-25%)，国产替代逻辑持续兑现",signal:"⚠️6/26复牌核查无重大事项，公告明确WF6产能2000吨/PE573倍/无大额订单/Q1仅1亿净利/面临竞争，估值严重偏高属非理性炒作；但资金锁仓仅-1.13%，建议观察2-3日再决定加减仓，短期波动极大"},
     {name:"炬光科技",code:"688167",prefix:"sh",sector:"光通信",recDate:"2026-06-15",recPrice:398.26,status:"hold",tag:"🔥短期看好",crown:false,reason:"英伟达超级电容「硬刚需」认证，激光光学上游稀缺标的",signal:"📉-6.98%跟随CPO板块杀跌，短期超跌；MPLA技术授权+微光学上游逻辑未变，但光通信整体承压，反弹减仓等待企稳"},
     {name:"长电科技",code:"600584",prefix:"sh",sector:"半导体",recDate:"2026-06-15",recPrice:74.32,status:"hold",tag:"📈中期看好",crown:false,reason:"先进封装龙头，CoWoS产能扩张核心受益，AI芯片封装需求爆发",signal:"✅+2.34%长脚深V收103.25！4天3板后正常回调中拉起，HBM封测供不应求+78亿临港厂+太极实业续签海力士5年长约侧面验证景气；风格扩散到封测受益，继续持有"},
     {name:"江丰电子",code:"300666",prefix:"sz",sector:"半导体",recDate:"2026-06-18",recPrice:311.20,status:"hold",tag:"🔥短期看好",crown:false,reason:"逻辑芯片靶材国产替代最纯标的+静电卡盘订单翻10倍双轮驱动，台积电/三星/SK海力士3nm认证",signal:"🔥🔥+7.51%逆市创新高！算力金属半年暴涨(钽+158%/铟+60%)+工信部强链规划40%国产化率+ESC订单翻10倍三重独立逻辑穿越杀跌，半导体材料最硬标的，继续持有"},
@@ -6276,13 +6277,13 @@ var goldPool = [
     // === PCB ===
     {name:"胜宏科技",code:"300476",prefix:"sz",sector:"PCB",recDate:"2026-06-15",recPrice:344.50,status:"hold",tag:"🌟长期看好",crown:false,reason:"高端HDI PCB龙头，AI服务器PCB需求爆发，产能扩张匹配景气周期",signal:"📉-8.74%板块领跌，PCB/算力硬件集体杀跌；但Rubin Midplane主板认证+英伟达mSAP独占+花旗目标价456元逻辑未变，杀跌即加仓机会"},
     {name:"东材科技",code:"601208",prefix:"sh",sector:"PCB",recDate:"2026-06-15",recPrice:65.22,status:"hold",tag:"📈中期看好",crown:false,reason:"M9碳氢树脂批量供货英伟达，6月底新产能投产，章建平重仓",signal:"📉-5.07%回调，建滔第六次涨价15%侧面验证CCL/树脂景气；M9树脂英伟达认证+眉山2万吨6月底试车催化，短期回踩72支撑可加"},
-    {name:"宏和科技",code:"603256",prefix:"sh",sector:"PCB",recDate:"2026-06-15",recPrice:228.68,status:"hold",tag:"📈中期看好",crown:false,reason:"高端电子纱/电子布核心供应商，T-glass技术壁垒高",signal:"🔥+7.31%逆市大涨！T-glass Q3预计再涨20%/客户预付保证金锁产能/英伟达双认证逻辑在板块暴跌中独立，PCB板块最强抗跌标的，继续看好"},
+    {name:"宏和科技",code:"603256",prefix:"sh",sector:"PCB",recDate:"2026-06-15",recPrice:228.68,status:"hold",tag:"📈中期看好",crown:false,reason:"高端电子纱/电子布核心供应商，T-glass技术壁垒高；9月中国巨石带头涨价15%-20%、G75电子纱价格加速上行，电子布景气延续",signal:"🔥+7.31%逆市大涨！T-glass Q3预计再涨20%/客户预付保证金锁产能/英伟达双认证逻辑在板块暴跌中独立，PCB板块最强抗跌标的，继续看好"},
     // === 存储 ===
     {name:"江波龙",code:"301308",prefix:"sz",sector:"存储",recDate:"2026-06-15",recPrice:529.23,status:"hold",tag:"📈中期看好",crown:false,reason:"嵌入式存储龙头，美光史诗级财报+存储超级周期强化，18.6亿美元大单锁定颗粒资源",signal:"⚡+0.34%高位震荡，董事李志雄减持240万股完毕(个人资金安排)压制短期情绪；美光确认紧张至2028+HBM4E溢价61%+中报预增逻辑不变，👑切换给华海后仍为存储核心配置"},
-    {name:"华海诚科",code:"688535",prefix:"sh",sector:"存储",recDate:"2026-06-18",recPrice:152.90,status:"hold",tag:"🌟长期看好",crown:true,reason:"HBM专用GMC颗粒塑封料国内唯一量产(全球仅住友+华海)，SK海力士HBM4全工艺验证通过，美光确认HBM售罄至2027后，工信部强链规划受益",signal:"👑🔥🔥+13.48%三连阳再创新高186！HBM专用GMC国内唯一量产(全球仅住友+华海)+美光售罄至2027+工信部强链规划+三星SK十年4.4万亿扩产四重共振，存储链最纯稀缺标的，今日全场👑领涨，坚定持有"},
+    {name:"华海诚科",code:"688535",prefix:"sh",sector:"存储",recDate:"2026-06-18",recPrice:152.90,status:"hold",tag:"🌟长期看好",crown:true,reason:"HBM专用GMC颗粒塑封料国内唯一量产(全球仅住友+华海)，SK海力士HBM4全工艺验证通过，美光确认HBM售罄至2027后，工信部强链规划受益；8/29公告H1净利润3968万元(+188.10%)，营收4.69亿元(+161.77%)，业绩兑现景气",signal:"👑🔥🔥+13.48%三连阳再创新高186！HBM专用GMC国内唯一量产(全球仅住友+华海)+美光售罄至2027+工信部强链规划+三星SK十年4.4万亿扩产四重共振，存储链最纯稀缺标的，今日全场👑领涨，坚定持有"},
     {name:"鼎龙股份",code:"300054",prefix:"sz",sector:"半导体",recDate:"2026-06-17",recPrice:91.13,status:"hold",tag:"📈中期看好",crown:false,reason:"CMP抛光液/垫国产替代核心标的，半导体制程关键材料",signal:"-0.40%抗跌企稳，CMP抛光垫/液国产替代+MLCC粉体双轮逻辑不变；大基金三期3400亿七成投材料利好催化，半导体材料国产替代核心标的"},
     // === 光通信/持续 ===
-    {name:"中际旭创",code:"300308",prefix:"sz",sector:"光通信",recDate:"2026-06-18",recPrice:1276.11,status:"hold",tag:"💎持续看好",crown:false,reason:"AI光模块全球第一，硅光+EML双技术布局，市值逼近1.5万亿",signal:"📉-5.25%跟随板块杀跌，市值1.4万亿龙头估值合理；Vera Rubin量产+1.6T全年出货1400万只+硅光路线护城河未变，龙头抗压能力强"}
+    {name:"中际旭创",code:"300308",prefix:"sz",sector:"光通信",recDate:"2026-06-18",recPrice:1276.11,status:"hold",tag:"💎持续看好",crown:false,reason:"AI光模块全球第一，硅光+EML双技术布局；8/21公告H1归母净利润136.51亿元(+241.70%)，营收417.78亿元(+182.49%)，主要客户已给出2027年订单指引",signal:"📉-5.25%跟随板块杀跌，市值1.4万亿龙头估值合理；Vera Rubin量产+1.6T全年出货1400万只+硅光路线护城河未变，龙头抗压能力强"}
 ];
 
 // ============ 全局变量 ============
