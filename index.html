@@ -718,6 +718,7 @@ tr.dy-stock:hover { background:rgba(255,165,2,0.08) !important; }
 
 /* 数据快照日期标签：用于静态整理数据（产业链知识库/事件时间线/金股点评），区别于实时行情 */
 .data-snapshot-badge { font-size:11px; font-weight:400; color:var(--muted); margin-left:8px; padding:2px 8px; background:rgba(150,150,150,0.12); border-radius:6px; white-space:nowrap; cursor:help; }
+.data-snapshot-badge.stale { color:#ff9800; background:rgba(255,152,0,0.15); font-weight:600; }
 
 /* 海外对标面板（按sector汇总chainData中的overseas_players，非新研究，仅结构化展示） */
 .overseas-panel { margin-bottom:24px; }
@@ -2141,7 +2142,7 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
     <div class="sector-page active" id="sector-semiconductor">
         <div class="sector-header">
             <span class="sector-icon">💾</span>
-            <h2>半导体产业链<span class="data-snapshot-badge" title="产业链知识库为人工整理的静态数据，非实时行情">📌数据快照：2026-06-30</span></h2>
+            <h2>半导体产业链<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></h2>
             <div class="bn-stats">
                 <span class="stat-crit">● 最紧缺: <span class="glossary" data-tip="多层陶瓷电容：AI服务器用量28000颗(普通服务器12.7倍)，村田7月涨价10-40%，设备交期18-24月">MLCC设备★5</span>/<span class="glossary" data-tip="六氟化钨：芯片制造中沉积钨膜的唯一前驱体气体">WF6</span></span>
                 <span class="stat-high">▲ 紧缺: 粉体/<span class="glossary" data-tip="玻璃通孔：在玻璃基板上打微孔做互连，下一代先进封装方案">TGV</span>/硅片</span>
@@ -2150,44 +2151,8 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         </div>
 
         <div class="countdown-section">
-            <div class="countdown-title">📅 关键事件倒计时<span class="data-snapshot-badge" title="事件时间线为人工整理，需人工核实是否已过期">📌数据快照：2026-06-30</span></div>
-            <div class="countdown-grid">
-                <div class="countdown-item">
-                    <div class="countdown-event">关东电化WF6停产</div>
-                    <div class="countdown-time">2026年7月</div>
-                    <span class="countdown-badge urgent">🔴 紧急</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">村田MLCC涨价</div>
-                    <div class="countdown-time">2026年7月</div>
-                    <span class="countdown-badge urgent">🔴 紧急</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">东材眉山试车</div>
-                    <div class="countdown-time">2026年6月30日前</div>
-                    <span class="countdown-badge urgent">🔴 紧急</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">M10方案确定</div>
-                    <div class="countdown-time">2026年6月底-7月初</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">Vera Rubin NVL72量产交付</div>
-                    <div class="countdown-time">2026年H2</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">日东纺T-glass扩产</div>
-                    <div class="countdown-time">2027Q1</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">圣泉新PPO产能</div>
-                    <div class="countdown-time">2026年Q3</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-            </div>
+            <div class="countdown-title">📅 关键事件倒计时<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></div>
+            <div class="countdown-grid" id="countdown-grid-semiconductor"></div>
         </div>
 
                 <div class="sub-sector-tabs" id="sub-tabs-semiconductor"></div>
@@ -2198,7 +2163,7 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         <div class="sector-page" id="sector-optical">
         <div class="sector-header">
             <span class="sector-icon">📡</span>
-            <h2>光通信产业链<span class="data-snapshot-badge" title="产业链知识库为人工整理的静态数据，非实时行情">📌数据快照：2026-06-30</span></h2>
+            <h2>光通信产业链<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></h2>
             <div class="bn-stats">
                 <span class="stat-crit">● 最紧缺: <span class="glossary" data-tip="磷化铟衬底：光芯片的&quot;地基&quot;，全球70%+缺口">InP衬底</span>/<span class="glossary" data-tip="连续波激光器：光模块的光源，功率越高传输越远越快">CW激光器</span></span>
                 <span class="stat-high">▲ 紧缺: <span class="glossary" data-tip="多光纤连接器：光模块接口标准">MPO</span>/锡膏/<span class="glossary" data-tip="数字信号处理器：光模块的&quot;大脑芯片&quot;">DSP</span></span>
@@ -2208,39 +2173,8 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         <div class="sub-sector-tabs" id="sub-tabs-optical"></div>
 
         <div class="countdown-section">
-            <div class="countdown-title">📅 CPO/NPO时间线更新<span class="data-snapshot-badge" title="事件时间线为人工整理，需人工核实是否已过期">📌数据快照：2026-06-30</span></div>
-            <div class="countdown-grid">
-                <div class="countdown-item">
-                    <div class="countdown-event">CPO启动</div>
-                    <div class="countdown-time">2026年Q4 (Lambda)</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">CPO大规模出货</div>
-                    <div class="countdown-time">2026年Q1</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">Vera Rubin/Spectrum-X量产</div>
-                    <div class="countdown-time">2026年6月1日</div>
-                    <span class="countdown-badge urgent">🔴 已落地</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">CPO全面放量</div>
-                    <div class="countdown-time">2029年</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">NPO交付</div>
-                    <div class="countdown-time">最早2026年H2 (研发早期)</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">1.6T光模块出货</div>
-                    <div class="countdown-time">2026年1100万支</div>
-                    <span class="countdown-badge near">🟡 预期</span>
-                </div>
-            </div>
+            <div class="countdown-title">📅 CPO/NPO时间线更新<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></div>
+            <div class="countdown-grid" id="countdown-grid-optical"></div>
         </div>
 
         <div class="chain-section" id="chain-optical"></div>
@@ -2250,7 +2184,7 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         <div class="sector-page" id="sector-pcb">
         <div class="sector-header">
             <span class="sector-icon">🔲</span>
-            <h2>PCB产业链<span class="data-snapshot-badge" title="产业链知识库为人工整理的静态数据，非实时行情">📌数据快照：2026-06-30</span></h2>
+            <h2>PCB产业链<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></h2>
             <div class="bn-stats">
                 <span class="stat-crit">● 最紧缺: <span class="glossary" data-tip="超薄电子布：PCB最紧缺材料，日本日东纺占全球90%">T-glass</span>/<span class="glossary" data-tip="石英纤维布：适配M9/M10最高速PCB方案">Q布</span></span>
                 <span class="stat-high">▲ 紧缺: <span class="glossary" data-tip="超低轮廓铜箔：高频高速PCB专用，日企垄断80%">HVLP铜箔</span>/<span class="glossary" data-tip="高速PCB核心粘合树脂：英伟达高端板卡必备">M9树脂</span></span>
@@ -2259,49 +2193,8 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         </div>
 
         <div class="countdown-section">
-            <div class="countdown-title">📅 关键事件追踪<span class="data-snapshot-badge" title="事件时间线为人工整理，需人工核实是否已过期">📌数据快照：2026-06-30</span></div>
-            <div class="countdown-grid">
-                <div class="countdown-item">
-                    <div class="countdown-event">T布Q3再涨20%</div>
-                    <div class="countdown-time">2025年Q3</div>
-                    <span class="countdown-badge urgent">🔴 紧急</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">日东纺扩产时间表</div>
-                    <div class="countdown-time">明年200-300万米/月</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">Q布英伟达认证进展</div>
-                    <div class="countdown-time">进行中</div>
-                    <span class="countdown-badge near">🟡 持续</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">M10方案确定</div>
-                    <div class="countdown-time">2026年6月底-7月初</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">Vera Rubin NVL72量产交付</div>
-                    <div class="countdown-time">2026年H2</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">眉山试车</div>
-                    <div class="countdown-time">2026年6月30日前</div>
-                    <span class="countdown-badge urgent">🔴 紧急</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">圣泉新PPO/碳氢产能</div>
-                    <div class="countdown-time">2026年Q3</div>
-                    <span class="countdown-badge near">🟡 近季</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">Vera Rubin全面投产</div>
-                    <div class="countdown-time">2026年6月1日</div>
-                    <span class="countdown-badge urgent">🔴 已落地</span>
-                </div>
-            </div>
+            <div class="countdown-title">📅 关键事件追踪<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></div>
+            <div class="countdown-grid" id="countdown-grid-pcb"></div>
         </div>
 
         <div class="sub-sector-tabs" id="sub-tabs-pcb"></div>
@@ -2312,7 +2205,7 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         <div class="sector-page" id="sector-storage">
         <div class="sector-header">
             <span class="sector-icon">💿</span>
-            <h2>存储产业链<span class="data-snapshot-badge" title="产业链知识库为人工整理的静态数据，非实时行情">📌数据快照：2026-06-30</span></h2>
+            <h2>存储产业链<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></h2>
             <div class="bn-stats">
                 <span class="stat-crit">● 最紧缺: <span class="glossary" data-tip="高带宽内存：AI训练专用高速显存">HBM</span>封装★5/<span class="glossary" data-tip="高带宽内存：AI训练专用高速显存">HBM</span>前驱体★4</span>
                 <span class="stat-high">▲ 紧缺: <span class="glossary" data-tip="环氧塑封料：芯片封装外壳的保护材料">EMC</span>/<span class="glossary" data-tip="六氟化钨：芯片制造中沉积钨膜的唯一前驱体气体">WF6</span></span>
@@ -2321,24 +2214,8 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         </div>
 
         <div class="countdown-section">
-            <div class="countdown-title">📅 存储涨价周期<span class="data-snapshot-badge" title="事件时间线为人工整理，需人工核实是否已过期">📌数据快照：2026-06-30</span></div>
-            <div class="countdown-grid">
-                <div class="countdown-item">
-                    <div class="countdown-event">HBM三大厂产能售罄</div>
-                    <div class="countdown-time">2026全年</div>
-                    <span class="countdown-badge urgent">🔴 紧急</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">SK海力士扩产产能释放</div>
-                    <div class="countdown-time">2028年+</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-event">存储供需缺口收窄</div>
-                    <div class="countdown-time">2028-2030年</div>
-                    <span class="countdown-badge future">🔵 远期</span>
-                </div>
-            </div>
+            <div class="countdown-title">📅 存储涨价周期<span class="data-snapshot-badge" data-snapshot-kind="kb">📌数据快照：2026-06-30</span></div>
+            <div class="countdown-grid" id="countdown-grid-storage"></div>
         </div>
 
         <div class="sub-sector-tabs" id="sub-tabs-storage"></div>
@@ -3547,6 +3424,131 @@ function isLimitUp(code, changePct) {
 
 function isLimitDown(code, changePct) {
     return parseFloat(changePct) <= -getLimitThreshold(code);
+}
+
+// 关键事件倒计时：targetDate 有值时按天数差自动算紧急度徽章；targetDate 为 null 的条目走固定 label（"进行中"/"持续"类，无法用日期衡量）
+var COUNTDOWN_EVENTS = {
+    semiconductor: [
+        {event:'关东电化WF6停产', targetDate:'2026-07-31', label:null},
+        {event:'村田MLCC涨价', targetDate:'2026-07-31', label:null},
+        {event:'东材眉山试车', targetDate:'2026-06-30', label:null},
+        {event:'M10方案确定', targetDate:'2026-07-05', label:null},
+        {event:'Vera Rubin NVL72量产交付', targetDate:'2026-12-31', label:null},
+        {event:'日东纺T-glass扩产', targetDate:'2027-03-31', label:null},
+        {event:'圣泉新PPO产能', targetDate:'2026-09-30', label:null}
+    ],
+    optical: [
+        {event:'CPO启动 (Lambda)', targetDate:'2026-12-31', label:null},
+        {event:'CPO大规模出货', targetDate:'2027-03-31', label:null},
+        {event:'Vera Rubin/Spectrum-X量产', targetDate:'2026-06-01', label:null},
+        {event:'CPO全面放量', targetDate:'2029-12-31', label:null},
+        {event:'NPO交付 (研发早期)', targetDate:'2026-12-31', label:null},
+        {event:'1.6T光模块出货', targetDate:null, label:'🟡 预期', timeText:'2026年1100万支'}
+    ],
+    pcb: [
+        {event:'T布Q3再涨20%', targetDate:'2026-09-30', label:null},
+        {event:'日东纺扩产时间表', targetDate:'2027-03-31', label:null, timeText:'2027Q1 (200-300万米/月)'},
+        {event:'Q布英伟达认证进展', targetDate:null, label:'🟡 持续', timeText:'进行中'},
+        {event:'M10方案确定', targetDate:'2026-07-05', label:null},
+        {event:'Vera Rubin NVL72量产交付', targetDate:'2026-12-31', label:null},
+        {event:'眉山试车', targetDate:'2026-06-30', label:null},
+        {event:'圣泉新PPO/碳氢产能', targetDate:'2026-09-30', label:null},
+        {event:'Vera Rubin全面投产', targetDate:'2026-06-01', label:null}
+    ],
+    storage: [
+        {event:'HBM三大厂产能售罄 (2026全年)', targetDate:'2026-12-31', label:null},
+        {event:'SK海力士扩产产能释放', targetDate:'2028-01-01', label:null},
+        {event:'存储供需缺口收窄', targetDate:'2028-01-01', label:null}
+    ]
+};
+
+function countdownBadge(daysLeft) {
+    if (daysLeft < 0) return {cls:'urgent', text:'🔴 已落地'};
+    if (daysLeft <= 30) return {cls:'urgent', text:'🔴 紧急'};
+    if (daysLeft <= 120) return {cls:'near', text:'🟡 近季'};
+    return {cls:'future', text:'🔵 远期'};
+}
+
+function renderCountdown(sector) {
+    const container = document.getElementById('countdown-grid-' + sector);
+    if (!container) return;
+    const events = COUNTDOWN_EVENTS[sector] || [];
+    const now = new Date();
+    container.innerHTML = events.map(ev => {
+        let badge, timeText;
+        if (ev.targetDate) {
+            const daysLeft = Math.ceil((new Date(ev.targetDate + 'T00:00:00') - now) / 86400000);
+            badge = countdownBadge(daysLeft);
+            timeText = ev.timeText || ev.targetDate;
+        } else {
+            badge = {cls:'near', text: ev.label || '🟡 持续'};
+            timeText = ev.label || '进行中';
+        }
+        return '<div class="countdown-item">' +
+            '<div class="countdown-event">' + ev.event + '</div>' +
+            '<div class="countdown-time">' + timeText + '</div>' +
+            '<span class="countdown-badge ' + badge.cls + '">' + badge.text + '</span>' +
+            '</div>';
+    }).join('');
+}
+
+function renderAllCountdowns() {
+    Object.keys(COUNTDOWN_EVENTS).forEach(renderCountdown);
+}
+
+// 产业链知识库/事件时间线/金股点评等人工整理内容的最后复核日期。
+// 人工核对内容后手动改这一个日期即可，不需要每天碰；超过30天未复核时徽章变橙色提示
+var KNOWLEDGE_BASE_UPDATED_AT = '2026-06-30';
+
+function renderSnapshotBadges() {
+    const badges = document.querySelectorAll('.data-snapshot-badge[data-snapshot-kind="kb"]');
+    const days = Math.floor((new Date() - new Date(KNOWLEDGE_BASE_UPDATED_AT + 'T00:00:00')) / 86400000);
+    const stale = days > 30;
+    badges.forEach(b => {
+        b.textContent = '📌产业链知识库更新于 ' + KNOWLEDGE_BASE_UPDATED_AT + '（' + days + '天前）' + (stale ? ' ⚠️需人工复核' : '');
+        b.title = '产业链知识库/事件时间线为人工整理的静态数据，非实时行情';
+        b.classList.toggle('stale', stale);
+    });
+}
+
+// 每日自动生成数据（GitHub Actions + LLM管线产出，data/daily.json）。
+// 拉取成功则合并覆盖：DAILY_BRIEFINGS新增当日一条、goldPool的signal文本、priceData现价、limitUpScanData涨停扫描。
+// 拉取失败（首次部署前/网络问题）时静默保留现有硬编码数组作为fallback，不报错不阻塞。
+async function loadDailyData() {
+    try {
+        const res = await fetch('./data/daily.json', {cache: 'no-store'});
+        if (!res.ok) return;
+        const d = await res.json();
+
+        if (Array.isArray(d.dailyBriefings)) {
+            d.dailyBriefings.forEach(nb => {
+                var idx = DAILY_BRIEFINGS.findIndex(function(b){ return b.date === nb.date && b.type === nb.type; });
+                if (idx >= 0) DAILY_BRIEFINGS[idx] = nb;
+                else DAILY_BRIEFINGS.push(nb);
+            });
+        }
+
+        if (d.goldPoolSignals) {
+            goldPool.forEach(function(g){
+                if (d.goldPoolSignals[g.code]) g.signal = d.goldPoolSignals[g.code];
+            });
+        }
+
+        if (d.priceData) {
+            Object.keys(d.priceData).forEach(function(code){
+                var g = goldPool.find(function(gp){ return gp.code === code; });
+                var prefixedKey = g ? (g.prefix + code) : code;
+                priceData[prefixedKey] = Object.assign({}, priceData[prefixedKey], d.priceData[code], {name: g ? g.name : (priceData[prefixedKey] && priceData[prefixedKey].name)});
+            });
+        }
+
+        if (d.limitUpScanData && d.limitUpScanData.items && d.limitUpScanData.items.length > 0) {
+            limitUpScanData = d.limitUpScanData;
+        }
+    } catch (e) {
+        // 网络失败/文件不存在时保留硬编码fallback，不打断页面渲染
+        console.warn('loadDailyData: 使用本地fallback数据', e.message);
+    }
 }
 
 // 产业信号雷达数据（左侧轮：涨价/断供/招标/现货价/产能/政策，每日更新）
@@ -8542,7 +8544,15 @@ document.addEventListener('DOMContentLoaded', async function() {
     renderChain('semiconductor', 'chain');
     renderOverseasPanel('semiconductor');
     _rendered.chain['semiconductor'] = true;
-    
+
+    // 关键事件倒计时（4个板块，纯代码按targetDate算天数差，不依赖数据抓取）
+    renderAllCountdowns();
+    // 知识库快照徽章（人工整理内容的新鲜度提示）
+    renderSnapshotBadges();
+    // 每日自动生成数据（GitHub Actions+LLM管线产出的复盘/金股点评/涨停扫描），失败则保留硬编码fallback
+    await loadDailyData();
+    if (currentBriefingTab) renderBriefing(currentBriefingTab);
+
     // 初始化搜索
     initSearch();
     
