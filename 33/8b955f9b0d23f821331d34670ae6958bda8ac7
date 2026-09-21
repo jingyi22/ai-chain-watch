@@ -1,0 +1,48 @@
+index.html
+  s_1ed1f76a53fccb::t_ebeeb252dc4742 2187
+  s_1ed1f76a53fccb::t_ab024d17f8881d 2218
+  s_1ed1f76a53fccb::t_c0d73318184933 2145
+  s_1ed1f76a53fccb::t_75a03ab5697e3e 2166
+  s_1ed1f76a53fccb::t_958813f5243527 8552-8554
+  s_1ed1f76a53fccb::t_658e42904977f4 2176
+  s_1ed1f76a53fccb::t_1ad43d95b541a2 2177
+  s_1ed1f76a53fccb::t_e5c9e4dbe1e500 3482
+  s_1ed1f76a53fccb::t_6bd6df8a858fca 3429-3445,3447-3449,3452-3481,3483-3498
+  s_1ed1f76a53fccb::t_4837acce23eda9 2197
+  s_1ed1f76a53fccb::t_a77bdda931a4f8 2154
+  s_1ed1f76a53fccb::t_74ea198d77545e 3499-3513
+  s_1ed1f76a53fccb::t_683e3a1ebff4d8 3514-3553
+  s_1ed1f76a53fccb::t_96dd0db5940e5f 721
+  s_1ed1f76a53fccb::t_3f6ab81735a9fe 3446,3450-3451
+  s_1ed1f76a53fccb::t_e7c3f242a7851c 2196
+  s_1ed1f76a53fccb::t_a6fd0bff063097 8547-8551,8555
+  s_1ed1f76a53fccb::t_b33b535a5ed35d 2208
+  s_1ed1f76a53fccb::t_d80c3a50bf13f3 2217
+  s_1ed1f76a53fccb::t_65463c1d753653 2155
+scripts/write-data.mjs
+  s_1ed1f76a53fccb::t_76d4ce23341214 1-111
+.github/workflows/daily-update.yml
+  s_1ed1f76a53fccb::t_1664287c0855c5 1-70
+scripts/fetch-market-data.mjs
+  s_1ed1f76a53fccb::t_17aba98d0feff4 1-138
+scripts/generate-briefing.mjs
+  s_1ed1f76a53fccb::t_c57789ec5293d1 32-33,43-44,52-53
+  s_1ed1f76a53fccb::t_ad15452087e519 94-95,103-110
+  s_1ed1f76a53fccb::t_7291dcaf8d861e 1-31,34-42,45-51,54-93,96-102,111-130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.44-trip",
+  "base_commit_sha": "338b955f9b0d23f821331d34670ae6958bda8ac7",
+  "prompts": {},
+  "sessions": {
+    "s_1ed1f76a53fccb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "441929b3-1a83-42d0-8964-79ee9ee9a8df",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Elena Lu （陆靖沂） <elenalu@trip.com>"
+    }
+  }
+}
