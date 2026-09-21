@@ -1,0 +1,28 @@
+index.html
+  s_1ed1f76a53fccb::t_a0f7c48255450b 3432
+  s_1ed1f76a53fccb::t_48100f4d027751 3502
+  s_1ed1f76a53fccb::t_82b22a0c92e911 3557-3570
+  s_1ed1f76a53fccb::t_318063a0813db4 3441,3446
+  s_1ed1f76a53fccb::t_4ae065ce3d2dcf 5611
+  s_1ed1f76a53fccb::t_6e58096d626713 3449,3459
+  s_1ed1f76a53fccb::t_bf045de6dc4df9 5536,6271
+  s_1ed1f76a53fccb::t_46071a565fb658 5577,6280
+  s_1ed1f76a53fccb::t_4489f3eb6756d9 6283
+  s_1ed1f76a53fccb::t_bf28101f574837 5567,6286
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.44-trip",
+  "base_commit_sha": "95440afe77f2f6f1c9fdbdcdba5fb80b1b790a3a",
+  "prompts": {},
+  "sessions": {
+    "s_1ed1f76a53fccb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "441929b3-1a83-42d0-8964-79ee9ee9a8df",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": null
+    }
+  }
+}
