@@ -2699,7 +2699,7 @@ async function loadNewsFromAPI() {
         try {
             var ctrl = new AbortController();
             var timer = setTimeout(function(){ ctrl.abort(); }, 8000);
-            var res = await fetch(NEWS_API_URL, {signal:ctrl.signal});
+            var res = await fetch(NEWS_API_URL, {signal:ctrl.signal, referrerPolicy:'no-referrer'});
             clearTimeout(timer);
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return await res.json();
@@ -3573,81 +3573,81 @@ var industrySignals = [
 /* AI投顾数据 */
 var userPortfolio = JSON.parse(localStorage.getItem('compute_radar_portfolio') || '[]');
 var advisorReport = {
-    date: "2026-06-30",
+    date: "2026-09-22",
     portfolioCheck: [
-        {code:"688146", name:"中船特气", sector:"semiconductor", health:"watch", costPrice:318.30, currentPrice:370.00, pnl:16.2, advice:"PE544倍+连跌3日+交易所重点监控，估值严重偏高。反弹至380以上减仓50%，锁定利润。", stopLoss:"340元", target:"400元（减仓点）"},
-        {code:"688535", name:"华海诚科", sector:"storage", health:"good", costPrice:152.90, currentPrice:186.01, pnl:21.6, advice:"HBM专用GMC国内唯一量产+三连阳创新高，产业逻辑持续兑现中。持有，突破200可追加。", stopLoss:"165元", target:"230元"}
+        {code:"688146", name:"中船特气", sector:"semiconductor", health:"risk", costPrice:318.30, currentPrice:222.60, pnl:-30.1, advice:"6月末已提示PE544倍严重高估并建议反弹减仓；三个月内跌破340元止损位后继续下探至222元附近，累计跌幅超40%。中报营收+83%/净利+96%大幅超预期，但10/21约72.62%总股本解禁在即，市场抛压预期是当前主因，非基本面暴雷。已止损离场标的，解禁后走势需重新评估，暂不追加。", stopLoss:"已跌破340元（原止损位）", target:"—（观察解禁后企稳信号）"},
+        {code:"688535", name:"华海诚科", sector:"storage", health:"risk", costPrice:152.90, currentPrice:110.61, pnl:-27.6, advice:"6月末186元创新高后回落，三个月内跌破165元止损位下探至110元附近，累计跌幅超40%。中报营收+162%/净利+188%业绩兑现良好，但HBM专用GMC订单放量的产业叙事仍缺乏官方公告佐证；8月末发生股东减持，且跟随科创板高估值板块系统性回调（8月科创50联接基金月跌超13%）。已跌破止损位，建议持有观察但不加仓，等HBM订单兑现有实质性公告再重新评估。", stopLoss:"已跌破165元（原止损位）", target:"—（观察HBM订单公告催化）"}
     ],
     positionAssessment: {
         totalValue: 185600,
         cashRatio: 0.35,
         positionRatio: 0.65,
         maxPosition: 0.80,
-        advice: "仓位适中65%（上限80%）。半导体占比偏高(55%)，建议均衡配置光通信/存储。现金35%留作加仓弹药。"
+        advice: "本期两只前期持仓（中船特气/华海诚科）均已跌破止损位，累计跌幅30-40%，建议严格执行止损纪律离场观察，不因业绩兑现良好而恋战估值泡沫。江丰电子中报净利+114%大超预期，PE从309倍回落至89倍，估值消化充分，是三只标的中基本面信号最正面的一只，维持观察，回踩企稳后可考虑重新介入。"
     },
     recommendations: [
         {
-            code:"688535", name:"华海诚科", sector:"storage",
-            action:"buy", position:0.12,
-            priceData: { current: 186.01, change: 13.48, pe: "132.38", marketCap: 248.36, turnover: 17.22 },
-            actionDetail: "新建买入，回踩5日线附近建仓",
-            buyRange: "175-185元", stopLoss: "165元（跌破20日均线+BBI拐头）",
-            target1: "210元", target2: "230元",
-            logic: "HBM专用GMC颗粒塑封料国内唯一量产(全球仅住友+华海)，SK海力士HBM4全工艺验证通过，美光确认HBM售罄至2027，大基金三期3440亿投HBM，三星SK十年4.4万亿扩产——五重产业共振",
-            invalidate: "跌破165元 / HBM扩产节奏放缓 / GMC竞争格局恶化",
-            signalSource: "both", tier:1,
-            signalDesc: "产业信号(大基金三期HBM) + 涨停归因(+13.48%三连阳创新高)",
-            fromGoldPool: true,
-            funnel: { pool: 12, signalTrigger: 6, volumeConfirm: 4, timingMatch: 3, final: 1 },
-            scores: { industry: 28, volume: 23, tech: 16, capital: 14, catalyst: 9, total: 90 },
-            tech: {
-                bbi: "上行（多头排列）", volumeRatio: "2.1", turnover: "17.22%",
-                position: "中高位（距前高5%）", support: "175元（5日均线）", resistance: "200元（整数关）"
-            },
-            capital: { north: "+5.23亿", institution: "+3.10亿", dragon: "净买1.2亿封单", main: "主力净流入8.3亿" },
-            dynamicNote: "当前三连阳创新高中，不建议追高。等回踩5日线(175-185区间)建仓，若直接突破200可追入1/3仓位。"
-        },
-        {
             code:"300666", name:"江丰电子", sector:"semiconductor",
-            action:"add", position:0.05,
-            priceData: { current: 382.48, change: 7.81, pe: "309.68", marketCap: 845.73, turnover: 14.55 },
-            actionDetail: "加仓，已持有可追加5%仓位",
-            buyRange: "370-385元（当前价附近）", stopLoss: "350元（跌破前低支撑）",
-            target1: "420元", target2: "450元",
-            logic: "溅射靶材国产替代最纯标的+ESC(静电卡盘)订单翻10倍+算力金属(钽+158%/铟+60%)三重共振，台积电/三星/SK海力士3nm认证通过",
-            invalidate: "跌破350元 / 靶材价格回落 / ESC订单取消",
-            signalSource: "left", tier:1,
-            signalDesc: "产业信号：算力金属暴涨(钽+158%/铟+60%)，InP衬底缺口70%+",
+            action:"watch", position:0,
+            priceData: { current: 253.48, change: -1.39, pe: "88.94", marketCap: 561.32, turnover: 2.77 },
+            actionDetail: "维持观察，不新增仓位",
+            buyRange: "回踩240-250企稳后分批", stopLoss: "230元（跌破前低支撑）",
+            target1: "280元", target2: "—",
+            logic: "溅射靶材国产替代最纯标的，中报净利+114%大超预期，PE从6月末309倍大幅回落至89倍，估值消化较充分；但近3个交易日连续缩量下跌（9/18高点262后回落），算力金属(钽/铟)上涨叙事对股价的边际推动已减弱",
+            invalidate: "跌破230元 / 靶材价格出现实质性回落公告",
+            signalSource: "left", tier:2,
+            signalDesc: "基本面信号：中报净利+114%超预期，估值消化至PE89倍",
             fromGoldPool: true,
-            funnel: { pool: 12, signalTrigger: 5, volumeConfirm: 3, timingMatch: 2, final: 1 },
-            scores: { industry: 27, volume: 22, tech: 17, capital: 12, catalyst: 8, total: 86 },
+            funnel: { pool: 12, signalTrigger: 5, volumeConfirm: 2, timingMatch: 1, final: 1 },
+            scores: { industry: 22, volume: 14, tech: 12, capital: 10, catalyst: 8, total: 66 },
             tech: {
-                bbi: "上行（多头排列）", volumeRatio: "1.8", turnover: "14.55%",
-                position: "中位（放量创新高）", support: "360元（10日均线）", resistance: "400元（整数关）"
+                bbi: "走平偏弱（近3日缩量回落）", volumeRatio: "0.7", turnover: "2.77%",
+                position: "中位（距9/18高点262约-3%）", support: "240元（10日均线附近）", resistance: "262元（近期高点）"
             },
-            capital: { north: "+2.80亿", institution: "+1.50亿", dragon: "净买0.8亿", main: "主力净流入5.6亿" },
-            dynamicNote: "放量长阳创新高382元，量价配合好。当前价370-385区间可加仓5%，突破400后上移止损至380。"
+            capital: { north: "数据源暂缺，以主力资金为准", institution: "数据源暂缺，以主力资金为准", dragon: "未上榜", main: "主力净流出约0.6亿（9/22盘中）" },
+            dynamicNote: "估值消化后基本面信号转正，但短期缩量走弱，不追高。等回踩240-250企稳信号明确后再分批介入，跌破230则观察逻辑证伪。"
         },
         {
             code:"688146", name:"中船特气", sector:"semiconductor",
-            action:"reduce", position:-0.50,
-            priceData: { current: 370.00, change: -4.05, pe: "544.12", marketCap: 1958.80, turnover: 13.82 },
-            actionDetail: "减仓50%，锁定部分利润",
-            buyRange: "反弹至380元以上减仓", stopLoss: "340元（跌破全部均线支撑）",
-            target1: "380元（减仓点）", target2: "—",
-            logic: "WF6涨价逻辑仍在但已充分反映在股价中。PE544倍远超行业均值，连跌3日+交易所重点监控+主力连续流出，技术面走弱。产业逻辑未破但估值泡沫严重。",
-            invalidate: "反弹突破410元（趋势恢复，取消减仓）",
-            signalSource: "left", tier:2,
-            signalDesc: "产业信号：WF6报价+232%+关东电化停产（利好已兑现）",
+            action:"sell", position:-1.0,
+            priceData: { current: 222.60, change: -6.48, pe: "228.57", marketCap: 322.71, turnover: 10.35 },
+            actionDetail: "清仓离场，止损位已跌破",
+            buyRange: "—", stopLoss: "已跌破340元（原止损位）",
+            target1: "—", target2: "—",
+            logic: "6月末已提示PE544倍严重高估并建议反弹减仓；三个月内跌破340元止损位后持续下探，9/22报222.60元，累计跌幅超40%。中报营收+83%/净利+96%大幅超预期，但10/21约72.62%总股本解禁在即，市场对解禁抛压的担忧是当前股价主因，非基本面暴雷",
+            invalidate: "解禁后放量企稳并站上250元（可重新评估）",
+            signalSource: "left", tier:3,
+            signalDesc: "风险信号：10/21限售股解禁预期压制估值，止损位已跌破",
             fromGoldPool: true,
             funnel: { pool: 12, signalTrigger: 4, volumeConfirm: 2, timingMatch: 1, final: 1 },
-            scores: { industry: 24, volume: 10, tech: 8, capital: 6, catalyst: 5, total: 53 },
+            scores: { industry: 20, volume: 8, tech: 5, capital: 4, catalyst: 3, total: 40 },
             tech: {
-                bbi: "拐头向下（连跌3日）", volumeRatio: "0.7", turnover: "13.82%",
-                position: "高位（距高点-15%）", support: "350元（30日均线）", resistance: "390元（5日均线）"
+                bbi: "下行（跌破全部止损位）", volumeRatio: "1.05", turnover: "10.35%",
+                position: "低位（较6月高点回撤超40%）", support: "222元（9/22盘中低点）", resistance: "241元（9/22盘中高点）"
             },
-            capital: { north: "-1.80亿", institution: "-2.30亿", dragon: "净卖0.5亿", main: "主力净流出4.1亿" },
-            dynamicNote: "连跌3日+缩量+主力流出，短期技术面走弱。反弹至380以上减仓50%锁定利润，若跌破340则清仓止损。产业逻辑未破，跌至300以下可重新接回。"
+            capital: { north: "数据源暂缺，以主力资金为准", institution: "数据源暂缺，以主力资金为准", dragon: "未上榜", main: "主力净流出约3.8亿（9/22盘中）" },
+            dynamicNote: "已跌破止损位且解禁压力未消化，严格执行止损纪律离场观察。解禁后（10/21起）视放量企稳信号再重新评估，不因中报业绩超预期而恋战估值泡沫。"
+        },
+        {
+            code:"688535", name:"华海诚科", sector:"storage",
+            action:"sell", position:-1.0,
+            priceData: { current: 110.61, change: 0.28, pe: "315.93", marketCap: 147.70, turnover: 4.20 },
+            actionDetail: "清仓离场，止损位已跌破",
+            buyRange: "—", stopLoss: "已跌破165元（原止损位）",
+            target1: "—（待HBM订单公告催化后重新评估）", target2: "—",
+            logic: "6月末186元创新高后回落，三个月内跌破165元止损位下探至110元附近，累计跌幅超40%。中报营收+162%/净利+188%业绩兑现良好，但HBM专用GMC订单放量的产业叙事仍缺乏官方公告佐证，且跟随科创板高估值板块系统性回调",
+            invalidate: "HBM订单出现实质性公告并放量突破125元（可重新评估）",
+            signalSource: "left", tier:3,
+            signalDesc: "风险信号：止损位已跌破，HBM订单放量叙事待官方公告验证",
+            fromGoldPool: true,
+            funnel: { pool: 12, signalTrigger: 4, volumeConfirm: 2, timingMatch: 1, final: 1 },
+            scores: { industry: 21, volume: 10, tech: 7, capital: 6, catalyst: 5, total: 49 },
+            tech: {
+                bbi: "走平偏弱（低位震荡）", volumeRatio: "0.6", turnover: "4.20%",
+                position: "低位（较6月高点回撤超40%）", support: "108元（9/22盘中低点附近）", resistance: "114元（9/22盘中高点）"
+            },
+            capital: { north: "数据源暂缺，以主力资金为准", institution: "数据源暂缺，以主力资金为准", dragon: "未上榜", main: "主力净流入约0.03亿（9/22盘中，基本走平）" },
+            dynamicNote: "已跌破止损位，中报业绩兑现良好但产业叙事缺乏新催化，严格执行止损纪律离场观察，不因业绩超预期而恋战估值泡沫。等HBM订单有实质性公告再重新评估是否介入。"
         }
     ]
 };
