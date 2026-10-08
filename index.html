@@ -2389,6 +2389,13 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
                         <span class="radar-filter-chip" data-stype="个股" onclick="filterRadarSignal('个股')">个股</span>
                     </div>
                     <div class="radar-signal-list" id="radarSignalList"></div>
+                    <div id="industrySignalCandSection" style="display:none;margin-top:14px;">
+                        <div style="background:rgba(255,193,7,0.12);border:1px solid rgba(255,193,7,0.3);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:12px;color:#ffc107;">
+                            🤖 AI新闻候选信号 <span id="industrySignalCandGeneratedAt" style="color:var(--text3);"></span><br>
+                            以下由AI从当日新闻标题中筛选，仅供参考，不构成结论，转正写入正式产业信号需人工核实。
+                        </div>
+                        <div class="radar-signal-list" id="industrySignalCandList"></div>
+                    </div>
                 </div>
                 <div class="radar-right-panel">
                     <div class="radar-panel-title">📈 异动归因（右侧轮）<span class="radar-panel-sub">涨停归因/异动归因</span></div>
@@ -2405,6 +2412,13 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
         <div class="advisor-sub-tabs">
             <span class="advisor-sub-tab active" data-atab="recommendations" onclick="switchAdvisorTab('recommendations')">🎯 推票记录</span>
             <span class="advisor-sub-tab" data-atab="report" onclick="switchAdvisorTab('report')">📋 投顾日报</span>
+        </div>
+        <div id="advisorAiCandSection" style="display:none;margin-bottom:16px;">
+            <div style="background:rgba(255,193,7,0.12);border:1px solid rgba(255,193,7,0.3);border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:12px;color:#ffc107;">
+                🤖 AI新闻候选股 <span id="advisorAiCandGeneratedAt" style="color:var(--text3);"></span><br>
+                以下由AI从当日新闻标题中筛选，股票代码未经真实性核验，不构成推荐，是否转为正式推票需人工核实后手动添加。
+            </div>
+            <div class="watchlist-grid" id="advisorAiCandGrid"></div>
         </div>
         <div id="advisor-recommendations" class="advisor-panel"></div>
         <div id="advisor-report" class="advisor-panel" style="display:none;"></div>
@@ -3558,6 +3572,12 @@ async function loadDailyData() {
             AI_CANDIDATES = d.aiCandidates;
             AI_CANDIDATES_GENERATED_AT = d.candidatesGeneratedAt || '';
             renderAiCandidates();
+        }
+
+        if (Array.isArray(d.industrySignalCandidates)) {
+            INDUSTRY_SIGNAL_CANDIDATES = d.industrySignalCandidates;
+            INDUSTRY_SIGNAL_CANDIDATES_GENERATED_AT = d.signalCandidatesGeneratedAt || '';
+            renderIndustrySignalCandidates();
         }
     } catch (e) {
         // 网络失败/文件不存在时保留硬编码fallback，不打断页面渲染
@@ -5330,6 +5350,10 @@ var WATCHLIST = [
 // AI新闻候选（半自动：discover-candidates.mjs每日生成，仅供人工审查，不自动写入WATCHLIST/goldPool）
 var AI_CANDIDATES = [];
 var AI_CANDIDATES_GENERATED_AT = '';
+
+// 产业信号候选（半自动：discover-industry-signals.mjs每日生成，仅供人工审查，不自动写入industrySignals）
+var INDUSTRY_SIGNAL_CANDIDATES = [];
+var INDUSTRY_SIGNAL_CANDIDATES_GENERATED_AT = '';
 
 // 观察池调入/调出日志（新条目在前）
 var WATCHLIST_LOG = [
@@ -8024,17 +8048,7 @@ function renderWatchlist() {
 }
 
 function renderAiCandidates() {
-    var section = document.getElementById('aiCandSection');
-    var grid = document.getElementById('aiCandGrid');
-    var genAtEl = document.getElementById('aiCandGeneratedAt');
-    if (!section || !grid) return;
-    if (!Array.isArray(AI_CANDIDATES) || AI_CANDIDATES.length === 0) {
-        section.style.display = 'none';
-        return;
-    }
-    section.style.display = '';
-    if (genAtEl) genAtEl.textContent = AI_CANDIDATES_GENERATED_AT ? ('生成于 ' + AI_CANDIDATES_GENERATED_AT) : '';
-    grid.innerHTML = AI_CANDIDATES.map(function(c){
+    var cardsHtml = (Array.isArray(AI_CANDIDATES) ? AI_CANDIDATES : []).map(function(c){
         return '<div class="wl-card">' +
             '<div class="wl-card-top">' +
                 '<div><span class="wl-card-name">' + escapeHtml(c.name||'') + '</span><span class="wl-card-code">' + escapeHtml(c.code||'') + (c.codeUnverified ? ' <span style="color:#ffc107;">未核验</span>' : '') + '</span></div>' +
@@ -8043,9 +8057,66 @@ function renderAiCandidates() {
             '<div class="wl-card-reason">' + escapeHtml(c.reason||'') + '</div>' +
         '</div>';
     }).join('');
+    var hasData = Array.isArray(AI_CANDIDATES) && AI_CANDIDATES.length > 0;
+    var genAtText = AI_CANDIDATES_GENERATED_AT ? ('生成于 ' + AI_CANDIDATES_GENERATED_AT) : '';
+
+    var section = document.getElementById('aiCandSection');
+    var grid = document.getElementById('aiCandGrid');
+    var genAtEl = document.getElementById('aiCandGeneratedAt');
+    if (section && grid) {
+        section.style.display = hasData ? '' : 'none';
+        if (genAtEl) genAtEl.textContent = genAtText;
+        grid.innerHTML = cardsHtml;
+    }
+
+    var advSection = document.getElementById('advisorAiCandSection');
+    var advGrid = document.getElementById('advisorAiCandGrid');
+    var advGenAtEl = document.getElementById('advisorAiCandGeneratedAt');
+    if (advSection && advGrid) {
+        advSection.style.display = hasData ? '' : 'none';
+        if (advGenAtEl) advGenAtEl.textContent = genAtText;
+        advGrid.innerHTML = cardsHtml;
+    }
 }
 
-// ============ 术语词典（悬浮注释） ============
+// 渲染产业信号候选（discover-industry-signals.mjs每日生成，仅供人工审查，不自动写入industrySignals）
+function renderIndustrySignalCandidates() {
+    var section = document.getElementById('industrySignalCandSection');
+    var listEl = document.getElementById('industrySignalCandList');
+    var genAtEl = document.getElementById('industrySignalCandGeneratedAt');
+    if (!section || !listEl) return;
+    if (!Array.isArray(INDUSTRY_SIGNAL_CANDIDATES) || INDUSTRY_SIGNAL_CANDIDATES.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+    section.style.display = '';
+    if (genAtEl) genAtEl.textContent = INDUSTRY_SIGNAL_CANDIDATES_GENERATED_AT ? ('· 生成于 ' + INDUSTRY_SIGNAL_CANDIDATES_GENERATED_AT) : '';
+    listEl.innerHTML = INDUSTRY_SIGNAL_CANDIDATES.map(function(s){
+        var impact = s.impact || '中性';
+        var impactArrow = impact === '利好' ? '↑' : (impact === '利空' ? '↓' : '→');
+        var impactColor = impact === '利好' ? 'var(--red)' : (impact === '利空' ? 'var(--green)' : 'var(--text3)');
+        var h = '<div class="radar-signal-card" style="opacity:0.9;">';
+        h += '<span class="radar-signal-type">' + escapeHtml(s.signalType || '') + '</span>';
+        h += '<div class="radar-signal-desc">📰 ' + escapeHtml(s.newsQuote || '') + '</div>';
+        if (s.reason) h += '<div class="radar-signal-desc">' + escapeHtml(s.reason) + '</div>';
+        if (s.stocks && s.stocks.length) {
+            h += '<div class="radar-signal-stocks">';
+            s.stocks.forEach(function(name) {
+                h += '<span class="rs-stock rs-stock-static">' + escapeHtml(name) + '</span>';
+            });
+            h += '</div>';
+        }
+        h += '<div class="radar-signal-meta">';
+        if (s.newsTime) h += '<span>📅 ' + escapeHtml(s.newsTime) + '</span>';
+        h += '<span>🏷️ ' + escapeHtml(sectorName(s.sector)) + '</span>';
+        h += '<span class="rs-impact" style="color:' + impactColor + ';">' + escapeHtml(impact) + ' ' + impactArrow + '</span>';
+        h += '</div>';
+        h += '</div>';
+        return h;
+    }).join('');
+}
+
+
 const glossary = {
     'WF6': '六氟化钨：芯片制造中沉积钨膜的唯一前驱体气体，用于存储器金属互连',
     'HBM': '高带宽内存：堆叠式DRAM，AI训练/推理专用高速显存，带宽是普通显存的10倍+',

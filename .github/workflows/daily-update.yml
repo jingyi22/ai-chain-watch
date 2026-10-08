@@ -60,8 +60,14 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: node scripts/discover-candidates.mjs < /tmp/market-data.json > /tmp/candidates.json
 
+      - name: Discover industry signal candidates (LLM, non-blocking)
+        continue-on-error: true
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: node scripts/discover-industry-signals.mjs < /tmp/market-data.json > /tmp/signal-candidates.json
+
       - name: Write data/daily.json
-        run: node scripts/write-data.mjs "${{ steps.vars.outputs.type }}" /tmp/market-data.json /tmp/briefing.json data/daily.json /tmp/candidates.json
+        run: node scripts/write-data.mjs "${{ steps.vars.outputs.type }}" /tmp/market-data.json /tmp/briefing.json data/daily.json /tmp/candidates.json /tmp/signal-candidates.json
 
       - name: Commit and push
         run: |
