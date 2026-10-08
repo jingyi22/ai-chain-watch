@@ -46,30 +46,43 @@ jobs:
             fi
           fi
 
+      - name: Check if today is a trading day
+        id: tradingday
+        run: |
+          IS_TRADING=$(node scripts/check-trading-day.mjs)
+          echo "isTradingDay=$IS_TRADING" >> "$GITHUB_OUTPUT"
+          echo "今日是否交易日: $IS_TRADING"
+
       - name: Fetch market data
+        if: steps.tradingday.outputs.isTradingDay == 'true'
         run: node scripts/fetch-market-data.mjs > /tmp/market-data.json
 
       - name: Generate briefing (LLM)
+        if: steps.tradingday.outputs.isTradingDay == 'true'
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: node scripts/generate-briefing.mjs "${{ steps.vars.outputs.type }}" < /tmp/market-data.json > /tmp/briefing.json
 
       - name: Discover AI candidate stocks (LLM, non-blocking)
+        if: steps.tradingday.outputs.isTradingDay == 'true'
         continue-on-error: true
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: node scripts/discover-candidates.mjs < /tmp/market-data.json > /tmp/candidates.json
 
       - name: Discover industry signal candidates (LLM, non-blocking)
+        if: steps.tradingday.outputs.isTradingDay == 'true'
         continue-on-error: true
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: node scripts/discover-industry-signals.mjs < /tmp/market-data.json > /tmp/signal-candidates.json
 
       - name: Write data/daily.json
+        if: steps.tradingday.outputs.isTradingDay == 'true'
         run: node scripts/write-data.mjs "${{ steps.vars.outputs.type }}" /tmp/market-data.json /tmp/briefing.json data/daily.json /tmp/candidates.json /tmp/signal-candidates.json
 
       - name: Commit and push
+        if: steps.tradingday.outputs.isTradingDay == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

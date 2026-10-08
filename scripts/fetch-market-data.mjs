@@ -25,16 +25,21 @@ const GOLD_POOL_CODES = [
 
 const AI_KW = ['AI','算力','芯片','半导体','光模块','PCB','存储','HBM','MLCC','DRAM','NAND','GPU','英伟达','NVIDIA','WF6','光通信','铜箔','封装','靶材','光刻','SiC','GaN','CPO','NPO','1.6T','800G','EUV','CMP','TGV','ABF','SSD','被动元件','CCL','覆铜板','硅片','晶圆','钼','钨','锡膏','电感'];
 
+// GitHub Actions runner 时区是UTC，这里显式换算到北京时间，避免早报cron在UTC 23:00触发时
+// （对应北京次日07:00）取到的是UTC视角的"昨天"日期。
+function nowBeijing() {
+    return new Date(Date.now() + 8 * 60 * 60 * 1000);
+}
 function todayYmd() {
-    const d = new Date();
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
+    const d = nowBeijing();
+    const y = d.getUTCFullYear();
+    const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(d.getUTCDate()).padStart(2, '0');
     return `${y}${m}${day}`;
 }
 function todayIso() {
-    const d = new Date();
-    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const d = nowBeijing();
+    return `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
 }
 
 async function fetchWithTimeout(url, opts = {}, timeoutMs = 10000) {
