@@ -1,0 +1,23 @@
+scripts/fetch-market-data.mjs
+  s_7ca38d5e476767::t_3706b748ed1eb1 28-32,34-37,41-42
+.github/workflows/daily-update.yml
+  s_7ca38d5e476767::t_e70f8921981b3b 49-55,57,61,67,74,81,85
+scripts/check-trading-day.mjs
+  s_7ca38d5e476767::t_0eaa8b262813d1 1-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "bc55fe30e5a2fb7754cf450b48b9c4f7cca23c97",
+  "prompts": {},
+  "sessions": {
+    "s_7ca38d5e476767": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7281adbc-c5e4-4815-90ce-0837049ef2b5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Elena Lu （陆靖沂） <elenalu@trip.com>"
+    }
+  }
+}
