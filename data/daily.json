@@ -467,17 +467,7 @@
     "items": []
   },
   "fetchErrors": [],
-  "aiCandidates": [
-    {
-      "name": "腾讯",
-      "code": "00700",
-      "newsQuote": "腾讯考虑最高发行50亿美元离岸债券 或筹钱加码AI",
-      "newsTime": "2026-10-08 16:37:09",
-      "reason": "腾讯考虑发行离岸债券，可能用于加码AI",
-      "codeUnverified": true,
-      "codeFormatValid": false
-    }
-  ],
+  "aiCandidates": [],
   "candidatesGeneratedAt": "2026-10-08T09:23:36Z",
   "industrySignalCandidates": [],
   "signalCandidatesGeneratedAt": "2026-10-08T09:23:39Z"

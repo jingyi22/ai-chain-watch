@@ -4,6 +4,8 @@
 // 用法：node discover-candidates.mjs < market-data.json > candidates.json
 // OPENROUTER_API_KEY 必须通过环境变量传入，脚本本身不读取/不写入任何密钥到文件。
 
+import { verifyAShareCompany } from './verify-a-share.mjs';
+
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 if (!OPENROUTER_API_KEY) {
     console.error('缺少环境变量 OPENROUTER_API_KEY');
@@ -75,8 +77,9 @@ async function callOpenRouter(marketData) {
 }
 
 // 逐条校验候选，不通过的直接丢弃（不影响其他候选）。
-// 只能验证"这条新闻真实存在"和"公司名确实出现在该新闻依据里"，无法验证代码↔公司的真实对应关系（数据源限制），
-// 因此 code 只做格式校验，并标记 codeUnverified:true，前端必须提示人工自行核实。
+// 第一层：验证"这条新闻真实存在"和"公司名确实出现在该新闻依据里"。
+// 第二层：验证"这家公司是否真实在A股（沪A/深A/京A/科创板）上市"，用东财证券搜索接口核验——
+// 防止LLM把港股/美股公司（如腾讯只在港股上市）当成A股候选推出来，也顺带拿到真实代码替换LLM猜测的代码。
 function fuzzyContains(haystack, needle) {
     if (!haystack || !needle) return false;
     const h = haystack.replace(/\s+/g, '');
@@ -89,7 +92,7 @@ function fuzzyContains(haystack, needle) {
     return matched / n.length > 0.85;
 }
 
-function verifyCandidateStocks(candidates, newsList) {
+async function verifyCandidateStocks(candidates, newsList) {
     const titles = (newsList || []).map(n => n.title || '');
     const out = [];
     for (const c of candidates) {
@@ -97,15 +100,19 @@ function verifyCandidateStocks(candidates, newsList) {
         const quoteMatchesRealNews = titles.some(t => fuzzyContains(t, c.newsQuote) || fuzzyContains(c.newsQuote, t));
         if (!quoteMatchesRealNews) continue;
         if (!c.newsQuote.includes(c.name)) continue;
-        const codeFormatValid = /^\d{6}$/.test(String(c.code));
+        const aShare = await verifyAShareCompany(c.name);
+        if (!aShare.verified) {
+            console.error(`discover-candidates: "${c.name}" 未能核验为A股上市公司，丢弃该候选`);
+            continue;
+        }
         out.push({
-            name: c.name,
-            code: String(c.code),
+            name: aShare.officialName,
+            code: aShare.code,
             newsQuote: c.newsQuote,
             newsTime: c.newsTime || '',
             reason: c.reason || '',
-            codeUnverified: true,
-            codeFormatValid
+            codeUnverified: false,
+            codeFormatValid: true
         });
     }
     return out;
@@ -121,7 +128,7 @@ async function main() {
         console.error('discover-candidates: LLM调用/解析失败，输出空候选列表:', e.message);
         rawCandidates = [];
     }
-    const verified = verifyCandidateStocks(rawCandidates, marketData.news || []);
+    const verified = await verifyCandidateStocks(rawCandidates, marketData.news || []);
     process.stdout.write(JSON.stringify({
         candidatesGeneratedAt: new Date().toISOString().slice(0, 19) + 'Z',
         aiCandidates: verified

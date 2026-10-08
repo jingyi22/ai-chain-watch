@@ -4,6 +4,8 @@
 // 用法：node discover-industry-signals.mjs < market-data.json > signal-candidates.json
 // OPENROUTER_API_KEY 必须通过环境变量传入，脚本本身不读取/不写入任何密钥到文件。
 
+import { verifyAShareCompany } from './verify-a-share.mjs';
+
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 if (!OPENROUTER_API_KEY) {
     console.error('缺少环境变量 OPENROUTER_API_KEY');
@@ -77,7 +79,9 @@ async function callOpenRouter(marketData) {
 }
 
 // 逐条校验候选，不通过的直接丢弃（不影响其他候选）。
-// 只能验证"这条新闻真实存在"和"信号分类/板块在允许范围内"，无法验证"这条新闻是否真的意味着该产业信号"这类语义判断（数据源限制）。
+// 第一层：验证"这条新闻真实存在"和"信号分类/板块在允许范围内"。
+// 第二层：stocks数组逐个用东财证券搜索接口核验是否真实在A股上市——防止把港股/美股公司
+// （如新闻里提到的"腾讯"）当成A股关联标的带出来；未能核验的名字直接从stocks里剔除。
 function fuzzyContains(haystack, needle) {
     if (!haystack || !needle) return false;
     const h = haystack.replace(/\s+/g, '');
@@ -89,7 +93,7 @@ function fuzzyContains(haystack, needle) {
     return matched / n.length > 0.85;
 }
 
-function verifySignalCandidates(candidates, newsList) {
+async function verifySignalCandidates(candidates, newsList) {
     const titles = (newsList || []).map(n => n.title || '');
     const out = [];
     for (const c of candidates) {
@@ -99,7 +103,16 @@ function verifySignalCandidates(candidates, newsList) {
         if (!SIGNAL_TYPES.includes(c.signalType)) continue;
         if (!SECTOR_KEYS.includes(c.sector)) continue;
         const impact = ['利好', '利空', '中性'].includes(c.impact) ? c.impact : '中性';
-        const stocks = Array.isArray(c.stocks) ? c.stocks.filter(s => typeof s === 'string' && c.newsQuote.includes(s)) : [];
+        const rawStocks = Array.isArray(c.stocks) ? c.stocks.filter(s => typeof s === 'string' && c.newsQuote.includes(s)) : [];
+        const stocks = [];
+        for (const name of rawStocks) {
+            const aShare = await verifyAShareCompany(name);
+            if (aShare.verified) {
+                stocks.push(aShare.officialName);
+            } else {
+                console.error(`discover-industry-signals: "${name}" 未能核验为A股上市公司，从stocks中剔除`);
+            }
+        }
         out.push({
             signalType: c.signalType,
             sector: c.sector,
@@ -123,7 +136,7 @@ async function main() {
         console.error('discover-industry-signals: LLM调用/解析失败，输出空候选列表:', e.message);
         rawCandidates = [];
     }
-    const verified = verifySignalCandidates(rawCandidates, marketData.news || []);
+    const verified = await verifySignalCandidates(rawCandidates, marketData.news || []);
     process.stdout.write(JSON.stringify({
         signalCandidatesGeneratedAt: new Date().toISOString().slice(0, 19) + 'Z',
         industrySignalCandidates: verified
