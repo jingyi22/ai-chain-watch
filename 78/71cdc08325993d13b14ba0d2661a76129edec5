@@ -1,0 +1,24 @@
+.github/workflows/daily-update.yml
+  s_1ed1f76a53fccb::t_45307a3b587d19 57-62,64
+scripts/write-data.mjs
+  s_1ed1f76a53fccb::t_6087586155d96b 3-4,8,10,17-24
+  s_1ed1f76a53fccb::t_05043df4e46d07 94,99,104,117-119
+scripts/discover-candidates.mjs
+  s_1ed1f76a53fccb::t_00635f3d7c37bd 1-134
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "7871cdc08325993d13b14ba0d2661a76129edec5",
+  "prompts": {},
+  "sessions": {
+    "s_1ed1f76a53fccb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "441929b3-1a83-42d0-8964-79ee9ee9a8df",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Elena Lu （陆靖沂） <elenalu@trip.com>"
+    }
+  }
+}
