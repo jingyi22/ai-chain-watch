@@ -1,0 +1,29 @@
+data/daily.json
+  s_7ca38d5e476767::t_14d823e4e635ec 470
+scripts/verify-a-share.mjs
+  s_7ca38d5e476767::t_8815d52a074f83 1-36
+scripts/discover-candidates.mjs
+  s_7ca38d5e476767::t_16bc3ed336c97c 80-82,95,103-107,109-110,114-115
+  s_7ca38d5e476767::t_587c6b8b9592a6 7-8
+  s_7ca38d5e476767::t_010025ecb70fb6 131
+scripts/discover-industry-signals.mjs
+  s_7ca38d5e476767::t_7e8a8c4c0b5abe 82-84,96,106-115
+  s_7ca38d5e476767::t_fc7aaad7d902e0 7-8
+  s_7ca38d5e476767::t_39c0db22a960d1 139
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "6c8e893e32cf6acd21dcc2a4e567995e88bac821",
+  "prompts": {},
+  "sessions": {
+    "s_7ca38d5e476767": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7281adbc-c5e4-4815-90ce-0837049ef2b5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Elena Lu （陆靖沂） <elenalu@trip.com>"
+    }
+  }
+}
