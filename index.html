@@ -2347,6 +2347,19 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
                 <div class="watchlist-log-title">📝 调入/调出记录</div>
                 <div class="watchlist-log" id="mwlLog"></div>
             </div>
+            <div id="aiCandSection" style="display:none;margin-top:20px;">
+                <div class="sector-header" style="background:linear-gradient(135deg,#2e2a1a 0%,#3e3416 50%,#60510f 100%);border:1px solid rgba(255,193,7,0.2);">
+                    <span class="sector-icon">🤖</span>
+                    <div>
+                        <h2>AI新闻候选 <span style="font-size:12px;color:var(--text3);font-weight:400;">待人工确认</span></h2>
+                        <p class="sector-sub" id="aiCandGeneratedAt"></p>
+                    </div>
+                </div>
+                <div style="background:rgba(255,193,7,0.12);border:1px solid rgba(255,193,7,0.3);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:12px;color:#ffc107;">
+                    ⚠️ 以上候选由AI从当日新闻标题中筛选，股票代码未经真实性核验，新闻依据请自行核对原文。仅供参考，不构成推荐，转入观察池/金股池需人工手动确认。
+                </div>
+                <div class="watchlist-grid" id="aiCandGrid"></div>
+            </div>
         </div>
     </div><!-- page-market -->
 
@@ -2391,16 +2404,10 @@ th.sortable .sort-arrow { font-size: 10px; margin-left: 2px; opacity: 0.7; }
     <div id="page-advisor" style="display:none;">
         <div class="advisor-sub-tabs">
             <span class="advisor-sub-tab active" data-atab="recommendations" onclick="switchAdvisorTab('recommendations')">🎯 推票记录</span>
-            <span class="advisor-sub-tab" data-atab="portfolio" onclick="switchAdvisorTab('portfolio')">💼 持仓管理</span>
             <span class="advisor-sub-tab" data-atab="report" onclick="switchAdvisorTab('report')">📋 投顾日报</span>
-            <span class="advisor-sub-tab" data-atab="alerts" onclick="switchAdvisorTab('alerts')">🔔 盘中预警</span>
-            <span class="advisor-sub-tab" data-atab="trades" onclick="switchAdvisorTab('trades')">📊 交易日志</span>
         </div>
         <div id="advisor-recommendations" class="advisor-panel"></div>
-        <div id="advisor-portfolio" class="advisor-panel" style="display:none;"></div>
         <div id="advisor-report" class="advisor-panel" style="display:none;"></div>
-        <div id="advisor-alerts" class="advisor-panel" style="display:none;"></div>
-        <div id="advisor-trades" class="advisor-panel" style="display:none;"></div>
     </div>
 
     <!-- 产业链消息页 -->
@@ -3546,6 +3553,12 @@ async function loadDailyData() {
         if (d.limitUpScanData && d.limitUpScanData.items && d.limitUpScanData.items.length > 0) {
             limitUpScanData = d.limitUpScanData;
         }
+
+        if (Array.isArray(d.aiCandidates)) {
+            AI_CANDIDATES = d.aiCandidates;
+            AI_CANDIDATES_GENERATED_AT = d.candidatesGeneratedAt || '';
+            renderAiCandidates();
+        }
     } catch (e) {
         // 网络失败/文件不存在时保留硬编码fallback，不打断页面渲染
         console.warn('loadDailyData: 使用本地fallback数据', e.message);
@@ -3571,20 +3584,8 @@ var industrySignals = [
 ];
 
 /* AI投顾数据 */
-var userPortfolio = JSON.parse(localStorage.getItem('compute_radar_portfolio') || '[]');
 var advisorReport = {
     date: "2026-09-22",
-    portfolioCheck: [
-        {code:"688146", name:"中船特气", sector:"semiconductor", health:"risk", costPrice:318.30, currentPrice:222.60, pnl:-30.1, advice:"6月末已提示PE544倍严重高估并建议反弹减仓；三个月内跌破340元止损位后继续下探至222元附近，累计跌幅超40%。中报营收+83%/净利+96%大幅超预期，但10/21约72.62%总股本解禁在即，市场抛压预期是当前主因，非基本面暴雷。已止损离场标的，解禁后走势需重新评估，暂不追加。", stopLoss:"已跌破340元（原止损位）", target:"—（观察解禁后企稳信号）"},
-        {code:"688535", name:"华海诚科", sector:"storage", health:"risk", costPrice:152.90, currentPrice:110.61, pnl:-27.6, advice:"6月末186元创新高后回落，三个月内跌破165元止损位下探至110元附近，累计跌幅超40%。中报营收+162%/净利+188%业绩兑现良好，但HBM专用GMC订单放量的产业叙事仍缺乏官方公告佐证；8月末发生股东减持，且跟随科创板高估值板块系统性回调（8月科创50联接基金月跌超13%）。已跌破止损位，建议持有观察但不加仓，等HBM订单兑现有实质性公告再重新评估。", stopLoss:"已跌破165元（原止损位）", target:"—（观察HBM订单公告催化）"}
-    ],
-    positionAssessment: {
-        totalValue: 185600,
-        cashRatio: 0.35,
-        positionRatio: 0.65,
-        maxPosition: 0.80,
-        advice: "本期两只前期持仓（中船特气/华海诚科）均已跌破止损位，累计跌幅30-40%，建议严格执行止损纪律离场观察，不因业绩兑现良好而恋战估值泡沫。江丰电子中报净利+114%大超预期，PE从309倍回落至89倍，估值消化充分，是三只标的中基本面信号最正面的一只，维持观察，回踩企稳后可考虑重新介入。"
-    },
     recommendations: [
         {
             code:"300666", name:"江丰电子", sector:"semiconductor",
@@ -3651,8 +3652,6 @@ var advisorReport = {
         }
     ]
 };
-var advisorAlerts = []; // 由 generateAdvisorData() 自动生成
-var tradeLogs = []; // 由 generateAdvisorData() 自动生成
 
 // 全市场涨停扫描数据（每日更新时写入）
 var limitUpScanData = {
@@ -3687,183 +3686,11 @@ var limitUpScanData = {
     ],
 };
 
-// 从推票自动生成持仓/交易日志/预警/仓位评估
-function generateAdvisorData() {
-    var recs = advisorReport.recommendations || [];
-    var pa = advisorReport.positionAssessment || {};
-    var totalValue = pa.totalValue || 185600;
-    var maxPosition = pa.maxPosition || 0.80;
-    var reportDate = advisorReport.date || '2026-06-30';
-
-    var autoPortfolio = [];
-    var autoTradeLogs = [];
-    var autoAlerts = [];
-
-    recs.forEach(function(rec, idx) {
-        var price = rec.priceData ? rec.priceData.current : 0;
-        if (!price) return;
-        var action = rec.action;
-        var positionPct = Math.abs(rec.position || 0);
-
-        // 获取全局priceData中的当前价
-        var prefix = '';
-        if (typeof goldPool !== 'undefined') {
-            for (var i = 0; i < goldPool.length; i++) {
-                if (goldPool[i].code === rec.code) { prefix = goldPool[i].prefix; break; }
-            }
-        }
-        var livePrice = price;
-        if (prefix && typeof priceData !== 'undefined' && priceData[prefix + rec.code]) {
-            livePrice = priceData[prefix + rec.code].price || price;
-        }
-
-        if (action === 'buy' || action === 'add') {
-            // 按仓位比例和总资金计算股数（A股100股整手）
-            var targetAmount = totalValue * positionPct;
-            var shares = Math.floor(targetAmount / price / 100) * 100;
-            if (shares < 100) shares = 100;
-            var amount = shares * price;
-            var actualPct = amount / totalValue;
-
-            autoPortfolio.push({
-                code: rec.code, name: rec.name, sector: rec.sector,
-                costPrice: price, quantity: shares, buyDate: reportDate,
-                logic: rec.actionDetail || '', action: action,
-                targetPct: positionPct, actualPct: actualPct,
-                livePrice: livePrice,
-                stopLoss: rec.stopLoss || '', target1: rec.target1 || ''
-            });
-
-            autoTradeLogs.push({
-                id: idx + 1, code: rec.code, name: rec.name, action: 'buy',
-                price: price, quantity: shares, amount: Math.round(amount),
-                executedAt: reportDate, note: rec.actionDetail || '',
-                result: 'holding', pnl: 0
-            });
-
-            // 买点提示
-            autoAlerts.push({
-                code: rec.code, name: rec.name, alertType: 'buy_point',
-                triggerPrice: price, currentPrice: livePrice,
-                message: '买点区间：' + (rec.buyRange || '') + '，' + (rec.actionDetail || ''),
-                priority: rec.tier === 1 ? 'high' : 'normal',
-                createdAt: reportDate + ' 09:00'
-            });
-
-            // 止盈提醒
-            if (rec.target1) {
-                var tpMatch = String(rec.target1).match(/([\d.]+)\s*元/);
-                var tp = tpMatch ? parseFloat(tpMatch[1]) : NaN;
-                if (!isNaN(tp) && tp > 0) {
-                    autoAlerts.push({
-                        code: rec.code, name: rec.name, alertType: 'take_profit',
-                        triggerPrice: tp, currentPrice: livePrice,
-                        message: '目标价' + rec.target1 + '，接近时分批止盈',
-                        priority: 'normal', createdAt: reportDate + ' 09:00'
-                    });
-                }
-            }
-        }
-
-        if (action === 'reduce' || action === 'sell') {
-            // 查找金股池中的推荐价作为成本
-            var origPrice = price;
-            if (typeof goldPool !== 'undefined') {
-                for (var j = 0; j < goldPool.length; j++) {
-                    if (goldPool[j].code === rec.code) { origPrice = goldPool[j].recPrice || price; break; }
-                }
-            }
-            // 按原始仓位15%计算原持有股数（确保可减仓）
-            var origShares = Math.ceil(totalValue * 0.15 / origPrice / 100) * 100;
-            if (origShares < 200) origShares = 200; // 至少2手，保证50%减仓可行
-            var reduceShares = Math.floor(origShares * positionPct / 100) * 100;
-            if (reduceShares < 100) reduceShares = 100;
-            var reduceAmount = reduceShares * livePrice;
-            var pnl = (livePrice - origPrice) * reduceShares;
-
-            autoTradeLogs.push({
-                id: idx + 1, code: rec.code, name: rec.name, action: 'sell',
-                price: livePrice, quantity: reduceShares, amount: Math.round(reduceAmount),
-                executedAt: reportDate, note: rec.actionDetail || '',
-                result: pnl >= 0 ? 'win' : 'loss', pnl: Math.round(pnl)
-            });
-
-            // 剩余持仓
-            var remainShares = origShares - reduceShares;
-            if (remainShares > 0) {
-                autoPortfolio.push({
-                    code: rec.code, name: rec.name, sector: rec.sector,
-                    costPrice: origPrice, quantity: remainShares, buyDate: reportDate,
-                    logic: '减仓后剩余', action: 'reduce',
-                    livePrice: livePrice,
-                    stopLoss: rec.stopLoss || '', target1: rec.target1 || ''
-                });
-            }
-        }
-
-        // 止损预警（所有有止损的推荐）
-        if (rec.stopLoss) {
-            var slMatch = String(rec.stopLoss).match(/([\d.]+)\s*元/);
-            var sl = slMatch ? parseFloat(slMatch[1]) : NaN;
-            if (!isNaN(sl) && sl > 0) {
-                autoAlerts.push({
-                    code: rec.code, name: rec.name, alertType: 'stop_loss_watch',
-                    triggerPrice: sl, currentPrice: livePrice,
-                    message: '止损位' + rec.stopLoss + '，' + (rec.dynamicNote || ''),
-                    priority: action === 'reduce' ? 'high' : 'normal',
-                    createdAt: reportDate + ' 09:00'
-                });
-            }
-        }
-    });
-
-    // 动态计算仓位
-    var totalPosValue = autoPortfolio.reduce(function(s, p) {
-        return s + (p.livePrice || p.costPrice) * p.quantity;
-    }, 0);
-    var actualPosRatio = totalPosValue / totalValue;
-    var actualCashRatio = 1 - actualPosRatio;
-
-    advisorReport.positionAssessment.positionRatio = actualPosRatio;
-    advisorReport.positionAssessment.cashRatio = actualCashRatio;
-    var posPct = Math.round(actualPosRatio * 100);
-    var maxPct = Math.round(maxPosition * 100);
-    if (posPct > maxPct) {
-        advisorReport.positionAssessment.advice = '仓位' + posPct + '%已超上限' + maxPct + '%，建议适度减仓控制风险。';
-    } else if (posPct > maxPct * 0.85) {
-        advisorReport.positionAssessment.advice = '仓位' + posPct + '%接近上限' + maxPct + '%，加仓空间有限，谨慎操作。';
-    } else {
-        advisorReport.positionAssessment.advice = '仓位' + posPct + '%适中（上限' + maxPct + '%），现金' + Math.round(actualCashRatio * 100) + '%留作加仓弹药。';
-    }
-
-    // 自动生成持仓体检
-    advisorReport.portfolioCheck = autoPortfolio.map(function(p) {
-        var currentPrice = p.livePrice || p.costPrice;
-        var pnl = p.costPrice > 0 ? ((currentPrice - p.costPrice) / p.costPrice * 100) : 0;
-        var health = pnl > 10 ? 'good' : (pnl < -5 ? 'risk' : 'watch');
-        var matchingRec = recs.filter(function(r) { return r.code === p.code; })[0];
-        return {
-            code: p.code, name: p.name, sector: p.sector, health: health,
-            costPrice: p.costPrice, currentPrice: currentPrice,
-            pnl: Math.round(pnl * 10) / 10,
-            advice: matchingRec ? matchingRec.dynamicNote : '',
-            stopLoss: matchingRec ? matchingRec.stopLoss : '',
-            target: matchingRec ? (matchingRec.target1 || '') : ''
-        };
-    });
-
-    // 替换全局变量
-    userPortfolio = autoPortfolio;
-    tradeLogs = autoTradeLogs;
-    advisorAlerts = autoAlerts;
-}
-
 // ============ AI投顾页 (page-advisor) 渲染 ============
 // AI投顾页入口：权限校验 + 默认渲染推票记录
 function renderAdvisorPage() {
     var tabsBar = document.querySelector('.advisor-sub-tabs');
     if (tabsBar) tabsBar.style.display = '';
-    generateAdvisorData();
     switchAdvisorTab('recommendations');
 }
 
@@ -3872,16 +3699,13 @@ function switchAdvisorTab(tab) {
     document.querySelectorAll('.advisor-sub-tab').forEach(function (t) {
         t.classList.toggle('active', t.dataset.atab === tab);
     });
-    var panels = { recommendations: 'advisor-recommendations', portfolio: 'advisor-portfolio', report: 'advisor-report', alerts: 'advisor-alerts', trades: 'advisor-trades' };
+    var panels = { recommendations: 'advisor-recommendations', report: 'advisor-report' };
     Object.keys(panels).forEach(function (k) {
         var el = document.getElementById(panels[k]);
         if (el) el.style.display = (k === tab) ? '' : 'none';
     });
     if (tab === 'recommendations') renderRecommendations();
-    else if (tab === 'portfolio') renderPortfolio();
     else if (tab === 'report') renderAdvisorReport();
-    else if (tab === 'alerts') renderAlerts();
-    else if (tab === 'trades') renderTradeLogs();
 }
 
 // 渲染推票记录：每条推荐以简洁卡片展示
@@ -3965,72 +3789,6 @@ function renderRecommendations() {
     container.innerHTML = h;
 }
 
-// 渲染持仓管理：汇总 + 自动持仓表 + 仓位评估
-function renderPortfolio() {
-    var container = document.getElementById('advisor-portfolio');
-    if (!container) return;
-    var pa = (advisorReport && advisorReport.positionAssessment) ? advisorReport.positionAssessment : {};
-    var totalValue = pa.totalValue || 0;
-    var cashRatio = pa.cashRatio || 0;
-    var positionRatio = pa.positionRatio || 0;
-    var maxPosition = pa.maxPosition || 1;
-    var cash = totalValue * cashRatio;
-    var posPct = Math.round(positionRatio * 100);
-    var maxPct = Math.round(maxPosition * 100);
-
-    var h = '';
-    // 汇总卡片
-    h += '<div class="portfolio-summary">';
-    h += '<div class="portfolio-summary-card"><div class="ps-label">账户总市值</div><div class="ps-value">¥' + totalValue.toLocaleString() + '</div></div>';
-    h += '<div class="portfolio-summary-card"><div class="ps-label">可用资金</div><div class="ps-value">¥' + Math.round(cash).toLocaleString() + '</div></div>';
-    h += '<div class="portfolio-summary-card"><div class="ps-label">仓位比例</div><div class="ps-value">' + posPct + '%</div>';
-    h += '<div class="position-bar-wrap"><div class="position-bar"><div class="position-bar-fill" style="width:' + posPct + '%"></div></div>';
-    h += '<div class="position-bar-marks"><span>0%</span><span>上限 ' + maxPct + '%</span><span>100%</span></div></div></div>';
-    h += '</div>';
-
-    // 仓位评估
-    h += '<div class="advisor-section"><div class="advisor-section-title">📊 仓位评估</div>';
-    h += '<div class="position-assessment">';
-    var cashPct = Math.round(cashRatio * 100);
-    h += '<div class="pa-ratio-row"><span>账户总市值 <b>¥' + totalValue.toLocaleString() + '</b></span><span>持仓 <b>' + posPct + '%</b></span><span>现金 <b>' + cashPct + '%</b></span><span>仓位上限 <b>' + maxPct + '%</b></span></div>';
-    h += '<div class="position-bar"><div class="position-bar-fill" style="width:' + posPct + '%"></div></div>';
-    h += '<div class="position-bar-marks"><span>0%</span><span>上限 ' + maxPct + '%</span><span>100%</span></div>';
-    h += '<div class="pa-advice">💡 ' + escapeHtml(pa.advice || '') + '</div>';
-    h += '</div></div>';
-
-    // 自动持仓表
-    h += '<div class="advisor-section"><div class="advisor-section-title">📦 当前持仓 · 推票自动生成</div>';
-    if (!userPortfolio || userPortfolio.length === 0) {
-        h += '<div class="portfolio-empty">📭 暂无持仓（推票后自动生成）</div>';
-    } else {
-        h += '<div class="portfolio-table-wrap"><table class="portfolio-table"><thead><tr>';
-        h += '<th>股票名</th><th>成本价</th><th>现价</th><th>盈亏%</th><th>持仓市值</th><th>仓位%</th><th>操作建议</th>';
-        h += '</tr></thead><tbody>';
-        userPortfolio.forEach(function (item) {
-            var livePrice = item.livePrice || item.costPrice;
-            var mv = livePrice * (item.quantity || 0);
-            var pnl = item.costPrice > 0 ? ((livePrice - item.costPrice) / item.costPrice * 100) : 0;
-            var pnlClass = pnl >= 0 ? 'up' : 'down';
-            var pnlSign = pnl >= 0 ? '+' : '';
-            var posPctItem = item.actualPct ? Math.round(item.actualPct * 100) : Math.round(mv / totalValue * 100);
-            var actionText = { buy: '新建', add: '加仓', reduce: '减仓', hold: '持有' };
-            h += '<tr>';
-            h += '<td class="pf-name">' + escapeHtml(item.name) + '<span class="pf-code">' + escapeHtml(item.code) + '</span></td>';
-            h += '<td>' + Number(item.costPrice).toFixed(2) + '</td>';
-            h += '<td class="' + pnlClass + '">' + Number(livePrice).toFixed(2) + '</td>';
-            h += '<td class="pf-pnl ' + pnlClass + '">' + pnlSign + pnl.toFixed(1) + '%</td>';
-            h += '<td>¥' + Math.round(mv).toLocaleString() + '</td>';
-            h += '<td>' + posPctItem + '%</td>';
-            h += '<td><span class="tt-action" data-action="' + escapeHtml(item.action || 'hold') + '">' + (actionText[item.action] || '持有') + '</span></td>';
-            h += '</tr>';
-        });
-        h += '</tbody></table></div>';
-        h += '<div style="font-size:12px;color:var(--text2);margin-top:8px;padding:8px 12px;background:var(--card);border-radius:6px;">📌 持仓由AI推票自动生成，按建议仓位×总资金÷现价计算股数（100股整手），无需手动录入</div>';
-    }
-    h += '</div>';
-    container.innerHTML = h;
-}
-
 // 渲染投顾日报
 function renderAdvisorReport() {
     var container = document.getElementById('advisor-report');
@@ -4038,32 +3796,6 @@ function renderAdvisorReport() {
     var r = advisorReport || {};
     var h = '';
     h += '<div class="advisor-report-date"><span class="ard-label">📅 报告日期</span><span class="ard-val">' + escapeHtml(r.date || '') + '</span></div>';
-
-    // 持仓体检
-    h += '<div class="advisor-section"><div class="advisor-section-title">🩺 持仓体检</div>';
-    var checks = r.portfolioCheck || [];
-    if (checks.length === 0) {
-        h += '<div class="portfolio-empty">暂无持仓体检数据</div>';
-    } else {
-        checks.forEach(function (c) {
-            var health = c.health || 'watch';
-            var healthText = health === 'good' ? '健康' : (health === 'watch' ? '观察' : '风险');
-            var pnlClass = c.pnl >= 0 ? 'up' : 'down';
-            var pnlSign = c.pnl >= 0 ? '+' : '';
-            h += '<div class="portfolio-check-card" data-health="' + escapeHtml(health) + '">';
-            h += '<div class="pcc-head"><div class="pcc-name">' + escapeHtml(c.name) + '<span class="pcc-code">' + escapeHtml(c.code) + ' · ' + escapeHtml(sectorName(c.sector)) + '</span></div>';
-            h += '<span class="pcc-health" data-health="' + escapeHtml(health) + '">' + healthText + '</span></div>';
-            h += '<div class="pcc-prices">';
-            h += '<span class="pp-item">成本 <b>' + Number(c.costPrice).toFixed(2) + '</b></span>';
-            h += '<span class="pp-item">现价 <b>' + Number(c.currentPrice).toFixed(2) + '</b></span>';
-            h += '<span class="pp-item">盈亏 <b class="pcc-pnl ' + pnlClass + '">' + pnlSign + c.pnl + '%</b></span>';
-            h += '</div>';
-            h += '<div class="pcc-advice">💡 ' + escapeHtml(c.advice || '') + '</div>';
-            h += '<div class="pcc-levels"><span class="pl-stop">止损 ' + escapeHtml(c.stopLoss || '') + '</span><span class="pl-target">目标 ' + escapeHtml(c.target || '') + '</span></div>';
-            h += '</div>';
-        });
-    }
-    h += '</div>';
 
     // 新机会推荐（分层漏斗）
     h += '<div class="advisor-section"><div class="advisor-section-title">🚀 AI推票 · 层层筛选</div>';
@@ -4193,91 +3925,6 @@ function renderAdvisorReport() {
     }
     h += '</div>';
 
-    container.innerHTML = h;
-}
-
-// 渲染盘中预警
-function renderAlerts() {
-    var container = document.getElementById('advisor-alerts');
-    if (!container) return;
-    var alerts = (advisorAlerts || []).slice();
-    var priorityOrder = { high: 0, normal: 1, low: 2 };
-    alerts.sort(function (a, b) { return (priorityOrder[a.priority] || 9) - (priorityOrder[b.priority] || 9); });
-    if (alerts.length === 0) {
-        container.innerHTML = '<div class="alert-empty">🔕 暂无预警</div>';
-        return;
-    }
-    var iconMap = { take_profit: '🎯', stop_loss_watch: '⚠️', buy_point: '📈' };
-    var typeText = { take_profit: '止盈提醒', stop_loss_watch: '止损预警', buy_point: '买点提示' };
-    var priText = { high: '高', normal: '中', low: '低' };
-    var h = '';
-    alerts.forEach(function (a) {
-        var icon = iconMap[a.alertType] || '🔔';
-        var tt = typeText[a.alertType] || a.alertType;
-        var pt = priText[a.priority] || a.priority;
-        h += '<div class="alert-card" data-priority="' + escapeHtml(a.priority || 'low') + '">';
-        h += '<div class="alert-head"><span class="alert-icon">' + icon + '</span>';
-        h += '<span class="alert-name">' + escapeHtml(a.name) + '<span class="alert-code">' + escapeHtml(a.code) + '</span></span>';
-        h += '<span class="alert-type" data-type="' + escapeHtml(a.alertType) + '">' + tt + '</span>';
-        h += '<span class="alert-priority" data-priority="' + escapeHtml(a.priority) + '">' + pt + '优先级</span></div>';
-        h += '<div class="alert-prices">';
-        h += '<span class="ap-item">触发价 <b>' + Number(a.triggerPrice).toFixed(2) + '</b></span>';
-        h += '<span class="ap-item">当前价 <b>' + Number(a.currentPrice).toFixed(2) + '</b></span>';
-        h += '</div>';
-        h += '<div class="alert-message">' + escapeHtml(a.message || '') + '</div>';
-        h += '<div class="alert-time">🕒 ' + escapeHtml(a.createdAt || '') + '</div>';
-        h += '</div>';
-    });
-    container.innerHTML = h;
-}
-
-// 渲染交易日志
-function renderTradeLogs() {
-    var container = document.getElementById('advisor-trades');
-    if (!container) return;
-    var logs = tradeLogs || [];
-    var winCount = logs.filter(function (t) { return t.result === 'win'; }).length;
-    var lossCount = logs.filter(function (t) { return t.result === 'loss'; }).length;
-    var holdingCount = logs.filter(function (t) { return t.result === 'holding'; }).length;
-    var closed = winCount + lossCount;
-    var winRate = closed > 0 ? Math.round(winCount / closed * 100) : 0;
-    var totalPnl = logs.reduce(function (s, t) { return s + (t.pnl || 0); }, 0);
-
-    var h = '';
-    h += '<div class="trade-stats">';
-    h += '<div class="trade-stat-card"><div class="ts-label">胜率</div><div class="ts-value ' + (winRate >= 50 ? 'up' : 'down') + '">' + winRate + '%</div></div>';
-    h += '<div class="trade-stat-card"><div class="ts-label">总盈亏</div><div class="ts-value ' + (totalPnl >= 0 ? 'up' : 'down') + '">' + (totalPnl >= 0 ? '+' : '') + totalPnl.toLocaleString() + '</div></div>';
-    h += '<div class="trade-stat-card"><div class="ts-label">交易次数</div><div class="ts-value">' + logs.length + '</div></div>';
-    h += '<div class="trade-stat-card"><div class="ts-label">持仓中</div><div class="ts-value">' + holdingCount + '</div></div>';
-    h += '</div>';
-
-    if (logs.length === 0) {
-        h += '<div class="portfolio-empty">📭 暂无交易记录</div>';
-        container.innerHTML = h;
-        return;
-    }
-
-    var actionText = { buy: '买入', sell: '卖出' };
-    var resultText = { holding: '持仓中', win: '已盈利', loss: '已止损' };
-    h += '<div class="trade-table-wrap"><table class="trade-table"><thead><tr>';
-    h += '<th>股票名</th><th>方向</th><th>价格</th><th>数量</th><th>金额</th><th>盈亏</th><th>日期</th><th>备注</th><th>状态</th>';
-    h += '</tr></thead><tbody>';
-    logs.forEach(function (t) {
-        var pnlClass = (t.pnl || 0) >= 0 ? 'up' : 'down';
-        var pnlSign = (t.pnl || 0) >= 0 ? '+' : '';
-        h += '<tr>';
-        h += '<td class="tt-name">' + escapeHtml(t.name) + '<span class="tt-code">' + escapeHtml(t.code) + '</span></td>';
-        h += '<td><span class="tt-action" data-action="' + escapeHtml(t.action) + '">' + (actionText[t.action] || t.action) + '</span></td>';
-        h += '<td>' + Number(t.price).toFixed(2) + '</td>';
-        h += '<td>' + t.quantity + '</td>';
-        h += '<td>¥' + (t.amount || 0).toLocaleString() + '</td>';
-        h += '<td class="tt-pnl ' + pnlClass + '">' + pnlSign + (t.pnl || 0).toLocaleString() + '</td>';
-        h += '<td>' + escapeHtml(t.executedAt || '') + '</td>';
-        h += '<td>' + escapeHtml(t.note || '') + '</td>';
-        h += '<td><span class="tt-result" data-result="' + escapeHtml(t.result) + '">' + (resultText[t.result] || t.result) + '</span></td>';
-        h += '</tr>';
-    });
-    h += '</tbody></table></div>';
     container.innerHTML = h;
 }
 
@@ -5679,6 +5326,10 @@ var WATCHLIST = [
         price:0, change:0
     }
 ];
+
+// AI新闻候选（半自动：discover-candidates.mjs每日生成，仅供人工审查，不自动写入WATCHLIST/goldPool）
+var AI_CANDIDATES = [];
+var AI_CANDIDATES_GENERATED_AT = '';
 
 // 观察池调入/调出日志（新条目在前）
 var WATCHLIST_LOG = [
@@ -8370,6 +8021,28 @@ function renderWatchlist() {
             '</div>';
         }).join('');
     }
+}
+
+function renderAiCandidates() {
+    var section = document.getElementById('aiCandSection');
+    var grid = document.getElementById('aiCandGrid');
+    var genAtEl = document.getElementById('aiCandGeneratedAt');
+    if (!section || !grid) return;
+    if (!Array.isArray(AI_CANDIDATES) || AI_CANDIDATES.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+    section.style.display = '';
+    if (genAtEl) genAtEl.textContent = AI_CANDIDATES_GENERATED_AT ? ('生成于 ' + AI_CANDIDATES_GENERATED_AT) : '';
+    grid.innerHTML = AI_CANDIDATES.map(function(c){
+        return '<div class="wl-card">' +
+            '<div class="wl-card-top">' +
+                '<div><span class="wl-card-name">' + escapeHtml(c.name||'') + '</span><span class="wl-card-code">' + escapeHtml(c.code||'') + (c.codeUnverified ? ' <span style="color:#ffc107;">未核验</span>' : '') + '</span></div>' +
+            '</div>' +
+            '<div class="wl-card-reason" style="color:var(--text3);">📰 ' + escapeHtml(c.newsQuote||'') + (c.newsTime ? ' · ' + escapeHtml(c.newsTime) : '') + '</div>' +
+            '<div class="wl-card-reason">' + escapeHtml(c.reason||'') + '</div>' +
+        '</div>';
+    }).join('');
 }
 
 // ============ 术语词典（悬浮注释） ============

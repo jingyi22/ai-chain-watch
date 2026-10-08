@@ -1,17 +1,27 @@
 // 汇总 fetch-market-data.mjs 的真实数据 + generate-briefing.mjs 的生成文本，
 // 写出 data/daily.json（index.html 启动时 fetch 这个文件，失败则回退硬编码数组）。
-// 用法：node write-data.mjs <morning|review> <marketData.json> <briefing.json> <outPath>
+// 用法：node write-data.mjs <morning|review> <marketData.json> <briefing.json> <outPath> [candidates.json]
+// candidates.json 可选：discover-candidates.mjs 的输出（已经过校验），缺省或读取失败则不更新候选股字段（保留上一份数据）。
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
 import { dirname } from 'path';
 
-const [, , type, marketDataPath, briefingPath, outPath] = process.argv;
+const [, , type, marketDataPath, briefingPath, outPath, candidatesPath] = process.argv;
 if (!type || !marketDataPath || !briefingPath || !outPath) {
-    console.error('用法: node write-data.mjs <morning|review> <marketData.json> <briefing.json> <outPath>');
+    console.error('用法: node write-data.mjs <morning|review> <marketData.json> <briefing.json> <outPath> [candidates.json]');
     process.exit(1);
 }
 
 const marketData = JSON.parse(readFileSync(marketDataPath, 'utf8'));
 const briefing = JSON.parse(readFileSync(briefingPath, 'utf8'));
+
+function loadCandidates() {
+    if (!candidatesPath || !existsSync(candidatesPath)) return null;
+    try {
+        return JSON.parse(readFileSync(candidatesPath, 'utf8'));
+    } catch {
+        return null;
+    }
+}
 
 function buildDailyBriefing() {
     if (type === 'morning') {
@@ -81,16 +91,17 @@ function buildPriceData() {
 
 function loadExisting(path) {
     if (!existsSync(path)) {
-        return { dailyBriefings: [], goldPoolSignals: {}, priceData: {}, limitUpScanData: null };
+        return { dailyBriefings: [], goldPoolSignals: {}, priceData: {}, limitUpScanData: null, aiCandidates: [], candidatesGeneratedAt: null };
     }
     try {
         return JSON.parse(readFileSync(path, 'utf8'));
     } catch {
-        return { dailyBriefings: [], goldPoolSignals: {}, priceData: {}, limitUpScanData: null };
+        return { dailyBriefings: [], goldPoolSignals: {}, priceData: {}, limitUpScanData: null, aiCandidates: [], candidatesGeneratedAt: null };
     }
 }
 
 const existing = loadExisting(outPath);
+const candidatesResult = loadCandidates();
 
 const newBriefing = buildDailyBriefing();
 const dailyBriefings = [newBriefing, ...(existing.dailyBriefings || []).filter(b => b.date !== newBriefing.date)]
@@ -103,7 +114,9 @@ const output = {
     goldPoolSignals: { ...(existing.goldPoolSignals || {}), ...buildGoldPoolSignals() },
     priceData: { ...(existing.priceData || {}), ...buildPriceData() },
     limitUpScanData: buildLimitUpScanData(),
-    fetchErrors: marketData.errors || []
+    fetchErrors: marketData.errors || [],
+    aiCandidates: candidatesResult ? (candidatesResult.aiCandidates || []) : (existing.aiCandidates || []),
+    candidatesGeneratedAt: candidatesResult ? (candidatesResult.candidatesGeneratedAt || null) : (existing.candidatesGeneratedAt || null)
 };
 
 mkdirSync(dirname(outPath), { recursive: true });
