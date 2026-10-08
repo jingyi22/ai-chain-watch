@@ -1,7 +1,27 @@
 {
-  "generatedAt": "2026-10-07T02:06:57.001Z",
-  "date": "2026-10-07",
+  "generatedAt": "2026-10-08T07:10:25.300Z",
+  "date": "2026-10-08",
   "dailyBriefings": [
+    {
+      "date": "2026-10-08",
+      "type": "morning",
+      "title": "2026-10-08 早报：AI制药融资洽谈引关注，美联储纪要影响市场",
+      "overnightMarket": "谷歌系AI制药初创公司被曝洽谈新轮融资，估值至高可达500亿美元；美联储纪要提及AI成为加息新变量。",
+      "keyNews": [
+        "AI制药领域再获加码，谷歌系初创公司洽谈新轮融资，估值或达500亿美元。",
+        "美联储纪要显示，AI技术可能成为未来加息决策的新变量。",
+        "华虹宏力旗下无锡三期半导体公司增资约41.6亿美元，国家大基金三期旗下基金等入股。"
+      ],
+      "todayAgenda": [
+        "关注AI制药领域的融资进展及其对相关股票的影响。",
+        "美联储纪要中提到的AI技术对加息决策的影响值得关注。",
+        "华虹宏力旗下半导体公司的增资情况可能对半导体板块产生影响。"
+      ],
+      "goldStockChanges": "今日金股池中，中船特气下跌3.91%，炬光科技下跌13.43%，长电科技下跌2.61%，江丰电子下跌5.91%，天孚通信下跌9.86%，胜宏科技下跌1.94%，东材科技上涨5.60%，宏和科技下跌4.64%，江波龙下跌4.41%，华海诚科下跌6.18%，鼎龙股份下跌6.69%，中际旭创下跌3.15%。",
+      "opportunities": [],
+      "risks": [],
+      "conclusion": "今日市场关注点集中在AI制药融资洽谈和美联储纪要中AI技术对加息决策的影响。金股池中多数股票下跌，东材科技逆势上涨。"
+    },
     {
       "date": "2026-10-07",
       "type": "morning",
@@ -306,143 +326,143 @@
     }
   ],
   "goldPoolSignals": {
-    "300054": "鼎龙股份今日下跌1.36%，现价67.45元。",
-    "300308": "中际旭创今日下跌0.56%，现价808.44元。",
-    "300394": "天孚通信今日上涨1.87%，现价260.77元。",
-    "300476": "胜宏科技今日下跌2.98%，现价210.30元。",
-    "300666": "江丰电子今日下跌3.28%，现价222.78元。",
-    "301308": "江波龙今日下跌3.12%，现价301.93元。",
-    "600584": "长电科技今日下跌2.16%，现价64.28元。",
-    "601208": "东材科技今日下跌4.57%，现价48.22元。",
-    "603256": "宏和科技今日下跌6.01%，现价130.70元。",
-    "688146": "中船特气今日下跌1.34%，现价190.66元。",
-    "688167": "炬光科技今日下跌0.49%，现价282.88元。",
-    "688535": "华海诚科今日下跌4.01%，现价97.38元。"
+    "300054": "鼎龙股份今日下跌6.69%，表现疲软。",
+    "300308": "中际旭创今日下跌3.15%，表现一般。",
+    "300394": "天孚通信今日大跌9.86%，市场表现不佳。",
+    "300476": "胜宏科技今日下跌1.94%，表现平稳。",
+    "300666": "江丰电子今日下跌5.91%，表现较弱。",
+    "301308": "江波龙今日下跌4.41%，表现较弱。",
+    "600584": "长电科技今日下跌2.61%，表现一般。",
+    "601208": "东材科技今日逆势上涨5.60%，表现亮眼。",
+    "603256": "宏和科技今日下跌4.64%，表现一般。",
+    "688146": "中船特气今日下跌3.91%，表现疲软。",
+    "688167": "炬光科技今日大跌13.43%，市场表现不佳。",
+    "688535": "华海诚科今日下跌6.18%，表现不佳。"
   },
   "priceData": {
     "300054": {
-      "price": "67.45",
-      "change": "-0.93",
-      "changePct": "-1.36",
-      "high": "69.71",
-      "low": "66.47",
-      "turnover": "1.78",
-      "pe": "68.61",
-      "marketCap": "502.18"
+      "price": "62.94",
+      "change": "-4.51",
+      "changePct": "-6.69",
+      "high": "68.10",
+      "low": "62.31",
+      "turnover": "3.16",
+      "pe": "64.02",
+      "marketCap": "468.60"
     },
     "300308": {
-      "price": "808.44",
-      "change": "-4.57",
-      "changePct": "-0.56",
-      "high": "831.59",
-      "low": "808.00",
-      "turnover": "1.42",
-      "pe": "46.56",
-      "marketCap": "8973.17"
+      "price": "783.00",
+      "change": "-25.44",
+      "changePct": "-3.15",
+      "high": "834.54",
+      "low": "772.18",
+      "turnover": "2.40",
+      "pe": "45.09",
+      "marketCap": "8690.81"
     },
     "300394": {
-      "price": "260.77",
-      "change": "4.78",
-      "changePct": "1.87",
-      "high": "266.85",
-      "low": "253.16",
-      "turnover": "2.70",
-      "pe": "122.49",
-      "marketCap": "2838.19"
+      "price": "235.07",
+      "change": "-25.70",
+      "changePct": "-9.86",
+      "high": "259.80",
+      "low": "230.78",
+      "turnover": "3.76",
+      "pe": "110.42",
+      "marketCap": "2558.47"
     },
     "300476": {
-      "price": "210.30",
-      "change": "-6.46",
-      "changePct": "-2.98",
-      "high": "219.29",
-      "low": "208.43",
-      "turnover": "2.26",
-      "pe": "41.12",
-      "marketCap": "1819.50"
+      "price": "206.23",
+      "change": "-4.07",
+      "changePct": "-1.94",
+      "high": "218.50",
+      "low": "203.30",
+      "turnover": "2.53",
+      "pe": "40.33",
+      "marketCap": "1784.29"
     },
     "300666": {
-      "price": "222.78",
-      "change": "-7.55",
-      "changePct": "-3.28",
-      "high": "232.56",
-      "low": "220.80",
-      "turnover": "2.84",
-      "pe": "78.17",
-      "marketCap": "493.33"
+      "price": "209.62",
+      "change": "-13.16",
+      "changePct": "-5.91",
+      "high": "224.36",
+      "low": "207.00",
+      "turnover": "3.44",
+      "pe": "73.55",
+      "marketCap": "464.19"
     },
     "301308": {
-      "price": "301.93",
-      "change": "-9.73",
-      "changePct": "-3.12",
-      "high": "317.00",
-      "low": "300.94",
-      "turnover": "2.67",
-      "pe": "11.58",
-      "marketCap": "851.00"
+      "price": "288.60",
+      "change": "-13.33",
+      "changePct": "-4.41",
+      "high": "302.25",
+      "low": "285.00",
+      "turnover": "3.29",
+      "pe": "11.07",
+      "marketCap": "813.42"
     },
     "600584": {
-      "price": "64.28",
-      "change": "-1.42",
-      "changePct": "-2.16",
-      "high": "66.36",
-      "low": "64.01",
-      "turnover": "2.50",
-      "pe": "59.32",
-      "marketCap": "1150.24"
+      "price": "62.60",
+      "change": "-1.68",
+      "changePct": "-2.61",
+      "high": "66.00",
+      "low": "62.20",
+      "turnover": "2.73",
+      "pe": "57.77",
+      "marketCap": "1120.17"
     },
     "601208": {
-      "price": "48.22",
-      "change": "-2.31",
-      "changePct": "-4.57",
-      "high": "50.48",
-      "low": "48.01",
-      "turnover": "4.88",
-      "pe": "119.73",
-      "marketCap": "487.11"
+      "price": "50.92",
+      "change": "2.70",
+      "changePct": "5.60",
+      "high": "53.04",
+      "low": "49.67",
+      "turnover": "11.00",
+      "pe": "126.44",
+      "marketCap": "514.39"
     },
     "603256": {
-      "price": "130.70",
-      "change": "-8.35",
-      "changePct": "-6.01",
-      "high": "140.80",
-      "low": "130.00",
-      "turnover": "1.65",
-      "pe": "239.32",
-      "marketCap": "1182.29"
+      "price": "124.64",
+      "change": "-6.06",
+      "changePct": "-4.64",
+      "high": "135.23",
+      "low": "123.31",
+      "turnover": "1.69",
+      "pe": "228.22",
+      "marketCap": "1127.48"
     },
     "688146": {
-      "price": "190.66",
-      "change": "-2.59",
-      "changePct": "-1.34",
-      "high": "196.00",
-      "low": "190.17",
-      "turnover": "5.39",
-      "pe": "195.77",
-      "marketCap": "276.40"
+      "price": "183.21",
+      "change": "-7.45",
+      "changePct": "-3.91",
+      "high": "190.59",
+      "low": "181.58",
+      "turnover": "5.90",
+      "pe": "188.12",
+      "marketCap": "265.60"
     },
     "688167": {
-      "price": "282.88",
-      "change": "-1.38",
-      "changePct": "-0.49",
-      "high": "288.94",
-      "low": "279.10",
-      "turnover": "2.92",
-      "pe": "-456.19",
-      "marketCap": "368.14"
+      "price": "244.88",
+      "change": "-38.00",
+      "changePct": "-13.43",
+      "high": "282.79",
+      "low": "242.27",
+      "turnover": "6.69",
+      "pe": "-394.91",
+      "marketCap": "318.68"
     },
     "688535": {
-      "price": "97.38",
-      "change": "-4.07",
-      "changePct": "-4.01",
-      "high": "102.79",
-      "low": "96.88",
-      "turnover": "3.54",
-      "pe": "278.14",
-      "marketCap": "130.04"
+      "price": "91.36",
+      "change": "-6.02",
+      "changePct": "-6.18",
+      "high": "99.29",
+      "low": "89.88",
+      "turnover": "4.06",
+      "pe": "260.94",
+      "marketCap": "122.00"
     }
   },
   "limitUpScanData": {
-    "date": "2026-10-07",
+    "date": "2026-10-08",
     "note": "",
     "items": [
       {
@@ -450,452 +470,401 @@
         "code": "002058",
         "prefix": "sz",
         "sector": "电池",
-        "changePct": 10.0217866897583,
+        "changePct": 10,
         "verdict": "",
-        "reason": "连板2板，首次涨停 92500"
+        "reason": "连板3板，首次涨停 92500"
       },
       {
         "name": "九阳股份",
         "code": "002242",
         "prefix": "sz",
         "sector": "小家电",
-        "changePct": 10.035211563110352,
+        "changePct": 10,
         "verdict": "",
-        "reason": "连板3板，首次涨停 92500"
+        "reason": "连板4板，首次涨停 92500"
       },
       {
-        "name": "时代万恒",
-        "code": "600241",
+        "name": "华北制药",
+        "code": "600812",
         "prefix": "sh",
-        "sector": "电池",
-        "changePct": 9.954751014709473,
+        "sector": "化学制药",
+        "changePct": 10.0401611328125,
         "verdict": "",
-        "reason": "连板3板，首次涨停 92500"
+        "reason": "首次涨停 92500"
       },
       {
         "name": "新华传媒",
         "code": "600825",
         "prefix": "sh",
         "sector": "出版",
-        "changePct": 9.989372253417969,
+        "changePct": 10.048309326171875,
         "verdict": "",
-        "reason": "连板7板，首次涨停 92500"
+        "reason": "连板8板，首次涨停 92500"
       },
       {
         "name": "园林股份",
         "code": "605303",
         "prefix": "sh",
         "sector": "基础建设",
-        "changePct": 10.019193649291992,
+        "changePct": 10.013957023620605,
         "verdict": "",
-        "reason": "连板2板，首次涨停 92500"
+        "reason": "连板3板，首次涨停 92502"
       },
       {
-        "name": "均瑶健康",
-        "code": "605388",
-        "prefix": "sh",
-        "sector": "饮料乳品",
-        "changePct": 9.970237731933594,
-        "verdict": "",
-        "reason": "连板2板，首次涨停 92500"
-      },
-      {
-        "name": "依依股份",
-        "code": "001206",
+        "name": "乔治白",
+        "code": "002687",
         "prefix": "sz",
-        "sector": "个护用品",
-        "changePct": 9.982279777526855,
+        "sector": "服装家纺",
+        "changePct": 10.035842895507812,
         "verdict": "",
-        "reason": "首次涨停 93000"
-      },
-      {
-        "name": "传艺科技",
-        "code": "002866",
-        "prefix": "sz",
-        "sector": "消费电子",
-        "changePct": 10.026041030883789,
-        "verdict": "",
-        "reason": "连板2板，首次涨停 93006"
-      },
-      {
-        "name": "海南橡胶",
-        "code": "601118",
-        "prefix": "sh",
-        "sector": "种植业",
-        "changePct": 10.017271041870117,
-        "verdict": "",
-        "reason": "首次涨停 93008"
-      },
-      {
-        "name": "龙版传媒",
-        "code": "605577",
-        "prefix": "sh",
-        "sector": "出版",
-        "changePct": 10,
-        "verdict": "",
-        "reason": "首次涨停 93012"
-      },
-      {
-        "name": "古越龙山",
-        "code": "600059",
-        "prefix": "sh",
-        "sector": "非白酒",
-        "changePct": 10.044842720031738,
-        "verdict": "",
-        "reason": "首次涨停 93114"
-      },
-      {
-        "name": "善水科技",
-        "code": "301190",
-        "prefix": "sz",
-        "sector": "化学原料",
-        "changePct": 20.00667953491211,
-        "verdict": "",
-        "reason": "连板3板，首次涨停 93115"
-      },
-      {
-        "name": "新亚制程",
-        "code": "002388",
-        "prefix": "sz",
-        "sector": "其他电子",
-        "changePct": 10.036275863647461,
-        "verdict": "",
-        "reason": "首次涨停 93136"
-      },
-      {
-        "name": "深物业A",
-        "code": "000011",
-        "prefix": "sz",
-        "sector": "房地产开",
-        "changePct": 9.97304630279541,
-        "verdict": "",
-        "reason": "连板3板，首次涨停 93145"
-      },
-      {
-        "name": "亚邦股份",
-        "code": "603188",
-        "prefix": "sh",
-        "sector": "化学制品",
-        "changePct": 9.979633331298828,
-        "verdict": "",
-        "reason": "连板2板，首次涨停 93206"
-      },
-      {
-        "name": "恒丰纸业",
-        "code": "600356",
-        "prefix": "sh",
-        "sector": "造纸",
-        "changePct": 9.980806350708008,
-        "verdict": "",
-        "reason": "首次涨停 93223"
-      },
-      {
-        "name": "亚联发展",
-        "code": "002316",
-        "prefix": "sz",
-        "sector": "综合Ⅱ",
-        "changePct": 10,
-        "verdict": "",
-        "reason": "首次涨停 93303"
-      },
-      {
-        "name": "贝瑞基因",
-        "code": "000710",
-        "prefix": "sz",
-        "sector": "医疗服务",
-        "changePct": 10.020242691040039,
-        "verdict": "",
-        "reason": "首次涨停 93306"
-      },
-      {
-        "name": "建业股份",
-        "code": "603948",
-        "prefix": "sh",
-        "sector": "化学制品",
-        "changePct": 9.989701271057129,
-        "verdict": "",
-        "reason": "首次涨停 93333"
-      },
-      {
-        "name": "中船科技",
-        "code": "600072",
-        "prefix": "sh",
-        "sector": "风电设备",
-        "changePct": 9.977324485778809,
-        "verdict": "",
-        "reason": "首次涨停 93633"
-      },
-      {
-        "name": "康希诺",
-        "code": "688185",
-        "prefix": "sh",
-        "sector": "生物制品",
-        "changePct": 20.004676818847656,
-        "verdict": "",
-        "reason": "首次涨停 93800"
-      },
-      {
-        "name": "东风科技",
-        "code": "600081",
-        "prefix": "sh",
-        "sector": "汽车零部",
-        "changePct": 9.99074935913086,
-        "verdict": "",
-        "reason": "首次涨停 93815"
-      },
-      {
-        "name": "杭州热电",
-        "code": "605011",
-        "prefix": "sh",
-        "sector": "电力",
-        "changePct": 10.022909164428711,
-        "verdict": "",
-        "reason": "首次涨停 94036"
-      },
-      {
-        "name": "兴业股份",
-        "code": "603928",
-        "prefix": "sh",
-        "sector": "塑料",
-        "changePct": 10.016834259033203,
-        "verdict": "",
-        "reason": "首次涨停 94100"
-      },
-      {
-        "name": "惠天热电",
-        "code": "000692",
-        "prefix": "sz",
-        "sector": "电力",
-        "changePct": 10.071942329406738,
-        "verdict": "",
-        "reason": "首次涨停 94227"
-      },
-      {
-        "name": "美诺华",
-        "code": "603538",
-        "prefix": "sh",
-        "sector": "化学制药",
-        "changePct": 10.0038480758667,
-        "verdict": "",
-        "reason": "首次涨停 94835"
-      },
-      {
-        "name": "蔚蓝生物",
-        "code": "603739",
-        "prefix": "sh",
-        "sector": "化学制品",
-        "changePct": 10.031347274780273,
-        "verdict": "",
-        "reason": "首次涨停 94857"
-      },
-      {
-        "name": "五方光电",
-        "code": "002962",
-        "prefix": "sz",
-        "sector": "光学光电",
-        "changePct": 10,
-        "verdict": "",
-        "reason": "首次涨停 94921"
-      },
-      {
-        "name": "康辰药业",
-        "code": "603590",
-        "prefix": "sh",
-        "sector": "生物制品",
-        "changePct": 10.003425598144531,
-        "verdict": "",
-        "reason": "首次涨停 95533"
-      },
-      {
-        "name": "泰诺麦博-U",
-        "code": "688806",
-        "prefix": "sh",
-        "sector": "生物制品",
-        "changePct": 19.992176055908203,
-        "verdict": "",
-        "reason": "首次涨停 95753"
-      },
-      {
-        "name": "凯迪股份",
-        "code": "605288",
-        "prefix": "sh",
-        "sector": "自动化设",
-        "changePct": 10,
-        "verdict": "",
-        "reason": "首次涨停 100028"
-      },
-      {
-        "name": "龙溪股份",
-        "code": "600592",
-        "prefix": "sh",
-        "sector": "通用设备",
-        "changePct": 9.979633331298828,
-        "verdict": "",
-        "reason": "首次涨停 100044"
-      },
-      {
-        "name": "宁波东力",
-        "code": "002164",
-        "prefix": "sz",
-        "sector": "通用设备",
-        "changePct": 10.041494369506836,
-        "verdict": "",
-        "reason": "首次涨停 100112"
-      },
-      {
-        "name": "襄阳轴承",
-        "code": "000678",
-        "prefix": "sz",
-        "sector": "汽车零部",
-        "changePct": 9.982934951782227,
-        "verdict": "",
-        "reason": "连板4板，首次涨停 100300"
-      },
-      {
-        "name": "江南化工",
-        "code": "002226",
-        "prefix": "sz",
-        "sector": "化学制品",
-        "changePct": 10.103093147277832,
-        "verdict": "",
-        "reason": "首次涨停 100548"
-      },
-      {
-        "name": "松芝股份",
-        "code": "002454",
-        "prefix": "sz",
-        "sector": "汽车零部",
-        "changePct": 10,
-        "verdict": "",
-        "reason": "首次涨停 100721"
-      },
-      {
-        "name": "上海洗霸",
-        "code": "603200",
-        "prefix": "sh",
-        "sector": "环境治理",
-        "changePct": 10.007376670837402,
-        "verdict": "",
-        "reason": "连板2板，首次涨停 101116"
-      },
-      {
-        "name": "龙蟠科技",
-        "code": "603906",
-        "prefix": "sh",
-        "sector": "电池",
-        "changePct": 9.994222640991211,
-        "verdict": "",
-        "reason": "首次涨停 101123"
-      },
-      {
-        "name": "松原安全",
-        "code": "300893",
-        "prefix": "sz",
-        "sector": "汽车零部",
-        "changePct": 19.984140396118164,
-        "verdict": "",
-        "reason": "首次涨停 101442"
-      },
-      {
-        "name": "德才股份",
-        "code": "605287",
-        "prefix": "sh",
-        "sector": "装修装饰",
-        "changePct": 10.002942085266113,
-        "verdict": "",
-        "reason": "首次涨停 102000"
-      },
-      {
-        "name": "南华生物",
-        "code": "000504",
-        "prefix": "sz",
-        "sector": "医疗服务",
-        "changePct": 10.008857727050781,
-        "verdict": "",
-        "reason": "首次涨停 102242"
-      },
-      {
-        "name": "奥赛康",
-        "code": "002755",
-        "prefix": "sz",
-        "sector": "化学制药",
-        "changePct": 9.983766555786133,
-        "verdict": "",
-        "reason": "首次涨停 102357"
-      },
-      {
-        "name": "昭衍新药",
-        "code": "603127",
-        "prefix": "sh",
-        "sector": "医疗服务",
-        "changePct": 9.995537757873535,
-        "verdict": "",
-        "reason": "首次涨停 104910"
-      },
-      {
-        "name": "中天服务",
-        "code": "002188",
-        "prefix": "sz",
-        "sector": "房地产服",
-        "changePct": 9.965636253356934,
-        "verdict": "",
-        "reason": "首次涨停 110900"
+        "reason": "首次涨停 93021"
       },
       {
         "name": "陆家嘴",
         "code": "600663",
         "prefix": "sh",
         "sector": "房地产开",
-        "changePct": 10.010881423950195,
+        "changePct": 9.990108489990234,
         "verdict": "",
-        "reason": "首次涨停 111329"
+        "reason": "连板2板，首次涨停 93022"
       },
       {
-        "name": "天虹股份",
-        "code": "002419",
-        "prefix": "sz",
-        "sector": "一般零售",
-        "changePct": 9.935205459594727,
+        "name": "联环药业",
+        "code": "600513",
+        "prefix": "sh",
+        "sector": "化学制药",
+        "changePct": 10.006627082824707,
         "verdict": "",
-        "reason": "首次涨停 130806"
+        "reason": "首次涨停 93028"
       },
       {
-        "name": "阳光乳业",
-        "code": "001318",
+        "name": "金时科技",
+        "code": "002951",
         "prefix": "sz",
-        "sector": "饮料乳品",
-        "changePct": 10.042194366455078,
+        "sector": "其他电源",
+        "changePct": 9.9935941696167,
         "verdict": "",
-        "reason": "首次涨停 132024"
+        "reason": "首次涨停 93106"
       },
       {
-        "name": "登海种业",
-        "code": "002041",
-        "prefix": "sz",
-        "sector": "种植业",
+        "name": "中远海能",
+        "code": "600026",
+        "prefix": "sh",
+        "sector": "航运港口",
+        "changePct": 10.019454956054688,
+        "verdict": "",
+        "reason": "首次涨停 93129"
+      },
+      {
+        "name": "国新能源",
+        "code": "600617",
+        "prefix": "sh",
+        "sector": "燃气Ⅱ",
         "changePct": 10,
         "verdict": "",
-        "reason": "首次涨停 132833"
+        "reason": "首次涨停 93137"
       },
       {
-        "name": "弘元绿能",
-        "code": "603185",
+        "name": "时代万恒",
+        "code": "600241",
         "prefix": "sh",
+        "sector": "电池",
+        "changePct": 9.979423522949219,
+        "verdict": "",
+        "reason": "连板4板，首次涨停 93142"
+      },
+      {
+        "name": "世名科技",
+        "code": "300522",
+        "prefix": "sz",
+        "sector": "化学制品",
+        "changePct": 20,
+        "verdict": "",
+        "reason": "首次涨停 93351"
+      },
+      {
+        "name": "雄韬股份",
+        "code": "002733",
+        "prefix": "sz",
+        "sector": "电池",
+        "changePct": 10.017472267150879,
+        "verdict": "",
+        "reason": "首次涨停 93403"
+      },
+      {
+        "name": "传艺科技",
+        "code": "002866",
+        "prefix": "sz",
+        "sector": "消费电子",
+        "changePct": 10,
+        "verdict": "",
+        "reason": "连板3板，首次涨停 93506"
+      },
+      {
+        "name": "快意电梯",
+        "code": "002774",
+        "prefix": "sz",
+        "sector": "专用设备",
+        "changePct": 9.994222640991211,
+        "verdict": "",
+        "reason": "首次涨停 93548"
+      },
+      {
+        "name": "兴业股份",
+        "code": "603928",
+        "prefix": "sh",
+        "sector": "塑料",
+        "changePct": 10.022953033447266,
+        "verdict": "",
+        "reason": "连板2板，首次涨停 93627"
+      },
+      {
+        "name": "松炀资源",
+        "code": "603863",
+        "prefix": "sh",
+        "sector": "造纸",
+        "changePct": 10.016155242919922,
+        "verdict": "",
+        "reason": "首次涨停 93705"
+      },
+      {
+        "name": "贝特利",
+        "code": "301697",
+        "prefix": "sz",
         "sector": "光伏设备",
-        "changePct": 10.0217866897583,
+        "changePct": 19.99238395690918,
         "verdict": "",
-        "reason": "首次涨停 133819"
+        "reason": "首次涨停 93815"
       },
       {
-        "name": "金徽酒",
-        "code": "603919",
-        "prefix": "sh",
-        "sector": "白酒Ⅱ",
-        "changePct": 9.987358093261719,
+        "name": "顺灏股份",
+        "code": "002565",
+        "prefix": "sz",
+        "sector": "包装印刷",
+        "changePct": 9.952607154846191,
         "verdict": "",
-        "reason": "首次涨停 133853"
+        "reason": "首次涨停 94024"
+      },
+      {
+        "name": "恒尚节能",
+        "code": "603137",
+        "prefix": "sh",
+        "sector": "装修装饰",
+        "changePct": 10.011248588562012,
+        "verdict": "",
+        "reason": "首次涨停 94045"
+      },
+      {
+        "name": "野马电池",
+        "code": "605378",
+        "prefix": "sh",
+        "sector": "电池",
+        "changePct": 10,
+        "verdict": "",
+        "reason": "首次涨停 94115"
+      },
+      {
+        "name": "丰元股份",
+        "code": "002805",
+        "prefix": "sz",
+        "sector": "电池",
+        "changePct": 10.024907112121582,
+        "verdict": "",
+        "reason": "首次涨停 94118"
+      },
+      {
+        "name": "必得科技",
+        "code": "605298",
+        "prefix": "sh",
+        "sector": "轨交设备",
+        "changePct": 10.004892349243164,
+        "verdict": "",
+        "reason": "首次涨停 94333"
+      },
+      {
+        "name": "招商南油",
+        "code": "601975",
+        "prefix": "sh",
+        "sector": "航运港口",
+        "changePct": 9.955751419067383,
+        "verdict": "",
+        "reason": "首次涨停 94401"
+      },
+      {
+        "name": "金溢科技",
+        "code": "002869",
+        "prefix": "sz",
+        "sector": "计算机设",
+        "changePct": 10,
+        "verdict": "",
+        "reason": "首次涨停 94457"
+      },
+      {
+        "name": "三柏硕",
+        "code": "001300",
+        "prefix": "sz",
+        "sector": "文娱用品",
+        "changePct": 10.016286849975586,
+        "verdict": "",
+        "reason": "首次涨停 94530"
+      },
+      {
+        "name": "安泰集团",
+        "code": "600408",
+        "prefix": "sh",
+        "sector": "焦炭Ⅱ",
+        "changePct": 9.904153823852539,
+        "verdict": "",
+        "reason": "首次涨停 94607"
+      },
+      {
+        "name": "金牛化工",
+        "code": "600722",
+        "prefix": "sh",
+        "sector": "化学原料",
+        "changePct": 9.98641300201416,
+        "verdict": "",
+        "reason": "首次涨停 94629"
+      },
+      {
+        "name": "东贝集团",
+        "code": "601956",
+        "prefix": "sh",
+        "sector": "家电零部",
+        "changePct": 9.960159301757812,
+        "verdict": "",
+        "reason": "首次涨停 94937"
+      },
+      {
+        "name": "彩蝶实业",
+        "code": "603073",
+        "prefix": "sh",
+        "sector": "化学纤维",
+        "changePct": 10.009578704833984,
+        "verdict": "",
+        "reason": "首次涨停 95902"
+      },
+      {
+        "name": "楚环科技",
+        "code": "001336",
+        "prefix": "sz",
+        "sector": "环保设备",
+        "changePct": 10.015983581542969,
+        "verdict": "",
+        "reason": "首次涨停 100036"
+      },
+      {
+        "name": "上海洗霸",
+        "code": "603200",
+        "prefix": "sh",
+        "sector": "环境治理",
+        "changePct": 9.991059303283691,
+        "verdict": "",
+        "reason": "连板3板，首次涨停 100556"
+      },
+      {
+        "name": "力王股份",
+        "code": "920627",
+        "prefix": "sz",
+        "sector": "电池",
+        "changePct": 29.956268310546875,
+        "verdict": "",
+        "reason": "首次涨停 100644"
+      },
+      {
+        "name": "广西能源",
+        "code": "600310",
+        "prefix": "sh",
+        "sector": "电力",
+        "changePct": 9.955751419067383,
+        "verdict": "",
+        "reason": "首次涨停 101731"
+      },
+      {
+        "name": "红豆股份",
+        "code": "600400",
+        "prefix": "sh",
+        "sector": "服装家纺",
+        "changePct": 10.030394554138184,
+        "verdict": "",
+        "reason": "首次涨停 103839"
+      },
+      {
+        "name": "张  裕Ａ",
+        "code": "000869",
+        "prefix": "sz",
+        "sector": "非白酒",
+        "changePct": 10.029325485229492,
+        "verdict": "",
+        "reason": "首次涨停 104300"
+      },
+      {
+        "name": "领湃科技",
+        "code": "300530",
+        "prefix": "sz",
+        "sector": "电池",
+        "changePct": 19.980070114135742,
+        "verdict": "",
+        "reason": "首次涨停 110015"
+      },
+      {
+        "name": "卓越新能",
+        "code": "688196",
+        "prefix": "sh",
+        "sector": "化学制品",
+        "changePct": 20,
+        "verdict": "",
+        "reason": "首次涨停 110046"
+      },
+      {
+        "name": "宁波高发",
+        "code": "603788",
+        "prefix": "sh",
+        "sector": "汽车零部",
+        "changePct": 9.970674514770508,
+        "verdict": "",
+        "reason": "首次涨停 130432"
+      },
+      {
+        "name": "龙蟠科技",
+        "code": "603906",
+        "prefix": "sh",
+        "sector": "电池",
+        "changePct": 9.978991508483887,
+        "verdict": "",
+        "reason": "连板2板，首次涨停 131309"
+      },
+      {
+        "name": "海欣食品",
+        "code": "002702",
+        "prefix": "sz",
+        "sector": "食品加工",
+        "changePct": 10.037175178527832,
+        "verdict": "",
+        "reason": "首次涨停 133106"
+      },
+      {
+        "name": "山东墨龙",
+        "code": "002490",
+        "prefix": "sz",
+        "sector": "专用设备",
+        "changePct": 9.985527992248535,
+        "verdict": "",
+        "reason": "首次涨停 142730"
       }
     ]
   },
-  "fetchErrors": []
+  "fetchErrors": [],
+  "aiCandidates": [
+    {
+      "name": "华虹宏力",
+      "code": "688347",
+      "newsQuote": "华虹宏力旗下无锡三期半导体公司增资约41.6亿美元 国家大基金三期旗下基金等入股",
+      "newsTime": "2026-10-08 14:07:14",
+      "reason": "华虹宏力旗下无锡三期半导体公司增资约41.6亿美元",
+      "codeUnverified": true,
+      "codeFormatValid": true
+    }
+  ],
+  "candidatesGeneratedAt": "2026-10-08T07:10:25Z"
 }
