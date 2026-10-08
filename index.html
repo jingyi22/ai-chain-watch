@@ -3579,6 +3579,24 @@ async function loadDailyData() {
             INDUSTRY_SIGNAL_CANDIDATES_GENERATED_AT = d.signalCandidatesGeneratedAt || '';
             renderIndustrySignalCandidates();
         }
+
+        // AI投顾报告（advisorReport）的研判结论（买卖点/止损/逻辑/评分）是人工维护，不自动生成；
+        // 但现价/涨跌幅/PE/市值/换手率是纯事实，用当日真实抓取数据覆盖，避免卡在报告编写当天的旧价格。
+        if (d.priceData && advisorReport && Array.isArray(advisorReport.recommendations)) {
+            advisorReport.recommendations.forEach(function(rec){
+                var live = d.priceData[rec.code];
+                if (!live || live.price == null) return;
+                rec.priceData = Object.assign({}, rec.priceData, {
+                    current: Number(live.price),
+                    change: live.changePct != null ? Number(live.changePct) : rec.priceData.change,
+                    pe: live.pe || rec.priceData.pe,
+                    marketCap: live.marketCap != null ? Number(live.marketCap) : rec.priceData.marketCap,
+                    turnover: live.turnover != null ? Number(live.turnover) : rec.priceData.turnover
+                });
+                rec.priceUpdatedAt = d.generatedAt || '';
+            });
+            if (typeof renderAdvisorReport === 'function') renderAdvisorReport();
+        }
     } catch (e) {
         // 网络失败/文件不存在时保留硬编码fallback，不打断页面渲染
         console.warn('loadDailyData: 使用本地fallback数据', e.message);
@@ -3840,6 +3858,9 @@ function renderAdvisorReport() {
             h += '<span class="rec-name">' + escapeHtml(rec.name) + '<span class="rec-code">' + escapeHtml(rec.code) + ' · ' + escapeHtml(sectorName(rec.sector)) + '</span></span>';
             if (pd.current) {
                 h += '<span class="rec-price-tag ' + changeClass + '">' + Number(pd.current).toFixed(2) + ' ' + changeSign + (pd.change || 0) + '%</span>';
+            }
+            if (rec.priceUpdatedAt) {
+                h += '<span style="font-size:10.5px;color:var(--text3);">🔄实时价 · 研判结论仍为' + escapeHtml(r.date || '') + '</span>';
             }
             h += '<span class="rec-action" data-action="' + escapeHtml(action) + '">' + actionText + '</span>';
             h += '<span class="rec-tier" data-tier="' + tier + '">Tier ' + tier + '</span>';
