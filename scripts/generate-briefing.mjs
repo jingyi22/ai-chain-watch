@@ -89,6 +89,21 @@ async function callOpenRouter(marketData, type) {
     return JSON.parse(content);
 }
 
+// 模型有时会照抄 marketData.quotes 的 key（带 sh/sz/bj 前缀）而不是纯代码，这里统一剥掉前缀，
+// 避免和 quotes[...].code / index.html 里 goldPool 用的纯代码不一致。
+function normalizeCode(code) {
+    return String(code || '').replace(/^(sh|sz|bj)/i, '');
+}
+
+function normalizeCodesInPlace(briefing) {
+    if (Array.isArray(briefing.goldStockPerf)) {
+        briefing.goldStockPerf.forEach(g => { g.code = normalizeCode(g.code); });
+    }
+    if (Array.isArray(briefing.goldPoolSignals)) {
+        briefing.goldPoolSignals.forEach(s => { s.code = normalizeCode(s.code); });
+    }
+}
+
 // 校验模型输出的数字确实来自 marketData，防止编造。校验失败直接抛错（本次运行跳过写入，保留上一份数据）
 function verifyNoFabrication(briefing, marketData, type) {
     const knownCodes = new Set(Object.values(marketData.quotes || {}).map(v => v.code));
@@ -114,11 +129,31 @@ function verifyNoFabrication(briefing, marketData, type) {
     return true;
 }
 
+// OpenRouter偶发瞬时错误(429限流/网络抖动/模型输出格式异常)不应让整条流水线当天直接报废，
+// 重试仅覆盖"调用+校验"整个周期（而非仅网络请求），因为校验失败后重新生成也有机会拿到合规输出。
+async function withRetry(fn, retries = 2, delayMs = 3000) {
+    let lastErr;
+    for (let i = 0; i <= retries; i++) {
+        try {
+            return await fn();
+        } catch (e) {
+            lastErr = e;
+            console.error(`尝试 ${i + 1}/${retries + 1} 失败: ${e.message}`);
+            if (i < retries) await new Promise(r => setTimeout(r, delayMs));
+        }
+    }
+    throw lastErr;
+}
+
 async function main() {
     const raw = await readStdin();
     const marketData = JSON.parse(raw);
-    const briefing = await callOpenRouter(marketData, type);
-    verifyNoFabrication(briefing, marketData, type);
+    const briefing = await withRetry(async () => {
+        const b = await callOpenRouter(marketData, type);
+        normalizeCodesInPlace(b);
+        verifyNoFabrication(b, marketData, type);
+        return b;
+    });
     briefing.date = marketData.date;
     briefing.type = type;
     process.stdout.write(JSON.stringify(briefing));
