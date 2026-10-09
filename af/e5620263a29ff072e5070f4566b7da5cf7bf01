@@ -1,0 +1,20 @@
+index.html
+  s_7ca38d5e476767::t_a56ea0c73918a3 3862-3864
+  s_7ca38d5e476767::t_27a4b3d4f3565f 3582-3599
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.45-trip",
+  "base_commit_sha": "afe5620263a29ff072e5070f4566b7da5cf7bf01",
+  "prompts": {},
+  "sessions": {
+    "s_7ca38d5e476767": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7281adbc-c5e4-4815-90ce-0837049ef2b5",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Elena Lu （陆靖沂） <elenalu@trip.com>"
+    }
+  }
+}
