@@ -3621,74 +3621,11 @@ var industrySignals = [
     {date:"2026-07-27", sector:"storage", signalType:"上市", title:"长鑫科技集团(长鑫存储)科创板上市", desc:"发行价8.66元，上市首日大涨超465%，市值约3.28万亿，为首家开盘即破3万亿市值的A股科技股，HBM竞争格局生变", stocks:[], impact:"中性", tier:1, source:"公司公告"}
 ];
 
-/* AI投顾数据 */
+/* AI投顾数据：历史9-22批次推票已过期（止损/止盈/解禁节点均已触发或过时），
+   清空等待人工补充新一期研判结论，不展示过期的买卖点和理由误导用户。 */
 var advisorReport = {
-    date: "2026-09-22",
-    recommendations: [
-        {
-            code:"300666", name:"江丰电子", sector:"semiconductor",
-            action:"watch", position:0,
-            priceData: { current: 253.48, change: -1.39, pe: "88.94", marketCap: 561.32, turnover: 2.77 },
-            actionDetail: "维持观察，不新增仓位",
-            buyRange: "回踩240-250企稳后分批", stopLoss: "230元（跌破前低支撑）",
-            target1: "280元", target2: "—",
-            logic: "溅射靶材国产替代最纯标的，中报净利+114%大超预期，PE从6月末309倍大幅回落至89倍，估值消化较充分；但近3个交易日连续缩量下跌（9/18高点262后回落），算力金属(钽/铟)上涨叙事对股价的边际推动已减弱",
-            invalidate: "跌破230元 / 靶材价格出现实质性回落公告",
-            signalSource: "left", tier:2,
-            signalDesc: "基本面信号：中报净利+114%超预期，估值消化至PE89倍",
-            fromGoldPool: true,
-            funnel: { pool: 12, signalTrigger: 5, volumeConfirm: 2, timingMatch: 1, final: 1 },
-            scores: { industry: 22, volume: 14, tech: 12, capital: 10, catalyst: 8, total: 66 },
-            tech: {
-                bbi: "走平偏弱（近3日缩量回落）", volumeRatio: "0.7", turnover: "2.77%",
-                position: "中位（距9/18高点262约-3%）", support: "240元（10日均线附近）", resistance: "262元（近期高点）"
-            },
-            capital: { north: "数据源暂缺，以主力资金为准", institution: "数据源暂缺，以主力资金为准", dragon: "未上榜", main: "主力净流出约0.6亿（9/22盘中）" },
-            dynamicNote: "估值消化后基本面信号转正，但短期缩量走弱，不追高。等回踩240-250企稳信号明确后再分批介入，跌破230则观察逻辑证伪。"
-        },
-        {
-            code:"688146", name:"中船特气", sector:"semiconductor",
-            action:"sell", position:-1.0,
-            priceData: { current: 222.60, change: -6.48, pe: "228.57", marketCap: 322.71, turnover: 10.35 },
-            actionDetail: "清仓离场，止损位已跌破",
-            buyRange: "—", stopLoss: "已跌破340元（原止损位）",
-            target1: "—", target2: "—",
-            logic: "6月末已提示PE544倍严重高估并建议反弹减仓；三个月内跌破340元止损位后持续下探，9/22报222.60元，累计跌幅超40%。中报营收+83%/净利+96%大幅超预期，但10/21约72.62%总股本解禁在即，市场对解禁抛压的担忧是当前股价主因，非基本面暴雷",
-            invalidate: "解禁后放量企稳并站上250元（可重新评估）",
-            signalSource: "left", tier:3,
-            signalDesc: "风险信号：10/21限售股解禁预期压制估值，止损位已跌破",
-            fromGoldPool: true,
-            funnel: { pool: 12, signalTrigger: 4, volumeConfirm: 2, timingMatch: 1, final: 1 },
-            scores: { industry: 20, volume: 8, tech: 5, capital: 4, catalyst: 3, total: 40 },
-            tech: {
-                bbi: "下行（跌破全部止损位）", volumeRatio: "1.05", turnover: "10.35%",
-                position: "低位（较6月高点回撤超40%）", support: "222元（9/22盘中低点）", resistance: "241元（9/22盘中高点）"
-            },
-            capital: { north: "数据源暂缺，以主力资金为准", institution: "数据源暂缺，以主力资金为准", dragon: "未上榜", main: "主力净流出约3.8亿（9/22盘中）" },
-            dynamicNote: "已跌破止损位且解禁压力未消化，严格执行止损纪律离场观察。解禁后（10/21起）视放量企稳信号再重新评估，不因中报业绩超预期而恋战估值泡沫。"
-        },
-        {
-            code:"688535", name:"华海诚科", sector:"storage",
-            action:"sell", position:-1.0,
-            priceData: { current: 110.61, change: 0.28, pe: "315.93", marketCap: 147.70, turnover: 4.20 },
-            actionDetail: "清仓离场，止损位已跌破",
-            buyRange: "—", stopLoss: "已跌破165元（原止损位）",
-            target1: "—（待HBM订单公告催化后重新评估）", target2: "—",
-            logic: "6月末186元创新高后回落，三个月内跌破165元止损位下探至110元附近，累计跌幅超40%。中报营收+162%/净利+188%业绩兑现良好，但HBM专用GMC订单放量的产业叙事仍缺乏官方公告佐证，且跟随科创板高估值板块系统性回调",
-            invalidate: "HBM订单出现实质性公告并放量突破125元（可重新评估）",
-            signalSource: "left", tier:3,
-            signalDesc: "风险信号：止损位已跌破，HBM订单放量叙事待官方公告验证",
-            fromGoldPool: true,
-            funnel: { pool: 12, signalTrigger: 4, volumeConfirm: 2, timingMatch: 1, final: 1 },
-            scores: { industry: 21, volume: 10, tech: 7, capital: 6, catalyst: 5, total: 49 },
-            tech: {
-                bbi: "走平偏弱（低位震荡）", volumeRatio: "0.6", turnover: "4.20%",
-                position: "低位（较6月高点回撤超40%）", support: "108元（9/22盘中低点附近）", resistance: "114元（9/22盘中高点）"
-            },
-            capital: { north: "数据源暂缺，以主力资金为准", institution: "数据源暂缺，以主力资金为准", dragon: "未上榜", main: "主力净流入约0.03亿（9/22盘中，基本走平）" },
-            dynamicNote: "已跌破止损位，中报业绩兑现良好但产业叙事缺乏新催化，严格执行止损纪律离场观察，不因业绩超预期而恋战估值泡沫。等HBM订单有实质性公告再重新评估是否介入。"
-        }
-    ]
+    date: "",
+    recommendations: []
 };
 
 // 全市场涨停扫描数据（每日更新时写入）
@@ -3754,7 +3691,7 @@ function renderRecommendations() {
     var recs = r.recommendations || [];
     var reportDate = r.date || '';
     if (!recs.length) {
-        container.innerHTML = '<div class="radar-empty">暂无推票记录</div>';
+        container.innerHTML = '<div class="radar-empty">📋 上一期推票（9月22日）已到期清仓/止损，新一期研判结论尚未发布，敬请期待</div>';
         return;
     }
     var actionMap = {
@@ -3833,13 +3770,13 @@ function renderAdvisorReport() {
     if (!container) return;
     var r = advisorReport || {};
     var h = '';
-    h += '<div class="advisor-report-date"><span class="ard-label">📅 报告日期</span><span class="ard-val">' + escapeHtml(r.date || '') + '</span></div>';
+    h += '<div class="advisor-report-date"><span class="ard-label">📅 报告日期</span><span class="ard-val">' + escapeHtml(r.date || '待更新') + '</span></div>';
 
     // 新机会推荐（分层漏斗）
     h += '<div class="advisor-section"><div class="advisor-section-title">🚀 AI推票 · 层层筛选</div>';
     var recs = r.recommendations || [];
     if (recs.length === 0) {
-        h += '<div class="portfolio-empty">暂无推荐</div>';
+        h += '<div class="portfolio-empty">📋 上一期推票（9月22日）已到期清仓/止损，新一期研判结论尚未发布，敬请期待</div>';
     } else {
         recs.forEach(function (rec) {
             var tier = rec.tier || 3;
