@@ -8306,6 +8306,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (startOnNews) switchPage('news');
     else if (startOnMarket) switchPage('market');
     else if (startOnBriefing) switchPage('briefing');
+    else if (startOnRadar) switchPage('radar');
+    else if (startOnAdvisor) switchPage('advisor');
     // 渲染产业链（懒渲染：只渲染默认激活的半导体板块，其余在切换时渲染）
     renderChain('semiconductor', 'chain');
     renderOverseasPanel('semiconductor');

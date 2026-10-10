@@ -27,10 +27,16 @@ const AI_KW = ['AI','算力','芯片','半导体','光模块','PCB','存储','HB
 
 // GitHub Actions runner 时区是UTC，这里显式换算到北京时间，避免早报cron在UTC 23:00触发时
 // （对应北京次日07:00）取到的是UTC视角的"昨天"日期。
+//
+// 可选命令行参数 argv[2]：check-trading-day.mjs 回溯命中的交易日(YYYYMMDD)。review 类型的 cron 经常
+// 延迟数小时触发，一旦延迟跨过北京时间午夜，"现在"就不再是要复盘的那个交易日了——必须用上游传入的
+// 日期而不是重新计算"现在"，否则这里取到的涨停池/新闻会对不上 check-trading-day.mjs 判定的那一天。
 function nowBeijing() {
     return new Date(Date.now() + 8 * 60 * 60 * 1000);
 }
+const overrideYmd = process.argv[2] || null;
 function todayYmd() {
+    if (overrideYmd) return overrideYmd;
     const d = nowBeijing();
     const y = d.getUTCFullYear();
     const m = String(d.getUTCMonth() + 1).padStart(2, '0');
@@ -38,8 +44,8 @@ function todayYmd() {
     return `${y}${m}${day}`;
 }
 function todayIso() {
-    const d = nowBeijing();
-    return `${d.getUTCFullYear()}-${String(d.getUTCMonth()+1).padStart(2,'0')}-${String(d.getUTCDate()).padStart(2,'0')}`;
+    const ymd = todayYmd();
+    return `${ymd.slice(0,4)}-${ymd.slice(4,6)}-${ymd.slice(6,8)}`;
 }
 
 async function fetchWithTimeout(url, opts = {}, timeoutMs = 10000) {

@@ -131,7 +131,9 @@ function verifyNoFabrication(briefing, marketData, type) {
 
 // OpenRouter偶发瞬时错误(429限流/网络抖动/模型输出格式异常)不应让整条流水线当天直接报废，
 // 重试仅覆盖"调用+校验"整个周期（而非仅网络请求），因为校验失败后重新生成也有机会拿到合规输出。
-async function withRetry(fn, retries = 2, delayMs = 3000) {
+// 429限流通常是按分钟级窗口重置的，固定3秒间隔重试大概率仍落在同一个限流窗口里——改成指数退避
+// (3s/15s/75s/375s)，并把重试次数提到4次，给限流窗口足够时间过去。
+async function withRetry(fn, retries = 4, baseDelayMs = 3000) {
     let lastErr;
     for (let i = 0; i <= retries; i++) {
         try {
@@ -139,7 +141,11 @@ async function withRetry(fn, retries = 2, delayMs = 3000) {
         } catch (e) {
             lastErr = e;
             console.error(`尝试 ${i + 1}/${retries + 1} 失败: ${e.message}`);
-            if (i < retries) await new Promise(r => setTimeout(r, delayMs));
+            if (i < retries) {
+                const delayMs = baseDelayMs * Math.pow(5, i);
+                console.error(`等待 ${delayMs}ms 后重试...`);
+                await new Promise(r => setTimeout(r, delayMs));
+            }
         }
     }
     throw lastErr;

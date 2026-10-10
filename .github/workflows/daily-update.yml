@@ -49,13 +49,16 @@ jobs:
       - name: Check if today is a trading day
         id: tradingday
         run: |
-          IS_TRADING=$(node scripts/check-trading-day.mjs)
+          RESULT=$(node scripts/check-trading-day.mjs "${{ steps.vars.outputs.type }}")
+          echo "今日是否交易日: $RESULT"
+          IS_TRADING=$(node -e "console.log(JSON.parse(process.argv[1]).isTradingDay)" "$RESULT")
+          TRADING_DATE=$(node -e "console.log(JSON.parse(process.argv[1]).date)" "$RESULT")
           echo "isTradingDay=$IS_TRADING" >> "$GITHUB_OUTPUT"
-          echo "今日是否交易日: $IS_TRADING"
+          echo "tradingDate=$TRADING_DATE" >> "$GITHUB_OUTPUT"
 
       - name: Fetch market data
         if: steps.tradingday.outputs.isTradingDay == 'true'
-        run: node scripts/fetch-market-data.mjs > /tmp/market-data.json
+        run: node scripts/fetch-market-data.mjs "${{ steps.tradingday.outputs.tradingDate }}" > /tmp/market-data.json
 
       - name: Generate briefing (LLM)
         if: steps.tradingday.outputs.isTradingDay == 'true'
