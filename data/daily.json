@@ -1,7 +1,29 @@
 {
-  "generatedAt": "2026-10-13T18:54:39.794Z",
-  "date": "2026-10-13",
+  "generatedAt": "2026-10-14T01:36:13.588Z",
+  "date": "2026-10-14",
   "dailyBriefings": [
+    {
+      "date": "2026-10-14",
+      "type": "morning",
+      "title": "2026-10-14早报：PCB概念活跃超声电子2连板，AI行业动态频出",
+      "overnightMarket": "PCB概念表现活跃，超声电子2连板；SK海力士推出以内存为中心的AI机架级系统MARS；英伟达与京元电签订预付款协议；一家AI明星公司申请破产；真爱美家新设智算科技公司含多项AI业务",
+      "keyNews": [
+        "PCB概念表现活跃 超声电子2连板",
+        "SK海力士推出以内存为中心的AI机架级系统MARS",
+        "英伟达与京元电签订预付款协议 预留后者美国新厂测试产能",
+        "一家AI明星公司申请破产",
+        "真爱美家新设智算科技公司 含多项AI业务"
+      ],
+      "todayAgenda": [
+        "关注PCB概念股表现，超声电子已连续2日涨停",
+        "AI产业链动态，包括SK海力士、英伟达等公司最新动向",
+        "AI行业洗牌，一家明星公司申请破产"
+      ],
+      "goldStockChanges": "中船特气(-1.67%)、炬光科技(-1.47%)、长电科技(-0.63%)、江丰电子(-1.33%)、天孚通信(-1.78%)、胜宏科技(+0.48%)、东材科技(-1.13%)、宏和科技(-1.25%)、江波龙(-1.36%)、华海诚科(-1.16%)、鼎龙股份(-0.22%)、中际旭创(-1.92%)",
+      "opportunities": [],
+      "risks": [],
+      "conclusion": "今日AI算力产业链个股普遍小幅下跌，中际旭创(-1.92%)跌幅居前，胜宏科技(+0.48%)逆势上涨。PCB概念表现活跃，超声电子2连板。AI行业动态频出，包括技术突破和行业洗牌。"
+    },
     {
       "date": "2026-10-13",
       "type": "review",
@@ -429,143 +451,143 @@
     }
   ],
   "goldPoolSignals": {
-    "300054": "鼎龙股份平收62.45元，63.52倍PE处于行业中游",
-    "300308": "中际旭创涨1.45%至735元，42倍PE为光模块最低",
-    "300394": "天孚通信放量突破250元关口，7.48%涨幅领涨板块",
-    "300476": "胜宏科技涨1.18%至199.10元，38.93倍PE具估值优势",
-    "300666": "江丰电子跌0.54%报199.31元，69.93倍PE处于合理区间",
-    "301308": "江波龙微跌0.22%报271.20元，10.4倍PE显著低于同业",
-    "600584": "长电科技微涨0.28%，1076亿市值封测龙头走势平稳",
-    "601208": "东材科技涨1.52%但PE达114.47倍需警惕高估值风险",
-    "603256": "宏和科技微涨0.14%，204倍PE反映市场高预期",
-    "688146": "中船特气涨1.19%至172.91元，PE达177.55倍显示高估值",
-    "688167": "炬光科技涨2.47%但PE为负，需关注盈利改善情况",
-    "688535": "华海诚科跌0.34%至85.90元，245倍PE显示估值压力"
+    "300054": "鼎龙股份微跌0.22%，现价62.31元",
+    "300308": "中际旭创下跌1.92%，现价720.91元",
+    "300394": "天孚通信下跌1.78%，现价242.30元",
+    "300476": "胜宏科技上涨0.48%，现价200.05元",
+    "300666": "江丰电子下跌1.33%，现价196.66元",
+    "301308": "江波龙下跌1.36%，现价267.50元",
+    "600584": "长电科技下跌0.63%，现价59.78元",
+    "601208": "东材科技下跌1.13%，现价45.58元",
+    "603256": "宏和科技下跌1.25%，现价110.03元",
+    "688146": "中船特气下跌1.67%，现价170.03元",
+    "688167": "炬光科技下跌1.47%，现价237.74元",
+    "688535": "华海诚科下跌1.16%，现价84.90元"
   },
   "priceData": {
     "300054": {
-      "price": "62.45",
-      "change": "0.00",
-      "changePct": "0.00",
-      "high": "63.75",
-      "low": "59.75",
-      "turnover": "2.52",
-      "pe": "63.52",
-      "marketCap": "464.96"
+      "price": "62.31",
+      "change": "-0.14",
+      "changePct": "-0.22",
+      "high": "62.68",
+      "low": "61.96",
+      "turnover": "0.13",
+      "pe": "63.38",
+      "marketCap": "463.92"
     },
     "300308": {
-      "price": "735.00",
-      "change": "10.53",
-      "changePct": "1.45",
-      "high": "746.00",
-      "low": "690.16",
-      "turnover": "2.79",
-      "pe": "42.33",
-      "marketCap": "8158.04"
+      "price": "720.91",
+      "change": "-14.09",
+      "changePct": "-1.92",
+      "high": "733.35",
+      "low": "720.00",
+      "turnover": "0.15",
+      "pe": "41.52",
+      "marketCap": "8001.65"
     },
     "300394": {
-      "price": "246.70",
-      "change": "17.16",
-      "changePct": "7.48",
-      "high": "250.00",
-      "low": "217.01",
-      "turnover": "3.85",
-      "pe": "115.88",
-      "marketCap": "2685.05"
+      "price": "242.30",
+      "change": "-4.40",
+      "changePct": "-1.78",
+      "high": "245.45",
+      "low": "241.00",
+      "turnover": "0.29",
+      "pe": "113.81",
+      "marketCap": "2637.16"
     },
     "300476": {
-      "price": "199.10",
-      "change": "2.32",
-      "changePct": "1.18",
-      "high": "202.78",
-      "low": "184.88",
-      "turnover": "3.00",
-      "pe": "38.93",
-      "marketCap": "1722.60"
+      "price": "200.05",
+      "change": "0.95",
+      "changePct": "0.48",
+      "high": "201.97",
+      "low": "198.00",
+      "turnover": "0.20",
+      "pe": "39.12",
+      "marketCap": "1730.82"
     },
     "300666": {
-      "price": "199.31",
-      "change": "-1.09",
-      "changePct": "-0.54",
-      "high": "203.44",
-      "low": "187.71",
-      "turnover": "3.49",
-      "pe": "69.93",
-      "marketCap": "441.36"
+      "price": "196.66",
+      "change": "-2.65",
+      "changePct": "-1.33",
+      "high": "199.33",
+      "low": "196.45",
+      "turnover": "0.20",
+      "pe": "69.00",
+      "marketCap": "435.49"
     },
     "301308": {
-      "price": "271.20",
-      "change": "-0.61",
-      "changePct": "-0.22",
-      "high": "275.66",
-      "low": "258.00",
-      "turnover": "3.24",
-      "pe": "10.40",
-      "marketCap": "764.38"
+      "price": "267.50",
+      "change": "-3.70",
+      "changePct": "-1.36",
+      "high": "271.16",
+      "low": "267.20",
+      "turnover": "0.17",
+      "pe": "10.26",
+      "marketCap": "753.95"
     },
     "600584": {
-      "price": "60.16",
-      "change": "0.17",
-      "changePct": "0.28",
-      "high": "61.19",
-      "low": "57.40",
-      "turnover": "3.12",
-      "pe": "55.52",
-      "marketCap": "1076.51"
+      "price": "59.78",
+      "change": "-0.38",
+      "changePct": "-0.63",
+      "high": "60.44",
+      "low": "59.59",
+      "turnover": "0.19",
+      "pe": "55.17",
+      "marketCap": "1069.71"
     },
     "601208": {
-      "price": "46.10",
-      "change": "0.69",
-      "changePct": "1.52",
-      "high": "47.21",
-      "low": "42.35",
-      "turnover": "5.50",
-      "pe": "114.47",
-      "marketCap": "465.69"
+      "price": "45.58",
+      "change": "-0.52",
+      "changePct": "-1.13",
+      "high": "46.20",
+      "low": "45.40",
+      "turnover": "0.38",
+      "pe": "113.18",
+      "marketCap": "460.44"
     },
     "603256": {
-      "price": "111.42",
-      "change": "0.16",
-      "changePct": "0.14",
-      "high": "113.24",
-      "low": "103.20",
-      "turnover": "1.84",
-      "pe": "204.02",
-      "marketCap": "1007.89"
+      "price": "110.03",
+      "change": "-1.39",
+      "changePct": "-1.25",
+      "high": "111.98",
+      "low": "109.13",
+      "turnover": "0.10",
+      "pe": "201.47",
+      "marketCap": "995.32"
     },
     "688146": {
-      "price": "172.91",
-      "change": "2.03",
-      "changePct": "1.19",
-      "high": "174.50",
-      "low": "163.10",
-      "turnover": "6.99",
-      "pe": "177.55",
-      "marketCap": "250.67"
+      "price": "170.03",
+      "change": "-2.88",
+      "changePct": "-1.67",
+      "high": "173.50",
+      "low": "169.55",
+      "turnover": "0.49",
+      "pe": "174.59",
+      "marketCap": "246.49"
     },
     "688167": {
-      "price": "241.28",
-      "change": "5.82",
-      "changePct": "2.47",
-      "high": "245.45",
-      "low": "221.00",
-      "turnover": "5.56",
-      "pe": "-389.11",
-      "marketCap": "314.00"
+      "price": "237.74",
+      "change": "-3.54",
+      "changePct": "-1.47",
+      "high": "240.02",
+      "low": "235.69",
+      "turnover": "0.32",
+      "pe": "-383.40",
+      "marketCap": "309.39"
     },
     "688535": {
-      "price": "85.90",
-      "change": "-0.29",
-      "changePct": "-0.34",
-      "high": "87.05",
-      "low": "79.80",
-      "turnover": "3.66",
-      "pe": "245.35",
-      "marketCap": "114.71"
+      "price": "84.90",
+      "change": "-1.00",
+      "changePct": "-1.16",
+      "high": "86.00",
+      "low": "84.66",
+      "turnover": "0.19",
+      "pe": "242.49",
+      "marketCap": "113.37"
     }
   },
   "limitUpScanData": {
-    "date": "2026-10-13",
+    "date": "2026-10-14",
     "note": "",
     "items": [
       {
@@ -573,115 +595,89 @@
         "code": "000823",
         "prefix": "sz",
         "sector": "pcb",
-        "changePct": 10.004928588867188,
-        "verdict": "watch",
-        "reason": "首次涨停 93154"
+        "changePct": 9.991039276123047,
+        "verdict": "real",
+        "reason": "连板2板，首次涨停 92500"
       },
       {
-        "name": "澳弘电子",
-        "code": "605058",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 10,
-        "verdict": "watch",
-        "reason": "首次涨停 102007"
-      },
-      {
-        "name": "协和电子",
-        "code": "605258",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 10.010851860046387,
-        "verdict": "watch",
-        "reason": "首次涨停 103918"
-      },
-      {
-        "name": "依顿电子",
-        "code": "603328",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 9.975268363952637,
-        "verdict": "watch",
-        "reason": "首次涨停 110004"
-      },
-      {
-        "name": "骏亚科技",
-        "code": "603386",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 10.012594223022461,
-        "verdict": "watch",
-        "reason": "首次涨停 111014"
-      },
-      {
-        "name": "金百泽",
-        "code": "301041",
+        "name": "宝鼎科技",
+        "code": "002552",
         "prefix": "sz",
         "sector": "pcb",
-        "changePct": 20,
+        "changePct": 9.990394592285156,
         "verdict": "watch",
-        "reason": "首次涨停 112715"
-      },
-      {
-        "name": "中京电子",
-        "code": "002579",
-        "prefix": "sz",
-        "sector": "pcb",
-        "changePct": 9.973226547241211,
-        "verdict": "watch",
-        "reason": "首次涨停 112736"
-      },
-      {
-        "name": "迅捷兴",
-        "code": "688655",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 20.00339126586914,
-        "verdict": "watch",
-        "reason": "首次涨停 112931"
-      },
-      {
-        "name": "铜峰电子",
-        "code": "600237",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 9.98781967163086,
-        "verdict": "watch",
-        "reason": "首次涨停 130042"
+        "reason": "首次涨停 92500"
       }
     ]
   },
   "fetchErrors": [],
-  "aiCandidates": [],
-  "candidatesGeneratedAt": "2026-10-13T18:54:29Z",
-  "industrySignalCandidates": [
+  "aiCandidates": [
     {
-      "signalType": "增持",
-      "sector": "semiconductor",
-      "newsQuote": "英伟达据称收购了Genesis AI、Pigment与Entalpic三家公司的股份",
-      "newsTime": "2026-10-14 01:33:33",
-      "impact": "利好",
-      "stocks": [],
-      "reason": "英伟达收购了三家公司的股份"
+      "name": "超声电子",
+      "code": "000823",
+      "newsQuote": "PCB概念表现活跃 超声电子2连板",
+      "newsTime": "2026-10-14 09:32:46",
+      "reason": "PCB概念表现活跃",
+      "codeUnverified": false,
+      "codeFormatValid": true
     },
     {
-      "signalType": "产能",
-      "sector": "semiconductor",
-      "newsQuote": "英伟达计划本周宣布在欧洲进行20亿美元的AI相关投资",
-      "newsTime": "2026-10-13 23:45:32",
-      "impact": "利好",
-      "stocks": [],
-      "reason": "英伟达计划在欧洲进行AI相关投资"
+      "name": "广合科技",
+      "code": "001389",
+      "newsQuote": "广合科技：截至目前公司不存在收购覆铜板企业或上游材料企业的安排",
+      "newsTime": "2026-10-14 09:10:07",
+      "reason": "公司涉及覆铜板业务",
+      "codeUnverified": false,
+      "codeFormatValid": true
     },
     {
-      "signalType": "产能",
-      "sector": "semiconductor",
-      "newsQuote": "英伟达首席执行官黄仁勋表示 公司过去一年在欧洲的投资总额达到80亿美元",
-      "newsTime": "2026-10-13 23:26:50",
-      "impact": "利好",
-      "stocks": [],
-      "reason": "英伟达过去一年在欧洲的投资总额达到80亿美元"
+      "name": "真爱美家",
+      "code": "003041",
+      "newsQuote": "真爱美家新设智算科技公司 含多项AI业务",
+      "newsTime": "2026-10-14 09:00:17",
+      "reason": "新设智算科技公司含多项AI业务",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "天阳科技",
+      "code": "300872",
+      "newsQuote": "天阳科技：公司算力相关业务仍在努力推进中",
+      "newsTime": "2026-10-14 08:58:16",
+      "reason": "公司推进算力相关业务",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "协昌科技",
+      "code": "301418",
+      "newsQuote": "协昌科技：公司将加大研发投入 持续拓展功率芯片技术的“广度”和“深度”",
+      "newsTime": "2026-10-14 08:47:35",
+      "reason": "公司拓展功率芯片技术",
+      "codeUnverified": false,
+      "codeFormatValid": true
     }
   ],
-  "signalCandidatesGeneratedAt": "2026-10-13T18:54:39Z"
+  "candidatesGeneratedAt": "2026-10-14T01:36:03Z",
+  "industrySignalCandidates": [
+    {
+      "signalType": "产能",
+      "sector": "semiconductor",
+      "newsQuote": "英伟达与京元电签订预付款协议 预留后者美国新厂测试产能",
+      "newsTime": "2026-10-14 09:09:28",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "英伟达与京元电签订预付款协议，预留后者美国新厂测试产能"
+    },
+    {
+      "signalType": "业绩",
+      "sector": "semiconductor",
+      "newsQuote": "兑吧AI短剧业务三季度单月播放量环比增幅107% 连续三个月盈利",
+      "newsTime": "2026-10-14 09:02:03",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "兑吧AI短剧业务三季度单月播放量环比增幅107%，连续三个月盈利"
+    }
+  ],
+  "signalCandidatesGeneratedAt": "2026-10-14T01:36:13Z"
 }
