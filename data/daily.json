@@ -1,7 +1,34 @@
 {
-  "generatedAt": "2026-10-20T01:36:06.224Z",
-  "date": "2026-10-20",
+  "generatedAt": "2026-10-20T16:23:54.460Z",
+  "date": "2026-10-21",
   "dailyBriefings": [
+    {
+      "date": "2026-10-21",
+      "type": "review",
+      "title": "2026-10-21 A股复盘：胜宏科技领涨4.44%",
+      "marketOverview": "今日A股市场整体表现平稳，胜宏科技以4.44%的涨幅领跑，中际旭创则下跌1.94%。涨停个股中，同为股份、吉大正元等表现突出。",
+      "sectorHighlights": [
+        "胜宏科技大涨4.44%，表现亮眼",
+        "中际旭创下跌1.94%，表现不佳",
+        "同为股份涨停，涨幅达10.02%",
+        "吉大正元连续四日涨停"
+      ],
+      "goldStockPerf": [
+        {
+          "code": "300476",
+          "name": "胜宏科技",
+          "change": 4.44,
+          "note": "今日涨幅最大，表现强劲"
+        },
+        {
+          "code": "300308",
+          "name": "中际旭创",
+          "change": -1.94,
+          "note": "今日跌幅最大，表现疲软"
+        }
+      ],
+      "conclusion": "今日A股市场整体表现平稳，胜宏科技以4.44%的涨幅领跑，中际旭创则下跌1.94%。涨停个股中，同为股份、吉大正元等表现突出。"
+    },
     {
       "date": "2026-10-20",
       "type": "morning",
@@ -546,207 +573,232 @@
     }
   ],
   "goldPoolSignals": {
-    "300054": "鼎龙股份今日微跌0.12%，表现平稳",
-    "300308": "中际旭创今日下跌0.77%，表现较弱",
-    "300394": "天孚通信今日下跌1.43%，表现较弱",
-    "300476": "胜宏科技今日微涨0.15%，表现稳定",
-    "300666": "江丰电子今日下跌0.78%，表现不佳",
-    "301308": "江波龙今日上涨0.91%，表现较好",
-    "600584": "长电科技今日微涨0.11%，表现平稳",
-    "601208": "东材科技今日下跌0.71%，表现不佳",
-    "603256": "宏和科技今日下跌0.81%，表现疲软",
-    "688146": "中船特气今日上涨0.66%，表现稳健",
-    "688167": "炬光科技今日下跌1.37%，表现疲软",
-    "688535": "华海诚科今日上涨0.75%，表现稳健"
+    "300054": "鼎龙股份今日上涨1.72%，表现稳健",
+    "300308": "中际旭创今日下跌1.94%，表现疲软",
+    "300394": "天孚通信今日上涨0.61%，表现平稳",
+    "300476": "胜宏科技今日大涨4.44%，表现强劲",
+    "300666": "江丰电子今日上涨1.32%，表现稳健",
+    "301308": "江波龙今日上涨0.91%，表现平稳",
+    "600584": "长电科技今日上涨1.62%，表现良好",
+    "601208": "东材科技今日上涨0.29%，表现平稳",
+    "603256": "宏和科技今日上涨1.59%，表现良好",
+    "688146": "中船特气今日上涨1.35%，表现稳健",
+    "688167": "炬光科技今日上涨1.00%，表现平稳",
+    "688535": "华海诚科今日上涨3.11%，表现良好"
   },
   "priceData": {
     "300054": {
-      "price": "57.04",
-      "change": "-0.07",
-      "changePct": "-0.12",
-      "high": "57.19",
+      "price": "58.09",
+      "change": "0.98",
+      "changePct": "1.72",
+      "high": "59.01",
       "low": "56.56",
-      "turnover": "0.13",
-      "pe": "58.02",
-      "marketCap": "424.68"
+      "turnover": "2.20",
+      "pe": "59.09",
+      "marketCap": "432.50"
     },
     "300308": {
-      "price": "655.61",
-      "change": "-5.09",
-      "changePct": "-0.77",
-      "high": "657.97",
-      "low": "648.66",
-      "turnover": "0.16",
-      "pe": "37.76",
-      "marketCap": "7276.86"
+      "price": "647.90",
+      "change": "-12.80",
+      "changePct": "-1.94",
+      "high": "673.10",
+      "low": "637.00",
+      "turnover": "1.99",
+      "pe": "37.31",
+      "marketCap": "7191.28"
     },
     "300394": {
-      "price": "200.40",
-      "change": "-2.90",
-      "changePct": "-1.43",
-      "high": "201.60",
+      "price": "204.54",
+      "change": "1.24",
+      "changePct": "0.61",
+      "high": "209.47",
       "low": "197.68",
-      "turnover": "0.21",
-      "pe": "94.13",
-      "marketCap": "2181.13"
+      "turnover": "2.31",
+      "pe": "96.08",
+      "marketCap": "2226.19"
     },
     "300476": {
-      "price": "177.11",
-      "change": "0.26",
-      "changePct": "0.15",
-      "high": "177.77",
+      "price": "184.70",
+      "change": "7.85",
+      "changePct": "4.44",
+      "high": "192.50",
       "low": "174.97",
-      "turnover": "0.21",
-      "pe": "34.63",
-      "marketCap": "1532.35"
+      "turnover": "3.36",
+      "pe": "36.12",
+      "marketCap": "1598.02"
     },
     "300666": {
-      "price": "170.03",
-      "change": "-1.34",
-      "changePct": "-0.78",
-      "high": "170.96",
+      "price": "173.63",
+      "change": "2.26",
+      "changePct": "1.32",
+      "high": "178.80",
       "low": "167.69",
-      "turnover": "0.29",
-      "pe": "59.66",
-      "marketCap": "376.52"
+      "turnover": "3.64",
+      "pe": "60.92",
+      "marketCap": "384.49"
     },
     "301308": {
-      "price": "245.02",
-      "change": "2.22",
+      "price": "245.00",
+      "change": "2.20",
       "changePct": "0.91",
-      "high": "248.00",
+      "high": "249.97",
       "low": "241.50",
-      "turnover": "0.60",
+      "turnover": "4.26",
       "pe": "9.40",
-      "marketCap": "690.59"
+      "marketCap": "690.54"
     },
     "600584": {
-      "price": "56.40",
-      "change": "0.06",
-      "changePct": "0.11",
-      "high": "56.88",
+      "price": "57.25",
+      "change": "0.91",
+      "changePct": "1.62",
+      "high": "58.12",
       "low": "56.00",
-      "turnover": "0.22",
-      "pe": "52.05",
-      "marketCap": "1009.23"
+      "turnover": "2.60",
+      "pe": "52.83",
+      "marketCap": "1024.44"
     },
     "601208": {
-      "price": "40.60",
-      "change": "-0.29",
-      "changePct": "-0.71",
-      "high": "40.80",
+      "price": "41.01",
+      "change": "0.12",
+      "changePct": "0.29",
+      "high": "42.13",
       "low": "40.10",
-      "turnover": "0.23",
-      "pe": "100.81",
-      "marketCap": "410.13"
+      "turnover": "3.21",
+      "pe": "101.83",
+      "marketCap": "414.28"
     },
     "603256": {
-      "price": "96.69",
-      "change": "-0.79",
-      "changePct": "-0.81",
-      "high": "97.88",
+      "price": "99.03",
+      "change": "1.55",
+      "changePct": "1.59",
+      "high": "101.88",
       "low": "95.66",
-      "turnover": "0.10",
-      "pe": "177.04",
-      "marketCap": "874.64"
+      "turnover": "1.37",
+      "pe": "181.33",
+      "marketCap": "895.81"
     },
     "688146": {
-      "price": "152.76",
-      "change": "1.00",
-      "changePct": "0.66",
-      "high": "153.90",
+      "price": "153.81",
+      "change": "2.05",
+      "changePct": "1.35",
+      "high": "157.98",
       "low": "149.10",
-      "turnover": "0.55",
-      "pe": "156.86",
-      "marketCap": "221.46"
+      "turnover": "5.84",
+      "pe": "107.00",
+      "marketCap": "222.98"
     },
     "688167": {
-      "price": "201.00",
-      "change": "-2.80",
-      "changePct": "-1.37",
-      "high": "203.88",
+      "price": "205.84",
+      "change": "2.04",
+      "changePct": "1.00",
+      "high": "210.50",
       "low": "198.70",
-      "turnover": "0.34",
-      "pe": "-324.15",
-      "marketCap": "261.58"
+      "turnover": "3.23",
+      "pe": "-331.95",
+      "marketCap": "267.88"
     },
     "688535": {
-      "price": "76.99",
-      "change": "0.57",
-      "changePct": "0.75",
-      "high": "77.36",
+      "price": "78.80",
+      "change": "2.38",
+      "changePct": "3.11",
+      "high": "81.70",
       "low": "75.76",
-      "turnover": "0.31",
-      "pe": "219.90",
-      "marketCap": "102.81"
+      "turnover": "3.30",
+      "pe": "225.07",
+      "marketCap": "105.22"
     }
   },
   "limitUpScanData": {
-    "date": "2026-10-20",
-    "note": "当日暂无AI产业链相关涨停池数据",
-    "items": []
+    "date": "2026-10-21",
+    "note": "",
+    "items": [
+      {
+        "name": "骏亚科技",
+        "code": "603386",
+        "prefix": "sh",
+        "sector": "pcb",
+        "changePct": 9.979736328125,
+        "verdict": "watch",
+        "reason": "首次涨停 93614"
+      },
+      {
+        "name": "日海智能",
+        "code": "002313",
+        "prefix": "sz",
+        "sector": "optical",
+        "changePct": 10,
+        "verdict": "watch",
+        "reason": "首次涨停 94009"
+      },
+      {
+        "name": "移远通信",
+        "code": "603236",
+        "prefix": "sh",
+        "sector": "optical",
+        "changePct": 10.001445770263672,
+        "verdict": "watch",
+        "reason": "首次涨停 100444"
+      },
+      {
+        "name": "美格智能",
+        "code": "002881",
+        "prefix": "sz",
+        "sector": "optical",
+        "changePct": 9.997143745422363,
+        "verdict": "watch",
+        "reason": "首次涨停 101839"
+      },
+      {
+        "name": "博通集成",
+        "code": "603068",
+        "prefix": "sh",
+        "sector": "semiconductor",
+        "changePct": 10.005279541015625,
+        "verdict": "watch",
+        "reason": "首次涨停 103340"
+      },
+      {
+        "name": "恒玄科技",
+        "code": "688608",
+        "prefix": "sh",
+        "sector": "semiconductor",
+        "changePct": 20,
+        "verdict": "watch",
+        "reason": "首次涨停 104747"
+      },
+      {
+        "name": "瑞芯微",
+        "code": "603893",
+        "prefix": "sh",
+        "sector": "semiconductor",
+        "changePct": 10.002909660339355,
+        "verdict": "watch",
+        "reason": "首次涨停 104955"
+      }
+    ]
   },
   "fetchErrors": [],
-  "aiCandidates": [
-    {
-      "name": "协创数据",
-      "code": "300857",
-      "newsQuote": "累计披露数百亿采购计划后 协创数据自去年来首次单独披露算力服务订单｜速读公告",
-      "newsTime": "2026-10-20 08:57:33",
-      "reason": "协创数据自去年来首次单独披露算力服务订单",
-      "codeUnverified": false,
-      "codeFormatValid": true
-    }
-  ],
-  "candidatesGeneratedAt": "2026-10-20T01:35:55Z",
+  "aiCandidates": [],
+  "candidatesGeneratedAt": "2026-10-20T16:23:46Z",
   "industrySignalCandidates": [
     {
-      "signalType": "涨价",
+      "signalType": "政策",
       "sector": "semiconductor",
-      "newsQuote": "成熟制程晶圆代工涨价潮延续 联电、世界先进、力积电持续迎来价量齐扬盛况",
-      "newsTime": "2026-10-20 08:55:57",
-      "impact": "利好",
+      "newsQuote": "周小川：应储备政策工具防范AI投资失败引发金融动荡",
+      "newsTime": "2026-10-20 23:38:32",
+      "impact": "中性",
       "stocks": [],
-      "reason": "成熟制程晶圆代工涨价潮延续"
-    },
-    {
-      "signalType": "涨价",
-      "sector": "semiconductor",
-      "newsQuote": "机构：预计明年首季8寸与12寸成熟制程晶圆代工价格将环比增长4%至8%",
-      "newsTime": "2026-10-20 08:55:57",
-      "impact": "利好",
-      "stocks": [],
-      "reason": "预计明年首季8寸与12寸成熟制程晶圆代工价格将环比增长"
-    },
-    {
-      "signalType": "中标",
-      "sector": "storage",
-      "newsQuote": "三星电机签署价值3605亿韩元的“存储半导体封装基板”长期供应合同",
-      "newsTime": "2026-10-20 09:23:27",
-      "impact": "利好",
-      "stocks": [],
-      "reason": "签署存储半导体封装基板长期供应合同"
+      "reason": "周小川提出应储备政策工具防范AI投资失败引发金融动荡"
     },
     {
       "signalType": "招标",
-      "sector": "storage",
-      "newsQuote": "累计披露数百亿采购计划后 协创数据自去年来首次单独披露算力服务订单｜速读公告",
-      "newsTime": "2026-10-20 08:57:33",
-      "impact": "利好",
-      "stocks": [
-        "协创数据"
-      ],
-      "reason": "首次单独披露算力服务订单"
-    },
-    {
-      "signalType": "产能",
       "sector": "semiconductor",
-      "newsQuote": "SK海力士计划投资2万亿韩元 支持本土半导体材料、零部件及设备企业",
-      "newsTime": "2026-10-20 09:23:27",
+      "newsQuote": "国内首个太空算力商城—太空算力交易平台测试版上线",
+      "newsTime": "2026-10-20 23:23:00",
       "impact": "利好",
       "stocks": [],
-      "reason": "计划投资支持本土半导体材料、零部件及设备企业"
+      "reason": "国内首个太空算力商城—太空算力交易平台测试版上线"
     }
   ],
-  "signalCandidatesGeneratedAt": "2026-10-20T01:36:06Z"
+  "signalCandidatesGeneratedAt": "2026-10-20T16:23:54Z"
 }
