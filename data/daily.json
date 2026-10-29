@@ -1,7 +1,29 @@
 {
-  "generatedAt": "2026-10-28T17:55:51.241Z",
-  "date": "2026-10-28",
+  "generatedAt": "2026-10-29T02:06:47.187Z",
+  "date": "2026-10-29",
   "dailyBriefings": [
+    {
+      "date": "2026-10-29",
+      "type": "morning",
+      "title": "2026-10-29早报：CPO概念震荡下挫 天孚通信跌超10%",
+      "overnightMarket": "三星电子宣布HBM4收入增长超三倍并计划2027年量产HBM4E；腾讯汤道生称AI智能体重塑企业生产力；存储芯片板块低开；CPO概念震荡下挫。",
+      "keyNews": [
+        "三星电子：HBM4收入在第三季度较第二季度增长超过三倍",
+        "腾讯汤道生：AI智能体重塑企业生产力 日均Token调用量已超500万亿",
+        "存储芯片板块低开 佰维存储跌超11%",
+        "CPO概念震荡下挫 天孚通信跌超10%",
+        "具身智能芯片研发商辉羲科技启动IPO辅导"
+      ],
+      "todayAgenda": [
+        "关注CPO概念股天孚通信今日表现，现价166.90元，跌幅17.14%",
+        "关注存储芯片相关股票表现，如江波龙现价227.42元，跌幅4.92%",
+        "关注AI算力产业链股票整体走势，多数个股下跌"
+      ],
+      "goldStockChanges": "AI算力产业链股票普遍下跌，天孚通信跌幅最大达17.14%，中际旭创跌5.65%，江丰电子跌4.60%，长电科技跌2.73%，中船特气跌3.01%。",
+      "opportunities": [],
+      "risks": [],
+      "conclusion": "今日AI算力产业链股票普遍回调，CPO概念股天孚通信领跌，存储芯片相关股票也表现不佳。市场关注三星电子HBM4业务增长及AI生产力发展。"
+    },
     {
       "date": "2026-10-28",
       "type": "review",
@@ -729,205 +751,214 @@
     }
   ],
   "goldPoolSignals": {
-    "300054": "鼎龙股份涨幅4.34%，表现稳健。",
-    "300308": "中际旭创涨幅10.28%，表现突出。",
-    "300394": "天孚通信涨幅6.79%，表现强劲。",
-    "300476": "胜宏科技涨幅3.57%，表现稳定。",
-    "300666": "江丰电子涨幅10.35%，领涨板块。",
-    "301308": "江波龙涨幅4.87%，表现良好。",
-    "600584": "长电科技涨幅3.98%，表现稳定。",
-    "601208": "东材科技涨幅8.30%，表现突出。",
-    "603256": "宏和科技涨幅2.10%，表现平稳。",
-    "688146": "中船特气涨幅4.32%，表现稳健。",
-    "688167": "炬光科技涨幅4.84%，表现良好。",
-    "688535": "华海诚科涨幅8.57%，表现强劲。"
+    "300054": "鼎龙股份现价57.43元，跌幅2.00%，市盈率52.09倍",
+    "300308": "中际旭创现价600.34元，跌幅5.65%，市盈率34.57倍",
+    "300394": "天孚通信现价166.90元，跌幅17.14%，市盈率69.08倍",
+    "300476": "胜宏科技现价170.00元，跌幅5.72%，市盈率33.24倍",
+    "300666": "江丰电子现价160.72元，跌幅4.60%，市盈率48.75倍",
+    "301308": "江波龙现价227.42元，跌幅4.92%，市盈率8.72倍",
+    "600584": "长电科技现价53.90元，跌幅2.73%，市盈率43.27倍",
+    "601208": "东材科技现价35.91元，跌幅4.47%，市盈率81.36倍",
+    "603256": "宏和科技现价84.07元，跌幅3.07%，市盈率94.28倍",
+    "688146": "中船特气现价138.31元，跌幅3.01%，市盈率96.21倍",
+    "688167": "炬光科技现价177.94元，跌幅8.40%，市盈率为负",
+    "688535": "华海诚科现价69.68元，跌幅3.86%，市盈率199.02倍"
   },
   "priceData": {
     "300054": {
-      "price": "58.60",
-      "change": "2.44",
-      "changePct": "4.34",
-      "high": "59.27",
-      "low": "56.61",
-      "turnover": "3.19",
-      "pe": "53.15",
-      "marketCap": "436.32"
+      "price": "57.43",
+      "change": "-1.17",
+      "changePct": "-2.00",
+      "high": "58.96",
+      "low": "57.10",
+      "turnover": "0.81",
+      "pe": "52.09",
+      "marketCap": "427.61"
     },
     "300308": {
-      "price": "636.30",
-      "change": "59.30",
-      "changePct": "10.28",
-      "high": "636.68",
-      "low": "588.55",
-      "turnover": "3.46",
-      "pe": "36.64",
-      "marketCap": "7062.53"
+      "price": "600.34",
+      "change": "-35.96",
+      "changePct": "-5.65",
+      "high": "619.70",
+      "low": "594.62",
+      "turnover": "1.24",
+      "pe": "34.57",
+      "marketCap": "6663.40"
     },
     "300394": {
-      "price": "201.43",
-      "change": "12.81",
-      "changePct": "6.79",
-      "high": "201.90",
-      "low": "192.71",
-      "turnover": "3.42",
-      "pe": "83.38",
-      "marketCap": "2192.34"
+      "price": "166.90",
+      "change": "-34.53",
+      "changePct": "-17.14",
+      "high": "192.00",
+      "low": "165.00",
+      "turnover": "3.37",
+      "pe": "69.08",
+      "marketCap": "1816.52"
     },
     "300476": {
-      "price": "180.31",
-      "change": "6.22",
-      "changePct": "3.57",
-      "high": "182.97",
-      "low": "175.51",
-      "turnover": "2.70",
-      "pe": "35.26",
-      "marketCap": "1560.03"
+      "price": "170.00",
+      "change": "-10.31",
+      "changePct": "-5.72",
+      "high": "177.60",
+      "low": "168.73",
+      "turnover": "1.12",
+      "pe": "33.24",
+      "marketCap": "1470.83"
     },
     "300666": {
-      "price": "168.47",
-      "change": "15.80",
-      "changePct": "10.35",
-      "high": "168.58",
-      "low": "153.80",
-      "turnover": "5.14",
-      "pe": "51.10",
-      "marketCap": "373.07"
+      "price": "160.72",
+      "change": "-7.75",
+      "changePct": "-4.60",
+      "high": "167.46",
+      "low": "159.53",
+      "turnover": "2.36",
+      "pe": "48.75",
+      "marketCap": "355.90"
     },
     "301308": {
-      "price": "239.20",
-      "change": "11.11",
-      "changePct": "4.87",
-      "high": "242.00",
-      "low": "233.36",
-      "turnover": "5.08",
-      "pe": "9.17",
-      "marketCap": "674.19"
+      "price": "227.42",
+      "change": "-11.78",
+      "changePct": "-4.92",
+      "high": "236.59",
+      "low": "225.01",
+      "turnover": "2.08",
+      "pe": "8.72",
+      "marketCap": "640.99"
     },
     "600584": {
-      "price": "55.41",
-      "change": "2.12",
-      "changePct": "3.98",
-      "high": "55.72",
-      "low": "53.55",
-      "turnover": "3.78",
-      "pe": "44.49",
-      "marketCap": "991.51"
+      "price": "53.90",
+      "change": "-1.51",
+      "changePct": "-2.73",
+      "high": "55.35",
+      "low": "53.40",
+      "turnover": "1.21",
+      "pe": "43.27",
+      "marketCap": "964.49"
     },
     "601208": {
-      "price": "37.59",
-      "change": "2.88",
-      "changePct": "8.30",
-      "high": "38.18",
-      "low": "36.05",
-      "turnover": "9.18",
-      "pe": "85.17",
-      "marketCap": "379.73"
+      "price": "35.91",
+      "change": "-1.68",
+      "changePct": "-4.47",
+      "high": "37.40",
+      "low": "35.15",
+      "turnover": "3.03",
+      "pe": "81.36",
+      "marketCap": "362.76"
     },
     "603256": {
-      "price": "86.73",
-      "change": "1.78",
-      "changePct": "2.10",
-      "high": "87.70",
-      "low": "84.50",
-      "turnover": "1.80",
-      "pe": "97.27",
-      "marketCap": "784.55"
+      "price": "84.07",
+      "change": "-2.66",
+      "changePct": "-3.07",
+      "high": "87.33",
+      "low": "82.80",
+      "turnover": "0.61",
+      "pe": "94.28",
+      "marketCap": "760.49"
     },
     "688146": {
-      "price": "142.60",
-      "change": "5.90",
-      "changePct": "4.32",
-      "high": "143.98",
-      "low": "138.50",
-      "turnover": "1.59",
-      "pe": "99.20",
-      "marketCap": "754.94"
+      "price": "138.31",
+      "change": "-4.29",
+      "changePct": "-3.01",
+      "high": "144.50",
+      "low": "136.90",
+      "turnover": "0.55",
+      "pe": "96.21",
+      "marketCap": "732.23"
     },
     "688167": {
-      "price": "194.26",
-      "change": "8.96",
-      "changePct": "4.84",
-      "high": "198.34",
-      "low": "186.23",
-      "turnover": "3.42",
-      "pe": "-313.28",
-      "marketCap": "252.81"
+      "price": "177.94",
+      "change": "-16.32",
+      "changePct": "-8.40",
+      "high": "194.00",
+      "low": "175.97",
+      "turnover": "2.02",
+      "pe": "-286.96",
+      "marketCap": "231.57"
     },
     "688535": {
-      "price": "72.48",
-      "change": "5.72",
-      "changePct": "8.57",
-      "high": "73.83",
-      "low": "68.60",
-      "turnover": "4.03",
-      "pe": "207.02",
-      "marketCap": "96.79"
+      "price": "69.68",
+      "change": "-2.80",
+      "changePct": "-3.86",
+      "high": "73.09",
+      "low": "69.18",
+      "turnover": "1.35",
+      "pe": "199.02",
+      "marketCap": "93.05"
     }
   },
   "limitUpScanData": {
-    "date": "2026-10-28",
-    "note": "",
-    "items": [
-      {
-        "name": "金安国纪",
-        "code": "002636",
-        "prefix": "sz",
-        "sector": "pcb",
-        "changePct": 10.0075101852417,
-        "verdict": "watch",
-        "reason": "首次涨停 92500"
-      },
-      {
-        "name": "富瀚微",
-        "code": "300613",
-        "prefix": "sz",
-        "sector": "semiconductor",
-        "changePct": 20,
-        "verdict": "watch",
-        "reason": "首次涨停 93239"
-      },
-      {
-        "name": "方正科技",
-        "code": "600601",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 10.021322250366211,
-        "verdict": "watch",
-        "reason": "首次涨停 94822"
-      },
-      {
-        "name": "世运电路",
-        "code": "603920",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 9.997093200683594,
-        "verdict": "watch",
-        "reason": "首次涨停 103423"
-      },
-      {
-        "name": "必易微",
-        "code": "688045",
-        "prefix": "sh",
-        "sector": "semiconductor",
-        "changePct": 19.995704650878906,
-        "verdict": "watch",
-        "reason": "首次涨停 110421"
-      }
-    ]
+    "date": "2026-10-29",
+    "note": "当日暂无AI产业链相关涨停池数据",
+    "items": []
   },
   "fetchErrors": [],
-  "aiCandidates": [],
-  "candidatesGeneratedAt": "2026-10-28T17:55:40Z",
-  "industrySignalCandidates": [
+  "aiCandidates": [
     {
-      "signalType": "业绩",
-      "sector": "storage",
-      "newsQuote": "美股存储芯片股集体走强 SK海力士股价涨幅扩大至12%",
-      "newsTime": "2026-10-28 23:21:35",
-      "impact": "利好",
-      "stocks": [],
-      "reason": "SK海力士股价涨幅扩大至12%"
+      "name": "宁德时代",
+      "code": "300750",
+      "newsQuote": "小米、宁德时代入股武汉阿基米德半导体",
+      "newsTime": "2026-10-29 09:53:00",
+      "reason": "宁德时代入股半导体公司，可能涉足AI芯片领域",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "文投控股",
+      "code": "600715",
+      "newsQuote": "AI漫剧概念震荡回升 文投控股7天4板",
+      "newsTime": "2026-10-29 09:36:20",
+      "reason": "文投控股在AI漫剧概念中表现强劲",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "天孚通信",
+      "code": "300394",
+      "newsQuote": "CPO概念震荡下挫 天孚通信跌超10%",
+      "newsTime": "2026-10-29 09:38:46",
+      "reason": "天孚通信在CPO概念中表现波动",
+      "codeUnverified": false,
+      "codeFormatValid": true
     }
   ],
-  "signalCandidatesGeneratedAt": "2026-10-28T17:55:51Z"
+  "candidatesGeneratedAt": "2026-10-29T02:06:34Z",
+  "industrySignalCandidates": [
+    {
+      "signalType": "产能",
+      "sector": "semiconductor",
+      "newsQuote": "三星电子：晶圆代工业务正在扩大对美国和韩国的产能投资",
+      "newsTime": "2026-10-29 10:01:45",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "三星电子扩大晶圆代工业务的产能投资"
+    },
+    {
+      "signalType": "业绩",
+      "sector": "semiconductor",
+      "newsQuote": "三星电子：HBM4收入在第三季度较第二季度增长超过三倍",
+      "newsTime": "2026-10-29 09:52:54",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "三星电子HBM4收入大幅增长"
+    },
+    {
+      "signalType": "产能",
+      "sector": "semiconductor",
+      "newsQuote": "三星电子计划2027年上半年开始量产HBM4E",
+      "newsTime": "2026-10-29 09:25:57",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "三星电子计划量产HBM4E"
+    },
+    {
+      "signalType": "业绩",
+      "sector": "semiconductor",
+      "newsQuote": "三星电子：2027年芯片市场将保持强劲",
+      "newsTime": "2026-10-29 09:20:13",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "三星电子预计2027年芯片市场保持强劲"
+    }
+  ],
+  "signalCandidatesGeneratedAt": "2026-10-29T02:06:47Z"
 }
