@@ -1,7 +1,28 @@
 {
-  "generatedAt": "2026-10-30T17:44:48.892Z",
-  "date": "2026-10-31",
+  "generatedAt": "2026-11-02T02:08:04.198Z",
+  "date": "2026-11-02",
   "dailyBriefings": [
+    {
+      "date": "2026-11-02",
+      "type": "morning",
+      "title": "2026-11-02 早报：半导体芯片反弹，CPO概念活跃",
+      "overnightMarket": "市场筑底阶段，半导体芯片等科技资产或率先反弹；沙特阿美入股AI公司，石油巨头布局算力",
+      "keyNews": [
+        "半导体芯片等科技资产或率先反弹，科创芯片设计ETF国联安(588780)跟踪指数涨超2%",
+        "CPO概念震荡反弹，联赢激光20cm涨停",
+        "沙特阿美入股AI公司，石油巨头布局算力",
+        "台系硅片厂客户拿货力度好于预期，报价确定上调"
+      ],
+      "todayAgenda": [
+        "关注半导体芯片板块的反弹机会",
+        "CPO概念股的活跃表现，特别是联赢激光的涨停",
+        "沙特阿美入股AI公司对算力产业链的影响"
+      ],
+      "goldStockChanges": "中船特气涨幅最大，上涨4.86%至133.70元；胜宏科技跌幅最大，下跌5.06%至132.00元",
+      "opportunities": [],
+      "risks": [],
+      "conclusion": "今日市场关注半导体芯片的反弹机会，CPO概念股表现活跃，沙特阿美入股AI公司或对算力产业链产生积极影响"
+    },
     {
       "date": "2026-10-31",
       "type": "review",
@@ -816,206 +837,224 @@
     }
   ],
   "goldPoolSignals": {
-    "300054": "鼎龙股份今日下跌6.44%，表现较差",
-    "300308": "中际旭创今日下跌4.99%，表现不佳",
-    "300394": "天孚通信今日下跌8.42%，表现较差",
-    "300476": "胜宏科技今日下跌13.31%，表现最差",
-    "300666": "江丰电子今日下跌2.92%，市场承压",
-    "301308": "江波龙今日下跌4.22%，表现较弱",
-    "600584": "长电科技今日下跌5.53%，表现较弱",
-    "601208": "东材科技今日下跌4.88%，表现不佳",
-    "603256": "宏和科技今日下跌5.20%，市场表现疲软",
-    "688146": "中船特气今日下跌5.56%，表现不佳",
-    "688167": "炬光科技今日下跌12.29%，市场表现疲软",
-    "688535": "华海诚科今日下跌1.40%，市场承压"
+    "300054": "鼎龙股份上涨1.30%至54.70元",
+    "300308": "中际旭创微跌0.59%至549.74元",
+    "300394": "天孚通信下跌3.94%至142.17元",
+    "300476": "胜宏科技跌幅较大，下跌5.06%至132.00元",
+    "300666": "江丰电子上涨1.88%至159.03元",
+    "301308": "江波龙微跌0.37%至211.39元",
+    "600584": "长电科技微跌0.18%至48.91元",
+    "601208": "东材科技下跌1.58%至32.39元",
+    "603256": "宏和科技微跌0.68%至75.48元",
+    "688146": "中船特气涨幅领先，上涨4.86%至133.70元",
+    "688167": "炬光科技小幅下跌2.18%至147.90元",
+    "688535": "华海诚科上涨1.30%至67.67元"
   },
   "priceData": {
     "300054": {
-      "price": "54.00",
-      "change": "-3.72",
-      "changePct": "-6.44",
-      "high": "57.10",
-      "low": "53.99",
-      "turnover": "3.13",
-      "pe": "48.98",
-      "marketCap": "402.07"
+      "price": "54.70",
+      "change": "0.70",
+      "changePct": "1.30",
+      "high": "55.20",
+      "low": "54.00",
+      "turnover": "0.74",
+      "pe": "49.61",
+      "marketCap": "407.28"
     },
     "300308": {
-      "price": "553.00",
-      "change": "-29.05",
-      "changePct": "-4.99",
-      "high": "585.00",
-      "low": "537.00",
-      "turnover": "3.31",
-      "pe": "25.15",
-      "marketCap": "6137.95"
+      "price": "549.74",
+      "change": "-3.26",
+      "changePct": "-0.59",
+      "high": "568.86",
+      "low": "544.00",
+      "turnover": "1.03",
+      "pe": "25.00",
+      "marketCap": "6101.77"
     },
     "300394": {
-      "price": "148.00",
-      "change": "-13.60",
-      "changePct": "-8.42",
-      "high": "158.82",
-      "low": "144.00",
-      "turnover": "4.27",
-      "pe": "61.26",
-      "marketCap": "1610.81"
+      "price": "142.17",
+      "change": "-5.83",
+      "changePct": "-3.94",
+      "high": "151.99",
+      "low": "141.28",
+      "turnover": "1.76",
+      "pe": "58.85",
+      "marketCap": "1547.36"
     },
     "300476": {
-      "price": "139.04",
-      "change": "-21.34",
-      "changePct": "-13.31",
-      "high": "152.00",
-      "low": "136.99",
-      "turnover": "6.98",
-      "pe": "30.70",
-      "marketCap": "1202.97"
+      "price": "132.00",
+      "change": "-7.04",
+      "changePct": "-5.06",
+      "high": "141.82",
+      "low": "129.58",
+      "turnover": "2.78",
+      "pe": "29.15",
+      "marketCap": "1142.06"
     },
     "300666": {
-      "price": "156.09",
-      "change": "-4.70",
-      "changePct": "-2.92",
-      "high": "166.93",
-      "low": "155.99",
-      "turnover": "7.01",
-      "pe": "47.35",
-      "marketCap": "345.65"
+      "price": "159.03",
+      "change": "2.94",
+      "changePct": "1.88",
+      "high": "162.26",
+      "low": "155.53",
+      "turnover": "1.91",
+      "pe": "48.24",
+      "marketCap": "352.16"
     },
     "301308": {
-      "price": "212.17",
-      "change": "-9.34",
-      "changePct": "-4.22",
-      "high": "223.93",
-      "low": "210.01",
-      "turnover": "4.15",
-      "pe": "6.49",
-      "marketCap": "598.01"
+      "price": "211.39",
+      "change": "-0.78",
+      "changePct": "-0.37",
+      "high": "218.40",
+      "low": "209.01",
+      "turnover": "1.33",
+      "pe": "6.46",
+      "marketCap": "595.81"
     },
     "600584": {
-      "price": "49.00",
-      "change": "-2.87",
-      "changePct": "-5.53",
-      "high": "52.25",
-      "low": "49.00",
-      "turnover": "3.90",
-      "pe": "39.34",
-      "marketCap": "876.81"
+      "price": "48.91",
+      "change": "-0.09",
+      "changePct": "-0.18",
+      "high": "50.40",
+      "low": "48.44",
+      "turnover": "1.04",
+      "pe": "39.27",
+      "marketCap": "875.20"
     },
     "601208": {
-      "price": "32.91",
-      "change": "-1.69",
-      "changePct": "-4.88",
-      "high": "35.18",
-      "low": "32.00",
-      "turnover": "5.99",
-      "pe": "74.57",
-      "marketCap": "332.45"
+      "price": "32.39",
+      "change": "-0.52",
+      "changePct": "-1.58",
+      "high": "34.00",
+      "low": "32.08",
+      "turnover": "1.98",
+      "pe": "73.39",
+      "marketCap": "327.20"
     },
     "603256": {
-      "price": "76.00",
-      "change": "-4.17",
-      "changePct": "-5.20",
-      "high": "82.00",
-      "low": "74.05",
-      "turnover": "2.03",
-      "pe": "85.23",
-      "marketCap": "687.49"
+      "price": "75.48",
+      "change": "-0.52",
+      "changePct": "-0.68",
+      "high": "78.35",
+      "low": "73.20",
+      "turnover": "0.63",
+      "pe": "84.65",
+      "marketCap": "682.78"
     },
     "688146": {
-      "price": "127.50",
-      "change": "-7.50",
-      "changePct": "-5.56",
-      "high": "135.48",
-      "low": "127.22",
-      "turnover": "1.51",
-      "pe": "88.69",
-      "marketCap": "675.00"
+      "price": "133.70",
+      "change": "6.20",
+      "changePct": "4.86",
+      "high": "138.66",
+      "low": "128.10",
+      "turnover": "1.04",
+      "pe": "93.01",
+      "marketCap": "707.82"
     },
     "688167": {
-      "price": "151.20",
-      "change": "-21.19",
-      "changePct": "-12.29",
-      "high": "164.52",
-      "low": "148.00",
-      "turnover": "6.58",
-      "pe": "-219.64",
-      "marketCap": "196.77"
+      "price": "147.90",
+      "change": "-3.30",
+      "changePct": "-2.18",
+      "high": "155.00",
+      "low": "146.79",
+      "turnover": "1.96",
+      "pe": "-214.84",
+      "marketCap": "192.48"
     },
     "688535": {
-      "price": "66.80",
-      "change": "-0.95",
-      "changePct": "-1.40",
-      "high": "72.77",
-      "low": "63.38",
-      "turnover": "6.26",
-      "pe": "116.01",
-      "marketCap": "89.20"
+      "price": "67.67",
+      "change": "0.87",
+      "changePct": "1.30",
+      "high": "68.59",
+      "low": "65.19",
+      "turnover": "2.04",
+      "pe": "117.52",
+      "marketCap": "90.36"
     }
   },
   "limitUpScanData": {
-    "date": "2026-10-31",
+    "date": "2026-11-02",
     "note": "",
     "items": [
       {
-        "name": "必易微",
-        "code": "688045",
+        "name": "长江通信",
+        "code": "600345",
         "prefix": "sh",
-        "sector": "semiconductor",
-        "changePct": 19.996122360229492,
+        "sector": "optical",
+        "changePct": 10.013986587524414,
         "verdict": "watch",
-        "reason": "首次涨停 93224"
+        "reason": "首次涨停 93010"
       },
       {
-        "name": "金安国纪",
-        "code": "002636",
-        "prefix": "sz",
-        "sector": "pcb",
-        "changePct": 10.001727104187012,
-        "verdict": "watch",
-        "reason": "首次涨停 100330"
-      },
-      {
-        "name": "澳弘电子",
-        "code": "605058",
+        "name": "艾华集团",
+        "code": "603989",
         "prefix": "sh",
         "sector": "pcb",
-        "changePct": 10.002188682556152,
+        "changePct": 9.984947204589844,
         "verdict": "watch",
-        "reason": "首次涨停 101824"
-      },
-      {
-        "name": "满坤科技",
-        "code": "301132",
-        "prefix": "sz",
-        "sector": "pcb",
-        "changePct": 20.008560180664062,
-        "verdict": "watch",
-        "reason": "首次涨停 112642"
+        "reason": "首次涨停 93035"
       }
     ]
   },
   "fetchErrors": [],
   "aiCandidates": [
     {
-      "name": "复旦微电",
-      "code": "688385",
-      "newsQuote": "复旦微电：部分产品如工业级非挥发性存储器等价格有所上升",
-      "newsTime": "2026-10-30 22:14:20",
-      "reason": "复旦微电的部分产品价格有所上升",
+      "name": "东山精密",
+      "code": "002384",
+      "newsQuote": "港股光通信股走强 东山精密涨近8%",
+      "newsTime": "2026-11-02 09:42:44",
+      "reason": "东山精密在光通信领域表现强劲，股价上涨近8%",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "金禄电子",
+      "code": "301282",
+      "newsQuote": "PCB概念震荡回升 金禄电子触及20cm涨停",
+      "newsTime": "2026-11-02 09:40:35",
+      "reason": "金禄电子在PCB概念中表现突出，触及20cm涨停",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "华瓷股份",
+      "code": "001216",
+      "newsQuote": "MLCC概念反弹 华瓷股份直线涨停",
+      "newsTime": "2026-11-02 09:38:41",
+      "reason": "华瓷股份在MLCC概念中表现强劲，直线涨停",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "联赢激光",
+      "code": "688518",
+      "newsQuote": "CPO概念震荡反弹 联赢激光20cm涨停",
+      "newsTime": "2026-11-02 09:33:35",
+      "reason": "联赢激光在CPO概念中表现突出，触及20cm涨停",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "华宇软件",
+      "code": "300271",
+      "newsQuote": "华宇软件：已与Kimi、WorkBuddy等多家主流AI工具平台完成技术对接",
+      "newsTime": "2026-11-02 09:23:00",
+      "reason": "华宇软件与多家主流AI工具平台完成技术对接，显示其在AI领域的进展",
       "codeUnverified": false,
       "codeFormatValid": true
     }
   ],
-  "candidatesGeneratedAt": "2026-10-30T17:44:37Z",
+  "candidatesGeneratedAt": "2026-11-02T02:07:51Z",
   "industrySignalCandidates": [
     {
       "signalType": "涨价",
-      "sector": "storage",
-      "newsQuote": "复旦微电：部分产品如工业级非挥发性存储器等价格有所上升",
-      "newsTime": "2026-10-30 22:14:20",
+      "sector": "semiconductor",
+      "newsQuote": "台系硅片厂客户拿货力度好于预期 报价确定上调",
+      "newsTime": "2026-11-02 09:04:47",
       "impact": "利好",
       "stocks": [],
-      "reason": "复旦微电部分产品价格有所上升"
+      "reason": "台系硅片厂报价确定上调"
     }
   ],
-  "signalCandidatesGeneratedAt": "2026-10-30T17:44:48Z"
+  "signalCandidatesGeneratedAt": "2026-11-02T02:08:04Z"
 }
