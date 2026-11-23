@@ -1,7 +1,30 @@
 {
-  "generatedAt": "2026-11-20T19:38:04.124Z",
-  "date": "2026-11-20",
+  "generatedAt": "2026-11-23T03:31:30.330Z",
+  "date": "2026-11-23",
   "dailyBriefings": [
+    {
+      "date": "2026-11-23",
+      "type": "morning",
+      "title": "2026-11-23 AI芯片设计逆势翻红，PCB概念板块异动走高",
+      "overnightMarket": "芯片设计逆势翻红，AI服务器厂商要求最高涨价45%。PCB概念板块异动走高，世运电路涨停。",
+      "keyNews": [
+        "芯片设计逆势翻红，AI服务器厂商要求最高涨价45%",
+        "PCB概念板块异动走高，世运电路涨停",
+        "端侧AI盘中走强，瑞芯微涨停",
+        "物理AI概念持续走强，凡拓数创20cm2连板",
+        "AI漫剧概念持续走高，上海电影等多股涨停"
+      ],
+      "todayAgenda": [
+        "关注AI芯片设计板块的持续表现",
+        "关注PCB概念板块的异动",
+        "关注AI漫剧概念的走势",
+        "关注半导体设备板块的震荡"
+      ],
+      "goldStockChanges": "中船特气涨0.62%，炬光科技涨4.39%，长电科技跌1.87%，江丰电子跌1.32%，天孚通信涨9.22%，胜宏科技涨4.82%，东材科技涨1.35%，宏和科技涨3.08%，江波龙涨0.45%，华海诚科跌0.30%，鼎龙股份跌1.41%，中际旭创涨4.78%。",
+      "opportunities": [],
+      "risks": [],
+      "conclusion": "今日市场AI芯片设计板块表现强劲，PCB概念板块异动走高，AI漫剧概念持续走高。半导体设备板块震荡回落，需关注后续走势。"
+    },
     {
       "date": "2026-11-20",
       "type": "review",
@@ -912,248 +935,263 @@
       "opportunities": [],
       "risks": [],
       "conclusion": "今日AI算力产业链个股普遍小幅下跌，中际旭创(-1.92%)跌幅居前，胜宏科技(+0.48%)逆势上涨。PCB概念表现活跃，超声电子2连板。AI行业动态频出，包括技术突破和行业洗牌。"
-    },
-    {
-      "date": "2026-10-13",
-      "type": "review",
-      "title": "2026-10-13 AI算力产业链分化 天孚通信涨7.48%领涨",
-      "marketOverview": "AI算力产业链个股表现分化，天孚通信以7.48%涨幅领涨，中际旭创、炬光科技分别上涨1.45%和2.47%，江丰电子、华海诚科小幅下跌0.54%和0.34%。涨停池中无直接相关个股。",
-      "sectorHighlights": [
-        "光模块板块表现强势，天孚通信大涨7.48%创250元新高",
-        "半导体设备股中际旭创上涨1.45%至735元，市值达8158.04亿",
-        "电子材料板块分化，炬光科技涨2.47%而江丰电子微跌0.54%"
-      ],
-      "goldStockPerf": [
-        {
-          "code": "300394",
-          "name": "天孚通信",
-          "change": 7.48,
-          "note": "光模块龙头放量突破，单日大涨7.48%创历史新高"
-        },
-        {
-          "code": "300308",
-          "name": "中际旭创",
-          "change": 1.45,
-          "note": "800G光模块龙头稳步上行，市值突破8158亿"
-        },
-        {
-          "code": "688167",
-          "name": "炬光科技",
-          "change": 2.47,
-          "note": "激光雷达核心标的延续升势，盘中触及245.45元高点"
-        }
-      ],
-      "conclusion": "在英伟达扩大欧洲AI投资消息刺激下，AI算力硬件端呈现结构性行情，光模块与半导体设备龙头保持强势，但部分电子材料股出现获利回吐。市场继续围绕高景气细分领域进行布局。"
     }
   ],
   "goldPoolSignals": {
-    "300054": "鼎龙股份光刻胶概念走弱",
-    "300308": "中际旭创千亿市值抗跌",
-    "300394": "天孚通信创月内新低",
-    "300476": "胜宏科技PCB概念跟跌",
-    "300666": "江丰电子失守200元大关",
-    "301308": "江波龙存储芯片领跌",
-    "600584": "长电科技量能放大至5.23亿",
-    "601208": "东材科技跳空低开低走",
-    "603256": "宏和科技跌破所有均线",
-    "688146": "中船特气跌破130元整数关",
-    "688167": "炬光科技单边下跌无反弹",
-    "688535": "华海诚科次新属性承压"
+    "300054": "鼎龙股份下跌1.41%，表现不佳",
+    "300308": "中际旭创上涨4.78%，表现强劲",
+    "300394": "天孚通信大涨9.22%，表现突出",
+    "300476": "胜宏科技上涨4.82%，表现良好",
+    "300666": "江丰电子下跌1.32%，表现不佳",
+    "301308": "江波龙小幅上涨0.45%，表现平稳",
+    "600584": "长电科技下跌1.87%，表现疲软",
+    "601208": "东材科技小幅上涨1.35%，表现平稳",
+    "603256": "宏和科技上涨3.08%，表现较好",
+    "688146": "中船特气小幅上涨0.62%，表现平稳",
+    "688167": "炬光科技大涨4.39%，表现强劲",
+    "688535": "华海诚科小幅下跌0.30%，表现一般"
   },
   "priceData": {
     "300054": {
-      "price": "56.80",
-      "change": "-2.72",
-      "changePct": "-4.57",
-      "high": "59.80",
-      "low": "56.80",
-      "turnover": "2.88",
-      "pe": "51.52",
-      "marketCap": "422.92"
+      "price": "56.00",
+      "change": "-0.80",
+      "changePct": "-1.41",
+      "high": "57.70",
+      "low": "54.83",
+      "turnover": "1.77",
+      "pe": "50.79",
+      "marketCap": "416.97"
     },
     "300308": {
-      "price": "393.20",
-      "change": "-15.20",
-      "changePct": "-3.72",
-      "high": "403.00",
-      "low": "385.13",
-      "turnover": "3.41",
-      "pe": "17.88",
-      "marketCap": "4364.27"
+      "price": "412.01",
+      "change": "18.81",
+      "changePct": "4.78",
+      "high": "414.97",
+      "low": "388.28",
+      "turnover": "3.02",
+      "pe": "18.74",
+      "marketCap": "4573.05"
     },
     "300394": {
-      "price": "102.18",
-      "change": "-7.50",
-      "changePct": "-6.84",
-      "high": "106.48",
-      "low": "102.18",
-      "turnover": "3.66",
-      "pe": "42.29",
-      "marketCap": "1112.11"
+      "price": "111.60",
+      "change": "9.42",
+      "changePct": "9.22",
+      "high": "111.87",
+      "low": "99.90",
+      "turnover": "3.88",
+      "pe": "46.19",
+      "marketCap": "1214.64"
     },
     "300476": {
-      "price": "108.22",
-      "change": "-4.74",
-      "changePct": "-4.20",
-      "high": "112.80",
-      "low": "108.22",
-      "turnover": "3.20",
-      "pe": "23.90",
-      "marketCap": "936.31"
+      "price": "113.44",
+      "change": "5.22",
+      "changePct": "4.82",
+      "high": "115.00",
+      "low": "105.00",
+      "turnover": "3.06",
+      "pe": "25.05",
+      "marketCap": "981.48"
     },
     "300666": {
-      "price": "191.09",
-      "change": "-7.67",
-      "changePct": "-3.86",
-      "high": "205.88",
-      "low": "191.00",
-      "turnover": "5.72",
-      "pe": "57.97",
-      "marketCap": "423.16"
+      "price": "188.57",
+      "change": "-2.52",
+      "changePct": "-1.32",
+      "high": "190.69",
+      "low": "180.88",
+      "turnover": "3.85",
+      "pe": "57.20",
+      "marketCap": "417.58"
     },
     "301308": {
-      "price": "188.33",
-      "change": "-14.03",
-      "changePct": "-6.93",
-      "high": "197.85",
-      "low": "188.30",
-      "turnover": "3.45",
-      "pe": "5.76",
-      "marketCap": "530.81"
+      "price": "187.00",
+      "change": "0.84",
+      "changePct": "0.45",
+      "high": "188.68",
+      "low": "181.00",
+      "turnover": "1.98",
+      "pe": "5.72",
+      "marketCap": "527.06"
     },
     "600584": {
-      "price": "50.20",
-      "change": "-5.27",
-      "changePct": "-9.50",
-      "high": "54.60",
-      "low": "50.10",
-      "turnover": "5.23",
-      "pe": "40.30",
-      "marketCap": "898.29"
+      "price": "49.26",
+      "change": "-0.94",
+      "changePct": "-1.87",
+      "high": "50.13",
+      "low": "47.80",
+      "turnover": "2.53",
+      "pe": "39.55",
+      "marketCap": "881.47"
     },
     "601208": {
-      "price": "26.63",
-      "change": "-2.21",
-      "changePct": "-7.66",
-      "high": "28.36",
-      "low": "26.59",
-      "turnover": "4.62",
-      "pe": "60.34",
-      "marketCap": "269.01"
+      "price": "26.99",
+      "change": "0.36",
+      "changePct": "1.35",
+      "high": "27.50",
+      "low": "25.68",
+      "turnover": "3.30",
+      "pe": "61.15",
+      "marketCap": "272.65"
     },
     "603256": {
-      "price": "62.59",
-      "change": "-3.79",
-      "changePct": "-5.71",
-      "high": "65.91",
-      "low": "62.59",
-      "turnover": "1.42",
-      "pe": "70.19",
-      "marketCap": "566.18"
+      "price": "64.52",
+      "change": "1.93",
+      "changePct": "3.08",
+      "high": "65.56",
+      "low": "60.70",
+      "turnover": "1.22",
+      "pe": "72.36",
+      "marketCap": "583.64"
     },
     "688146": {
-      "price": "130.08",
-      "change": "-6.94",
-      "changePct": "-5.06",
-      "high": "138.35",
-      "low": "130.00",
-      "turnover": "1.89",
-      "pe": "90.49",
-      "marketCap": "688.66"
+      "price": "130.88",
+      "change": "0.80",
+      "changePct": "0.62",
+      "high": "133.20",
+      "low": "125.40",
+      "turnover": "1.29",
+      "pe": "91.05",
+      "marketCap": "692.89"
     },
     "688167": {
-      "price": "100.57",
-      "change": "-10.64",
-      "changePct": "-9.57",
-      "high": "108.00",
-      "low": "100.57",
-      "turnover": "5.81",
-      "pe": "-147.58",
-      "marketCap": "132.21"
+      "price": "104.98",
+      "change": "4.41",
+      "changePct": "4.39",
+      "high": "107.00",
+      "low": "97.15",
+      "turnover": "4.35",
+      "pe": "-154.05",
+      "marketCap": "138.01"
     },
     "688535": {
-      "price": "64.00",
-      "change": "-6.39",
-      "changePct": "-9.08",
-      "high": "70.30",
-      "low": "63.69",
-      "turnover": "4.39",
-      "pe": "111.88",
-      "marketCap": "90.86"
+      "price": "63.81",
+      "change": "-0.19",
+      "changePct": "-0.30",
+      "high": "64.86",
+      "low": "61.00",
+      "turnover": "2.92",
+      "pe": "111.55",
+      "marketCap": "90.59"
     }
   },
   "limitUpScanData": {
-    "date": "2026-11-20",
+    "date": "2026-11-23",
     "note": "",
     "items": [
-      {
-        "name": "华微电子",
-        "code": "600360",
-        "prefix": "sh",
-        "sector": "semiconductor",
-        "changePct": 10.01220989227295,
-        "verdict": "watch",
-        "reason": "首次涨停 93236"
-      },
       {
         "name": "中京电子",
         "code": "002579",
         "prefix": "sz",
         "sector": "pcb",
-        "changePct": 10.024651527404785,
+        "changePct": 10.007468223571777,
         "verdict": "real",
-        "reason": "连板2板，首次涨停 93624"
+        "reason": "连板3板，首次涨停 93051"
+      },
+      {
+        "name": "崇达技术",
+        "code": "002815",
+        "prefix": "sz",
+        "sector": "pcb",
+        "changePct": 10,
+        "verdict": "watch",
+        "reason": "首次涨停 93633"
       },
       {
         "name": "东晶电子",
         "code": "002199",
         "prefix": "sz",
         "sector": "pcb",
-        "changePct": 10.011641502380371,
-        "verdict": "watch",
-        "reason": "首次涨停 94033"
+        "changePct": 10.052909851074219,
+        "verdict": "real",
+        "reason": "连板2板，首次涨停 93833"
       },
       {
-        "name": "超声电子",
-        "code": "000823",
-        "prefix": "sz",
-        "sector": "pcb",
-        "changePct": 9.98217487335205,
-        "verdict": "watch",
-        "reason": "首次涨停 100045"
-      },
-      {
-        "name": "澳弘电子",
-        "code": "605058",
+        "name": "瑞芯微",
+        "code": "603893",
         "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 9.994874000549316,
+        "sector": "semiconductor",
+        "changePct": 9.997831344604492,
         "verdict": "watch",
-        "reason": "首次涨停 100424"
-      },
-      {
-        "name": "骏亚科技",
-        "code": "603386",
-        "prefix": "sh",
-        "sector": "pcb",
-        "changePct": 10.030165672302246,
-        "verdict": "watch",
-        "reason": "首次涨停 105137"
-      },
-      {
-        "name": "满坤科技",
-        "code": "301132",
-        "prefix": "sz",
-        "sector": "pcb",
-        "changePct": 19.99530029296875,
-        "verdict": "watch",
-        "reason": "首次涨停 112027"
+        "reason": "首次涨停 110747"
       }
     ]
   },
   "fetchErrors": [],
-  "aiCandidates": [],
-  "candidatesGeneratedAt": "2026-11-20T19:38:01Z",
-  "industrySignalCandidates": [],
-  "signalCandidatesGeneratedAt": "2026-11-20T19:38:04Z"
+  "aiCandidates": [
+    {
+      "name": "世运电路",
+      "code": "603920",
+      "newsQuote": "PCB概念板块异动走高 世运电路涨停",
+      "newsTime": "2026-11-23 11:15:52",
+      "reason": "世运电路因PCB概念板块异动走高而涨停",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "瑞芯微",
+      "code": "603893",
+      "newsQuote": "端侧AI盘中走强 瑞芯微涨停",
+      "newsTime": "2026-11-23 11:08:35",
+      "reason": "瑞芯微因端侧AI盘中走强而涨停",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "凡拓数创",
+      "code": "301313",
+      "newsQuote": "物理AI概念持续走强 凡拓数创20cm2连板",
+      "newsTime": "2026-11-23 11:04:25",
+      "reason": "凡拓数创因物理AI概念持续走强而20cm2连板",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "上海电影",
+      "code": "601595",
+      "newsQuote": "AI漫剧概念持续走高 上海电影等多股涨停",
+      "newsTime": "2026-11-23 10:54:31",
+      "reason": "上海电影因AI漫剧概念持续走高而涨停",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    },
+    {
+      "name": "中科飞测",
+      "code": "688361",
+      "newsQuote": "半导体设备板块震荡回落 中科飞测跌超10%",
+      "newsTime": "2026-11-23 10:50:06",
+      "reason": "中科飞测因半导体设备板块震荡回落而跌超10%",
+      "codeUnverified": false,
+      "codeFormatValid": true
+    }
+  ],
+  "candidatesGeneratedAt": "2026-11-23T03:31:25Z",
+  "industrySignalCandidates": [
+    {
+      "signalType": "涨价",
+      "sector": "semiconductor",
+      "newsQuote": "芯片设计逆势翻红！AI服务器厂商要求最高涨价45%，科创芯片设计ETF国联安(588780)跟踪指数一度涨近1%",
+      "newsTime": "2026-11-23 11:24:34",
+      "impact": "利好",
+      "stocks": [],
+      "reason": "AI服务器厂商要求最高涨价45%"
+    },
+    {
+      "signalType": "涨价",
+      "sector": "storage",
+      "newsQuote": "马斯克称存储芯片涨价使特斯拉AI4车载电脑成本翻倍",
+      "newsTime": "2026-11-23 10:30:29",
+      "impact": "利空",
+      "stocks": [],
+      "reason": "存储芯片涨价使特斯拉AI4车载电脑成本翻倍"
+    },
+    {
+      "signalType": "现货价",
+      "sector": "semiconductor",
+      "newsQuote": "钨粉价格暂稳 10月出口环比增736.8%",
+      "newsTime": "2026-11-23 10:59:26",
+      "impact": "中性",
+      "stocks": [],
+      "reason": "钨粉价格暂稳 10月出口环比增736.8%"
+    }
+  ],
+  "signalCandidatesGeneratedAt": "2026-11-23T03:31:30Z"
 }
